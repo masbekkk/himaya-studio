@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Photozone - Photo Studio Website Template</title>
+    <title>Himaya Potret Studio</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -34,7 +34,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="50" tabindex="0">
     <!-- Spinner Start -->
     <div id="spinner"
         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -45,45 +45,34 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light fixed-top shadow py-lg-0 px-4 px-lg-5 wow fadeIn"
-        data-wow-delay="0.1s">
+        data-wow-delay="0.1s" id="navbar">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
-            <h1 class="text-primary">Photozone</h1>
+            <h1 class="text-primary">Himaya Potret Studio</h1>
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between py-4 py-lg-0" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About Us</a>
-
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="#about" class="nav-item nav-link">About Us</a>
             </div>
-            <a href="index.html" class="navbar-brand bg-primary py-2 px-4 mx-3 d-none d-lg-block">
+            <a href="#home" class="navbar-brand bg-white py-2 px-4 mx-3 d-none d-lg-block">
                 <img src="{{ asset('image/logo-himaya.png') }}" alt="Himaya Studio Logo"
-                    style="height: 100%; max-height: 50px;">
+                    style="height: 100%; max-height: 100px;">
             </a>
             <div class="navbar-nav me-auto py-0">
-                <a href="service.html" class="nav-item nav-link">Layanan Kami</a>
-                <a href="service.html" class="nav-item nav-link">Book Now</a>
-                {{-- <a href="project.html" class="nav-item nav-link">Projects</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu rounded-0 shadow-sm border-0 m-0">
-                        <a href="feature.html" class="dropdown-item">Features</a>
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
+                <a href="#services" class="nav-item nav-link">Layanan Kami</a>
+                <a href="#book-now" class="nav-item nav-link">Book Now</a>
             </div>
         </div>
     </nav>
+
     <!-- Navbar End -->
 
 
     <!-- Header Start -->
-    <div class="container-fluid hero-header bg-light py-5 mb-5">
+    <div class="container-fluid hero-header bg-light py-5 mb-5" id="home">
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6">
@@ -156,7 +145,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" id="about">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -178,16 +167,6 @@
                             terbaru, cocok untuk momen spesial bersama sahabat, keluarga, atau pasangan. Dari acara
                             ulang tahun, nobar pertandingan sepak bola, hingga bridal shower, Private Cinema kami siap
                             memberikan suasana yang sempurna.
-                            Selain itu, kami juga menawarkan studio self-photo premium di Bekasi, tempat ideal untuk
-                            mengabadikan momen berharga, baik untuk keperluan pribadi, acara romantis, atau
-                            bersenang-senang dengan teman-teman. Nikmati setiap sesi foto dengan kenyamanan dan
-                            inspirasi di setiap sudutnya.
-                            Untuk keperluan bisnis atau pertemuan profesional, kami menyediakan Meeting Room yang modern
-                            dan nyaman, dirancang untuk menciptakan suasana produktif. Tidak hanya, itu kami memiliki
-                            Himaya Cafe, untuk memberikan hidangan dan menu spesial untuk anda!
-                            Kami selalu berkomitmen untuk memberikan pengalaman terbaik dan pelayanan sepenuh hati bagi
-                            setiap momen istimewa Anda.
-                            Potret Momen Terbaik Anda dan Rasakan Kenyamanan di Setiap Langkah
                         </p>
                         <p>Booking sekarang untuk merasakan pengalaman tak terlupakan di HIMAYA POTRET STUDIO!
                             <a href="https://www.instagram.com/himayapotretstudio" target="_blank"> Follow Us!</a>
@@ -206,7 +185,42 @@
                                 <i class="fa fa-check text-primary me-3"></i>Himaya Cafe
                             </div>
                         </div>
-                        <a class="btn btn-primary py-3 px-5" href="">Read More</a>
+                        <button type="button" class="btn btn-primary py-3 px-5" data-bs-toggle="modal"
+                            data-bs-target="#aboutUsModal">Read More</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="aboutUsModal" tabindex="-1" aria-labelledby="aboutUsModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="aboutUsModalLabel">About Us</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Selain itu, kami juga menawarkan studio self-photo premium di Bekasi, tempat
+                                            ideal untuk
+                                            mengabadikan momen berharga, baik untuk keperluan pribadi, acara romantis,
+                                            atau
+                                            bersenang-senang dengan teman-teman. Nikmati setiap sesi foto dengan
+                                            kenyamanan dan
+                                            inspirasi di setiap sudutnya.
+                                            Untuk keperluan bisnis atau pertemuan profesional, kami menyediakan Meeting
+                                            Room yang modern
+                                            dan nyaman, dirancang untuk menciptakan suasana produktif. Tidak hanya, itu
+                                            kami memiliki
+                                            Himaya Cafe, untuk memberikan hidangan dan menu spesial untuk anda!
+                                            Kami selalu berkomitmen untuk memberikan pengalaman terbaik dan pelayanan
+                                            sepenuh hati bagi
+                                            setiap momen istimewa Anda.
+                                            Potret Momen Terbaik Anda dan Rasakan Kenyamanan di Setiap Langkah
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -254,7 +268,7 @@
 
 
     <!-- Service Start -->
-    <div class="container-xxl bg-light py-5 my-5">
+    <div class="container-xxl bg-light py-5 my-5" id="services">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h1 class="display-6 mb-4">Layanan Kami</h1>
@@ -325,7 +339,7 @@
 
 
     <!-- Project Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" id="book-now">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <p class="text-primary text-uppercase mb-2">Our Works</p>
