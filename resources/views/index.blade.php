@@ -59,7 +59,7 @@
             </div>
             <a href="#home" class="navbar-brand bg-white py-2 px-4 mx-3 d-none d-lg-block">
                 <img src="{{ asset('image/logo-himaya.png') }}" alt="Himaya Studio Logo"
-                    style="height: 100%; max-height: 100px;">
+                    style="height: 100%; max-height: 80px;">
             </a>
             <div class="navbar-nav me-auto py-0">
                 <a href="#services" class="nav-item nav-link">Layanan Kami</a>
