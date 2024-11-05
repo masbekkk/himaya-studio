@@ -63,7 +63,7 @@
         <div class="row product-section gy-4 d-flex justify-content-center" data-aos="fade-up" data-aos-once="true" data-aos-offset="100"
             data-aos-delay="300">
             <div class="col-12 col-lg-3 product-card ">
-                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
+                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'private-cinema']) }}">
                     <div class="position-relative">
                         <span class="product-label bg-red">
                             Book Now
@@ -95,7 +95,7 @@
                 </a>
             </div>
             <div class="col-12 col-lg-3 product-card">
-                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
+                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'meeting-room']) }}">
                     <div class="position-relative">
                         <span class="product-label">
                             Book Now
@@ -103,7 +103,7 @@
                         <img src="assets/img/single.jpg" class="product-img" alt="single">
                         <h4 class="product-title">Meeting Room</h4>
                         <p class="product-sub">
-                            Rp. 100.000 | 15 min
+                            Rp. 69.000 | 60 min
                         </p>
                         <button class="btn-product" type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Book Now</button>

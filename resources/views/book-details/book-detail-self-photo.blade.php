@@ -58,9 +58,9 @@
                 <p class="h5 fw-normal mb-3">Rp 149.000 | 45 min</p>
                 <p class="h5 fw-normal mb-3">Rp 179.000 | 60 min</p>
                 <p class="h5 fw-normal mb-3">(Harga seterusnya mengikuti di atas)</p>
-                <p class="h5 fw-normal mb-3">Additional:</p>
-                <p class="h5 fw-normal mb-3">- Kostum : Rp 25,000</p>
-                <p class="h5 fw-normal mb-3">- Hard Copy: Rp 15.000</p>
+                <p class="h6 fw-normal mb-3">Additional:</p>
+                <p class="h6 fw-normal mb-3">- Kostum : Rp 25,000</p>
+                <p class="h6 fw-normal mb-3">- Hard Copy: Rp 15.000</p>
                 <p class="text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
                 <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
                     satu</p>

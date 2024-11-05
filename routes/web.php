@@ -12,6 +12,20 @@ Route::get('book-now', function () {
 })->name('book-now');
 
 Route::get('book-detail/{slug}', function ($slug) {
-    return view('book-details.book-detail-self-photo');
+    
+    switch ($slug) {
+        case 'self-photo':
+            return view('book-details.book-detail-self-photo');
+        
+        case 'meeting-room':
+            return view('book-details.book-detail-meeting-room');
+        
+        case 'private-cinema':
+            return view('book-details.book-detail-private-cinema');
+        
+        // Add more cases as needed
+        default:
+            abort(404); // Return a 404 error if the slug doesn't match any case
+    }
     // return view('welcome');
 })->name('book-detail');
