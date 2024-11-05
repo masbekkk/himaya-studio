@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self Photo Studio Surabaya Barat | Née Studio</title>
-    <link rel="stylesheet" href="assets/css/main.css">
     <meta name="description"
         content="Self Photo Studio Surabaya Barat — Express Yourself with Your Unique Style, Whether Single, As a Couple or Even With Your Group. Our Place is Spacious and Comfortable, Include With All-New and Premium Photography Technology Gear. Book Now and Get Promo for FREE 1 Photo!">
     <meta name="keywords" content="Self Photo Studio Surabaya, Sewa Studio dan Fotografer, Citraland">
@@ -17,8 +16,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
 
-    <!-- Import Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 
     <!-- BS icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -36,12 +35,13 @@
     @yield('content')
     @include('layouts.footer')
     <!-- Import Bootstrap JS -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
-    <script src="assets/js/fslightbox.js"></script>
+    <script src="{{ asset('assets/js/fslightbox.js') }}"></script>
 
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
+    @stack('script')
     <!-- Import Jquery -->
     <!-- <script src="assets/js/jquery-3.7.1.min.js"></script> -->
 </body>

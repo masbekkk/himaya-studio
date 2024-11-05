@@ -6,20 +6,21 @@
                 <h2 class="footer-title">Get In Touch</h2>
                 <div class="footer-block my-3 my-lg-5">
                     <p class="m-0 footer-sub">Address</p>
-                    <p class="m-0">Northwest Park, NA3-01</p>
-                    <p class="m-0">Surabaya</p>
+                    <p class="m-0">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede, </p>
+                    <p class="m-0">Kota Bks, Jawa Barat 17411</p>
                 </div>
                 <div class="footer-block my-3 my-lg-5">
                     <p class="m-0 footer-sub">Contacts</p>
-                    <p class="m-0">+62 82223403010</p>
-                    <p class="m-0">admin@nee-studio.com</p>
+                    <p class="m-0">0814-1026-5823</p>
+                    <p class="m-0">info@himayapotretstudio.com</p>
                 </div>
                 <div class="footer-block my-3 my-lg-5">
-                    <a class="text-decoration-none text-dark h5 fw-bold" href="https://instagram.com">
+                    <a class="text-decoration-none text-dark h5 fw-bold"
+                        href="https://www.instagram.com/himayapotretstudio" target="_blank">
                         <i class="bi bi-instagram"></i>
                     </a>
                 </div>
-                <p class="copyright-text d-none d-lg-block">Copyright &copy; 2024 <b>Née Studio</b></p>
+                <p class="copyright-text d-none d-lg-block">Copyright &copy; 2024 <b>Himaya Potret Studio</b></p>
             </div>
             <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-once="true">
                 <iframe
@@ -28,7 +29,7 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="col-12 d-lg-none mt-5 mt-lg-0">
-                <p class="copyright-text">Copyright &copy; 2024 <b>Née Studio</b></p>
+                <p class="copyright-text">Copyright &copy; 2024 <b>Himaya Potret Studio</b></p>
             </div>
         </div>
     </div>

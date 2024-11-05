@@ -3,6 +3,16 @@
 @push('style')
     <!-- page css -->
     <link rel="stylesheet" href="assets/css/book-now.css">
+
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- splide -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 @endpush
 @section('content')
     <section class="container">
@@ -50,18 +60,18 @@
         </div>
 
         <!-- product section -->
-        <div class="row product-section gy-4" data-aos="fade-up" data-aos-once="true" data-aos-offset="100"
+        <div class="row product-section gy-4 d-flex justify-content-center" data-aos="fade-up" data-aos-once="true" data-aos-offset="100"
             data-aos-delay="300">
-            <div class="col-12 col-lg-3 product-card">
-                <a class="no-decor" href="/book-detail.html">
+            <div class="col-12 col-lg-3 product-card ">
+                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
                     <div class="position-relative">
-                        <span class="product-label">
-                            1 PERSON
+                        <span class="product-label bg-red">
+                            Book Now
                         </span>
                         <img src="assets/img/single.jpg" class="product-img" alt="single">
-                        <h4 class="product-title">SINGLE</h4>
+                        <h4 class="product-title">Private Cinema</h4>
                         <p class="product-sub">
-                            Rp. 40.000 | 15 min
+                            Rp. 69.000 | 30 min
                         </p>
                         <button class="btn-product" type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Book Now</button>
@@ -69,15 +79,15 @@
                 </a>
             </div>
             <div class="col-12 col-lg-3 product-card">
-                <a class="no-decor" href="/book-detail.html">
+                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
                     <div class="position-relative">
                         <span class="product-label">
-                            2 PERSON
+                            Book Now
                         </span>
                         <img src="assets/img/single.jpg" class="product-img" alt="single">
-                        <h4 class="product-title">COUPLE</h4>
+                        <h4 class="product-title">Self-Photo Studio</h4>
                         <p class="product-sub">
-                            Rp 75.000 | 15 min
+                            Rp 99.000 | 15 min
                         </p>
                         <button class="btn-product" type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">Book Now</button>
@@ -85,13 +95,13 @@
                 </a>
             </div>
             <div class="col-12 col-lg-3 product-card">
-                <a class="no-decor" href="/book-detail.html">
+                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
                     <div class="position-relative">
                         <span class="product-label">
-                            3-4 PERSON
+                            Book Now
                         </span>
                         <img src="assets/img/single.jpg" class="product-img" alt="single">
-                        <h4 class="product-title">SQUAD</h4>
+                        <h4 class="product-title">Meeting Room</h4>
                         <p class="product-sub">
                             Rp. 100.000 | 15 min
                         </p>
@@ -100,11 +110,11 @@
                     </div>
                 </a>
             </div>
-            <div class="col-12 col-lg-3 product-card">
-                <a class="no-decor" href="/book-detail.html">
+            {{-- <div class="col-12 col-lg-3 product-card">
+                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
                     <div class="position-relative">
                         <span class="product-label">
-                            5-10 PERSON
+                            Visit Now
                         </span>
                         <img src="assets/img/single.jpg" class="product-img" alt="single">
                         <h4 class="product-title">FAMILY</h4>
@@ -115,7 +125,7 @@
                             data-bs-target="#exampleModal">Book Now</button>
                     </div>
                 </a>
-            </div>
+            </div> --}}
         </div>
 
         <!-- book section -->
@@ -134,3 +144,8 @@
         </div>
     </section>
 @endsection
+
+@push('script')
+    <!-- page js -->
+    <script src="assets/js/book-now.js"></script>
+@endpush

@@ -6,7 +6,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container py-3 py-lg-0 px-3 px-lg-0">
             <a class="navbar-brand d-none d-lg-inline" href="{{ route('landing') }}">
-                <img src="/assets/img/logo-black-small.avif" alt="Née" width="48" height="48">
+                <img src="/image/logo-himaya.png" alt="Née" width="48" height="48">
             </a>
             <button class="navbar-toggler border-0 text-align-start" onclick="changeIcon(this)" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -14,7 +14,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="d-inline d-lg-none" href="{{ route('landing') }}">
-                <img src="/assets/img/logo-black-small.avif" alt="Née" height="54">
+                <img src="/image/logo-himaya.png" alt="Née" height="54">
             </a>
             <button class="navbar-toggler d-inline d-lg-none v-hidden" type="button" aria-controls="navbarNav"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,7 @@
                     </li>
                     <li class="nav-item my-1 my-lg-0">
                         <a class="nav-link pb-1 mx-3 text-black text-decoration-none"
-                            href="{{ route('landing') }}#aboutme"><span class="pb-1">About
-                                Née</span></a>
+                            href="{{ route('landing') }}#aboutme"><span class="pb-1">About Me</span></a>
                     </li>
                     <li class="nav-item my-1 my-lg-0">
                         <a class="nav-link pb-1 mx-3 text-black text-decoration-none"

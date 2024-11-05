@@ -1,4 +1,12 @@
 @extends('layouts.app')
+
+@push('style')
+    <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') }}">
+
+    <!-- splide -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+@endpush
 @section('content')
     <!-- start content -->
     <section class="container detail-box">
@@ -75,3 +83,7 @@
         </div>
     </section>
 @endsection
+
+@push('script')
+    <script src="{{ asset('assets/js/book-detail.js') }}"></script>
+@endpush

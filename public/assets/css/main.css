@@ -22,7 +22,11 @@
 .text-description-white {
 	line-height: 1.6 !important;
 	color: #FFF !important;
-}
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: justify;
+	margin-bottom: 1rem;
+  }
 
 .text-title-big {
 	font-size: 4rem !important;
@@ -111,7 +115,7 @@ header {
 .hero-logo {
 	margin-top: 3rem !important;
 	width: 400px;
-	height: 266px;
+	/* height: 266px; */
 }
 
 .black-btn {
@@ -540,5 +544,10 @@ header {
 
 	.footer-block:last-of-type {
 		margin-bottom: 0;
+	}
+
+	.bg-red {
+		background-color: red !important;
+		color: white !important;
 	}
 }
