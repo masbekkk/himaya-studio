@@ -1,0 +1,100 @@
+.detail-box {
+	margin-top: 10rem;
+	margin-bottom: 5rem;
+}
+
+.detail-title {
+	font-size: 3rem;
+	font-weight: 600;
+}
+
+.detail-sub-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.detail-btn {
+	background-color: black;
+	color: white;
+	padding-top: .8rem;
+	padding-bottom: .8rem;
+	padding-left: 3rem;
+	padding-right: 3rem;
+}
+
+.thumbnails {
+	display: flex;
+	margin: 1rem auto 0;
+	padding: 0;
+}
+
+.thumbnail {
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+	list-style: none;
+	margin: 0 0.2rem;
+	cursor: pointer;
+	opacity: .3;
+}
+
+.thumbnail img {
+	width: 100%;
+	height: auto;
+}
+
+.thumbnail.is-active {
+	opacity: 1;
+}
+
+#main-carousel {
+	padding: 0 5em;
+	border: 1px solid #dadce0;
+	max-width: 550px;
+}
+
+.splide__slide img {
+	width: 100%;
+	height: auto;
+}
+
+.splide__arrow {
+	background: none;
+	border: 1px solid #ddd;
+	width: 40px;
+	height: 40px;
+}
+
+.notes {
+	margin-top: 5em;
+}
+
+.splide__pagination {
+	display: none;
+}
+
+.splide__pagination__page.is-active {
+	background: #1a1a1a;
+}
+
+.splide__pagination__page {
+	background: #333;
+}
+
+.splide:not(.is-overflow) .splide__pagination {
+	display: none;
+}
+
+@media screen and (max-width: 400px) {
+	.notes {
+		margin-top: 3em;
+	}
+
+	.splide__pagination {
+		display: flex;
+	}
+
+	.thumbnails {
+		display: none;
+	}
+}
