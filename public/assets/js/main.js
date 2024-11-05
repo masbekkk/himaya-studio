@@ -1,3 +1,6 @@
+// init aos
+AOS.init();
+
 // Add smooth scrolling to all links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

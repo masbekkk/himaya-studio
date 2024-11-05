@@ -85,7 +85,7 @@
 	display: none;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 992px) {
 	.notes {
 		margin-top: 3em;
 	}
@@ -96,5 +96,14 @@
 
 	.thumbnails {
 		display: none;
+	}
+
+	.detail-title {
+		font-size: 2rem;
+		margin-bottom: .5rem;
+	}
+	
+	.detail-sub-title {
+		font-size: 1.3rem;
 	}
 }
