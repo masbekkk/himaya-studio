@@ -11,7 +11,7 @@
     <section class="description container custom-margin-section" data-aos="fade-up" data-aos-once="true">
         <div class="row">
             <div class="col-12 col-lg-6 d-flex align-items-center">
-                <h1 class="text-title-big mb-4 mb-lg-0">Himaya Photo Studio. <span class="font-grey">Self Hoto Studio &
+                <h1 class="text-title-big mb-4 mb-lg-0">Himaya Photo Studio. <span class="font-grey">Self Photo Studio &
                         Private Cinema | Jatiwaringin | Bekasi</span></h1>
             </div>
             <div class="col-12 col-lg-5 offset-lg-1">
