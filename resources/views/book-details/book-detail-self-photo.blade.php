@@ -2,7 +2,7 @@
 
 @push('style')
     <!-- Page CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') . '?v=' . bin2hex(random_bytes(20)) }}">
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
@@ -16,16 +16,16 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/self-photo-1.jpeg') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/self-photo-2.jpeg') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/photo-1.jpeg') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/vid/konten ads self photo.MOV') }}" alt="">
                             </li>
                         </ul>
                     </div>
@@ -33,16 +33,16 @@
 
                 <ul id="thumbnails" class="thumbnails">
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/cafe1.jpg') }}" alt="">
                     </li>
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/cafe2.jpg') }}" alt="">
                     </li>
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/vid/konten cafe.mov') }}" alt="">
                     </li>
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/vid/konten cafe vo.mov') }}" alt="">
                     </li>
                 </ul>
 

@@ -2,7 +2,7 @@
 
 @push('style')
     <!-- page css -->
-    <link rel="stylesheet" href="assets/css/book-now.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/book-now.css') . '?v=' . bin2hex(random_bytes(20)) }}">
 
     <!-- leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -110,27 +110,11 @@
                     </div>
                 </a>
             </div>
-            {{-- <div class="col-12 col-lg-3 product-card">
-                <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
-                    <div class="position-relative">
-                        <span class="product-label">
-                            Visit Now
-                        </span>
-                        <img src="assets/img/single.jpg" class="product-img" alt="single">
-                        <h4 class="product-title">FAMILY</h4>
-                        <p class="product-sub">
-                            Rp. 160.000 | 15 min
-                        </p>
-                        <button class="btn-product" type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Book Now</button>
-                    </div>
-                </a>
-            </div> --}}
         </div>
 
         <!-- book section -->
-        <div class="book-section d-flex align-items-center justify-content-center flex-wrap">
-            <img class="book-img" src="assets/img/photo-1.jpeg" alt="frame" data-aos="fade-up"
+        {{-- <div class="book-section d-flex align-items-center justify-content-center flex-wrap">
+            <img class="product-img" src="assets/img/photo-1.jpeg" alt="frame" data-aos="fade-up"
                 data-aos-once="true" data-aos-easing="ease-out" data-aos-offset="110">
             <div class="book-content" data-aos="fade-up" data-aos-once="true" data-aos-offset="110">
                 <div class="me-lg-5 px-lg-5">
@@ -141,7 +125,7 @@
                         Free Photo Now</button>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </section>
 @endsection
 
