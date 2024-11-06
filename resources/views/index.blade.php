@@ -232,23 +232,23 @@
         </div>
         <div class="row g-3 py-4" data-aos="fade-up" data-aos-once="true">
             <div class="col-6 col-lg-3 content-item-box">
-                <video class="video-promotion-item" controls style="object-fit: cover;">
-                    <source src="{{ getEncodedVideoUrl('konten private cinema.mov')}}" type="video/quicktime">
+                <video class="video-promotion-item" controls>
+                    <source src="{{ asset('assets/vid/konten private cinema.mov') }}" type="video/mp4" style="object-fit: cover;">
                     Your browser does not support the video tag.
-                </video>                
+                </video>
             </div>
             <div class="col-6 col-lg-3 content-item-box">
                 <img class="content-item" src="/assets/img/keep-with-us.jpg" alt="Pic">
             </div>
             <div class="col-6 col-lg-3 content-item-box">
                 <video class="video-promotion-item" controls>
-                    <source src="/assets/vid/vid2.mp4" type="video/mp4" style="object-fit: cover;">
+                    <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}" type="video/mp4" style="object-fit: cover;">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div class="col-6 col-lg-3 content-item-box">
                 <video class="video-promotion-item" controls>
-                    <source src="/assets/vid/vid3.mp4" type="video/mp4" style="object-fit: cover;">
+                    <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}" type="video/mp4" style="object-fit: cover;">
                     Your browser does not support the video tag.
                 </video>
             </div>
