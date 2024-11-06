@@ -115,11 +115,11 @@
         <!-- Book Section -->
         <div class="book-section d-flex align-items-center justify-content-center flex-lg-row flex-column">
             <!-- Image Section -->
-            <div class="book-image me-lg-5" data-aos="fade-up" data-aos-once="true" data-aos-easing="ease-out"
+            {{-- <div class="book-image me-lg-5" data-aos="fade-up" data-aos-once="true" data-aos-easing="ease-out"
                 data-aos-offset="110">
                 <img class="product-img" src="assets/img/photo-2.jpeg" alt="frame"
                     style="width: 100%; max-width: 400px;">
-            </div>
+            </div> --}}
 
             <!-- Text Content Section -->
             <div class="book-content" data-aos="fade-up" data-aos-once="true" data-aos-offset="110">
