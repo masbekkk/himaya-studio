@@ -60,8 +60,8 @@
         </div>
 
         <!-- product section -->
-        <div class="row product-section gy-4 d-flex justify-content-center" data-aos="fade-up" data-aos-once="true" data-aos-offset="100"
-            data-aos-delay="300">
+        <div class="row product-section gy-4 d-flex justify-content-center" data-aos="fade-up" data-aos-once="true"
+            data-aos-offset="100" data-aos-delay="300">
             <div class="col-12 col-lg-3 product-card ">
                 <a class="no-decor" href="{{ route('book-detail', ['slug' => 'private-cinema']) }}">
                     <div class="position-relative">
@@ -112,20 +112,26 @@
             </div>
         </div>
 
-        <!-- book section -->
-        <div class="book-section d-flex align-items-center justify-content-center flex-wrap">
-            <img class="product-img" src="assets/img/photo-2.jpeg" alt="frame" data-aos="fade-up"
-                data-aos-once="true" data-aos-easing="ease-out" data-aos-offset="110">
+        <!-- Book Section -->
+        <div class="book-section d-flex align-items-center justify-content-center flex-lg-row flex-column">
+            <!-- Image Section -->
+            <div class="book-image me-lg-5" data-aos="fade-up" data-aos-once="true" data-aos-easing="ease-out"
+                data-aos-offset="110">
+                <img class="product-img" src="assets/img/photo-2.jpeg" alt="frame"
+                    style="width: 100%; max-width: 400px;">
+            </div>
+
+            <!-- Text Content Section -->
             <div class="book-content" data-aos="fade-up" data-aos-once="true" data-aos-offset="110">
-                <div class="me-lg-5 px-lg-5">
-                    <h2 class="book-title mb-5">BOOK NOW <span class="font-grey">AND GET</span> FREE 1 PRINTED PHOTO
-                    </h2>
-                    <button
-                        class="black-btn black-btn-bgwhite rounded-pill px-5 d-block d-lg-inline-block m-auto m-lg-0">Get
-                        Free Photo Now</button>
+                <div class="px-lg-5">
+                    <h2 class="book-title mb-5">BOOK NOW <span class="font-grey">AND GET</span> FREE 1 PRINTED PHOTO</h2>
+                    <button class="black-btn black-btn-bgwhite rounded-pill px-5 d-block d-lg-inline-block m-auto m-lg-0">
+                        Get Free Photo Now
+                    </button>
                 </div>
             </div>
         </div>
+
     </section>
 @endsection
 
