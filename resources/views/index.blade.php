@@ -27,44 +27,44 @@
     <section class="content container custom-margin-section">
         <div class="row g-2 g-lg-3 py-4">
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/squad1.jpg">
-                    <img class="content-item" src="/assets/img/squad1.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/cafe1.HEIC">
+                    <img class="content-item" src="/assets/img/cafe1.HEIC" alt="Pic">
                 </a>
 
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/single1.jpg">
-                    <img class="content-item" src="/assets/img/single1.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/cinema-1.HEIC">
+                    <img class="content-item" src="/assets/img/cinema-1.HEIC" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/couple1.jpg">
-                    <img class="content-item" src="/assets/img/couple1.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/meet-room-1.HEIC">
+                    <img class="content-item" src="/assets/img/meet-room-1.HEIC" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/couple2.jpg">
-                    <img class="content-item" src="/assets/img/couple2.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/self-photo-1.jpeg">
+                    <img class="content-item" src="/assets/img/self-photo-1.jpeg" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/couple3.jpg">
-                    <img class="content-item" src="/assets/img/couple3.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/cafe2.HEIC">
+                    <img class="content-item" src="/assets/img/cafe2.HEIC" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/familly1.jpg">
-                    <img class="content-item" src="/assets/img/familly1.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/cinema-2.HEIC">
+                    <img class="content-item" src="/assets/img/cinema-2.HEIC" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/familly2.jpg">
-                    <img class="content-item" src="/assets/img/familly2.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/meet-room-2.HEIC">
+                    <img class="content-item" src="/assets/img/meet-room-2.HEIC" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/single2.jpg">
-                    <img class="content-item" src="/assets/img/single2.jpg" alt="Pic">
+                <a data-fslightbox href="/assets/img/self-photo-2.jpeg">
+                    <img class="content-item" src="/assets/img/self-photo-2.jpeg" alt="Pic">
                 </a>
             </div>
         </div>
@@ -227,35 +227,42 @@
                 Keep Up With Us!
             </h1>
             <button class="black-btn black-btn-bgwhite my-5 rounded-pill d-none d-lg-inline-block"
-                onclick="location.href='#book'">Follow
+                onclick="location.href='https://www.instagram.com/himayapotretstudio'" target="_blank">Follow
                 Us</button>
         </div>
         <div class="row g-3 py-4" data-aos="fade-up" data-aos-once="true">
             <div class="col-6 col-lg-3 content-item-box">
                 <video class="video-promotion-item" controls>
-                    <source src="{{ asset('assets/vid/konten private cinema.mov') }}" type="video/mp4" style="object-fit: cover;">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box">
-                <img class="content-item" src="/assets/img/keep-with-us.jpg" alt="Pic">
-            </div>
-            <div class="col-6 col-lg-3 content-item-box">
-                <video class="video-promotion-item" controls>
-                    <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}" type="video/mp4" style="object-fit: cover;">
+                    <source src="{{ asset('assets/vid/konten private cinema.mov') }}" type="video/mp4"
+                        style="object-fit: cover;">
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div class="col-6 col-lg-3 content-item-box">
                 <video class="video-promotion-item" controls>
-                    <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}" type="video/mp4" style="object-fit: cover;">
+                    <source src="{{ asset('assets/vid/konten cafe vo.mov') }}" type="video/mp4"
+                        style="object-fit: cover;">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="col-6 col-lg-3 content-item-box">
+                <video class="video-promotion-item" controls>
+                    <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}" type="video/mp4"
+                        style="object-fit: cover;">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="col-6 col-lg-3 content-item-box">
+                <video class="video-promotion-item" controls>
+                    <source src="{{ asset('assets/vid/konten vo meetroom.mov') }}" type="video/mp4"
+                        style="object-fit: cover;">
                     Your browser does not support the video tag.
                 </video>
             </div>
         </div>
         <div class="w-100 text-center">
             <button class="black-btn black-btn-bgwhite my-lg-5 my-4 rounded-pill d-inline-block d-lg-none"
-                onclick="location.href='#book'">Follow
+                onclick="location.href='#https://www.instagram.com/himayapotretstudio'" target="_blank">Follow
                 Us</button>
         </div>
     </section>
