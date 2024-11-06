@@ -100,7 +100,7 @@
                         <span class="product-label">
                             Book Now
                         </span>
-                        <img src="assets/img/meet-room-1.jpg" class="product-img" alt="single">
+                        <img src="assets/img/meet-room-3.jpg" class="product-img" alt="single">
                         <h4 class="product-title">Meeting Room</h4>
                         <p class="product-sub">
                             Rp. 69.000 | 60 min
@@ -130,7 +130,7 @@
 
         <!-- book section -->
         <div class="book-section d-flex align-items-center justify-content-center flex-wrap">
-            <img class="book-img" src="assets/img/photo-with-frame.png" alt="frame" data-aos="fade-up"
+            <img class="book-img" src="assets/img/photo-1.jpeg" alt="frame" data-aos="fade-up"
                 data-aos-once="true" data-aos-easing="ease-out" data-aos-offset="110">
             <div class="book-content" data-aos="fade-up" data-aos-once="true" data-aos-offset="110">
                 <div class="me-lg-5 px-lg-5">
