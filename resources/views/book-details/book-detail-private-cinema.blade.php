@@ -12,20 +12,20 @@
     <section class="container detail-box">
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
-                <section id="main-carousel" class="splide" aria-label="My Awesome Gallery">
+                <section id="main-carousel" class="splide" aria-label="Cinema Gallery">
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/cinema-1.jpg') }}" alt="Cinema 1">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/cinema-2.jpg') }}" alt="Cinema 2">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/cinema-3.jpg') }}" alt="Cinema 3">
                             </li>
                             <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/cinema-4.jpg') }}" alt="Cinema 4">
                             </li>
                         </ul>
                     </div>
@@ -33,18 +33,19 @@
 
                 <ul id="thumbnails" class="thumbnails">
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/cinema-1.jpg') }}" alt="Cinema 1">
                     </li>
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/cinema-2.jpg') }}" alt="Cinema 2">
                     </li>
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/cinema-3.jpg') }}" alt="Cinema 3">
                     </li>
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/cinema-4.jpg') }}" alt="Cinema 4">
                     </li>
                 </ul>
+
 
                 {{-- <p class="notes d-none d-lg-block">
                     Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto

@@ -13,40 +13,36 @@
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
                 <section id="main-carousel" class="splide" aria-label="My Awesome Gallery">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                            </li>
-                            <li class="splide__slide">
-                                <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+                    <section id="main-carousel" class="splide" aria-label="Image Carousel">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <img src="{{ asset('assets/img/meet-room-1.jpg') }}" alt="Meet Room 1">
+                                </li>
+                                <li class="splide__slide">
+                                    <img src="{{ asset('assets/img/meet-room-2.jpg') }}" alt="Meet Room 2">
+                                </li>
+                                <li class="splide__slide">
+                                    <img src="{{ asset('assets/img/meet-room-3.jpg') }}" alt="Meet Room 3">
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
 
-                <ul id="thumbnails" class="thumbnails">
-                    <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                    </li>
-                    <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                    </li>
-                    <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                    </li>
-                    <li class="thumbnail">
-                        <img src="{{ asset('assets/img/single1.jpg') }}" alt="">
-                    </li>
-                </ul>
+                    <ul id="thumbnails" class="thumbnails">
+                        <li class="thumbnail">
+                            <img src="{{ asset('assets/img/meet-room-1.jpg') }}" alt="Meet Room 1">
+                        </li>
+                        <li class="thumbnail">
+                            <img src="{{ asset('assets/img/meet-room-2.jpg') }}" alt="Meet Room 2">
+                        </li>
+                        <li class="thumbnail">
+                            <img src="{{ asset('assets/img/meet-room-3.jpg') }}" alt="Meet Room 3">
+                        </li>
+                    </ul>
 
-                {{-- <p class="notes d-none d-lg-block">
+
+                    {{-- <p class="notes d-none d-lg-block">
                     Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
                 </p> --}}
             </div>
