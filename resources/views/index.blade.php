@@ -232,10 +232,10 @@
         </div>
         <div class="row g-3 py-4" data-aos="fade-up" data-aos-once="true">
             <div class="col-6 col-lg-3 content-item-box">
-                <video class="video-promotion-item" controls>
-                    <source src="/assets/vid/vid1.mp4" type="video/mp4" style="object-fit: cover;">
+                <video class="video-promotion-item" controls style="object-fit: cover;">
+                    <source src="{{ getEncodedVideoUrl('konten private cinema.mov')}}" type="video/quicktime">
                     Your browser does not support the video tag.
-                </video>
+                </video>                
             </div>
             <div class="col-6 col-lg-3 content-item-box">
                 <img class="content-item" src="/assets/img/keep-with-us.jpg" alt="Pic">
