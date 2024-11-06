@@ -25,12 +25,7 @@
                                 <img src="{{ asset('assets/img/photo-1.jpeg') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <video controls style="width: 100%; object-fit: cover;">
-                                    <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}"
-                                        type="video/quicktime">
-                                    Your browser does not support the video tag.
-                                </video>
-
+                                <img src="{{ asset('assets/img/photo-2.jpeg') }}" alt="">
                             </li>
                         </ul>
                     </div>
@@ -47,11 +42,7 @@
                         <img src="{{ asset('assets/img/photo-1.jpeg') }}" alt="">
                     </li>
                     <li class="thumbnail">
-                        <video controls style="width: 100%; object-fit: cover;">
-                            <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}" type="video/quicktime">
-                            Your browser does not support the video tag.
-                        </video>
-
+                        <img src="{{ asset('assets/img/photo-2.jpeg') }}" alt="">
                     </li>
                 </ul>
 

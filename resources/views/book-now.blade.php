@@ -113,8 +113,8 @@
         </div>
 
         <!-- book section -->
-        {{-- <div class="book-section d-flex align-items-center justify-content-center flex-wrap">
-            <img class="product-img" src="assets/img/photo-1.jpeg" alt="frame" data-aos="fade-up"
+        <div class="book-section d-flex align-items-center justify-content-center flex-wrap">
+            <img class="product-img" src="assets/img/photo-2.jpeg" alt="frame" data-aos="fade-up"
                 data-aos-once="true" data-aos-easing="ease-out" data-aos-offset="110">
             <div class="book-content" data-aos="fade-up" data-aos-once="true" data-aos-offset="110">
                 <div class="me-lg-5 px-lg-5">
@@ -125,7 +125,7 @@
                         Free Photo Now</button>
                 </div>
             </div>
-        </div> --}}
+        </div>
     </section>
 @endsection
 
