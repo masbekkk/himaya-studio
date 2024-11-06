@@ -89,7 +89,7 @@
             <div class="col-12 col-lg-5 offset-lg-1 d-flex align-items-center justify-content-end">
                 <div class="video-promotion-box">
                     <video class="video-promotion-item" controls>
-                        <source src="/assets/vid/vid1.mp4" type="video/mp4" style="object-fit: cover;">
+                        <source src="/assets/vid/full-ads.mov" type="video/mp4" style="object-fit: cover;">
                         Your browser does not support the video tag.
                     </video>
                 </div>
