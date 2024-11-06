@@ -27,8 +27,8 @@
     <section class="content container custom-margin-section">
         <div class="row g-2 g-lg-3 py-4">
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cafe1.jpeg">
-                    <img class="content-item" src="/assets/img/cafe1.jpeg" alt="Pic">
+                <a data-fslightbox href="/assets/img/cafe1.jpg">
+                    <img class="content-item" src="/assets/img/cafe1.jpg" alt="Pic">
                 </a>
 
             </div>
@@ -48,8 +48,8 @@
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cafe2.jpeg">
-                    <img class="content-item" src="/assets/img/cafe2.jpeg" alt="Pic">
+                <a data-fslightbox href="/assets/img/cafe2.jpg">
+                    <img class="content-item" src="/assets/img/cafe2.jpg" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
