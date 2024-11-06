@@ -68,7 +68,7 @@
                         <span class="product-label bg-red">
                             Book Now
                         </span>
-                        <img src="assets/img/single.jpg" class="product-img" alt="single">
+                        <img src="assets/img/katalog-cinema-1.jpeg" class="product-img" alt="single">
                         <h4 class="product-title">Private Cinema</h4>
                         <p class="product-sub">
                             Rp. 69.000 | 30 min
@@ -84,7 +84,7 @@
                         <span class="product-label">
                             Book Now
                         </span>
-                        <img src="assets/img/single.jpg" class="product-img" alt="single">
+                        <img src="assets/img/katalog-photo-1.jpeg" class="product-img" alt="single">
                         <h4 class="product-title">Self-Photo Studio</h4>
                         <p class="product-sub">
                             Rp 99.000 | 15 min
@@ -100,7 +100,7 @@
                         <span class="product-label">
                             Book Now
                         </span>
-                        <img src="assets/img/single.jpg" class="product-img" alt="single">
+                        <img src="assets/img/meet-room-1.jpg" class="product-img" alt="single">
                         <h4 class="product-title">Meeting Room</h4>
                         <p class="product-sub">
                             Rp. 69.000 | 60 min
