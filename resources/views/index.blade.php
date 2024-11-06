@@ -33,13 +33,13 @@
 
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cinema-1.HEIC">
-                    <img class="content-item" src="/assets/img/cinema-1.HEIC" alt="Pic">
+                <a data-fslightbox href="/assets/img/cinema-1.jpg">
+                    <img class="content-item" src="/assets/img/cinema-1.jpg" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/meet-room-1.HEIC">
-                    <img class="content-item" src="/assets/img/meet-room-1.HEIC" alt="Pic">
+                <a data-fslightbox href="/assets/img/meet-room-1.jpg">
+                    <img class="content-item" src="/assets/img/meet-room-1.jpg" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
@@ -53,13 +53,13 @@
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cinema-2.HEIC">
-                    <img class="content-item" src="/assets/img/cinema-2.HEIC" alt="Pic">
+                <a data-fslightbox href="/assets/img/cinema-2.jpg">
+                    <img class="content-item" src="/assets/img/cinema-2.jpg" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/meet-room-2.HEIC">
-                    <img class="content-item" src="/assets/img/meet-room-2.HEIC" alt="Pic">
+                <a data-fslightbox href="/assets/img/meet-room-2.jpg">
+                    <img class="content-item" src="/assets/img/meet-room-2.jpg" alt="Pic">
                 </a>
             </div>
             <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
