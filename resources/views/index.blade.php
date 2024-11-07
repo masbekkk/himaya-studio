@@ -1,12 +1,71 @@
 @extends('layouts.app')
 
+@push('style')
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') . '?v=' . bin2hex(random_bytes(20)) }}">
+    <!-- Splide CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+    <style>
+        #hero-carousel {
+            width: 100%;
+            height: 70vh;
+            /* Take up full viewport height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .splide__track,
+        .splide__list {
+            width: 100%;
+            /* Ensure track and list are full width */
+        }
+
+        .splide__slide img {
+            width: 100%;
+            /* Full width of the container */
+            height: auto;
+            /* Auto height to maintain aspect ratio */
+            max-height: 60vh;
+            /* Max height to enforce a landscape feel */
+            object-fit: cover;
+            /* Cover the container area while maintaining aspect */
+            display: block;
+            margin: auto;
+
+        }
+    </style>
+@endpush
+
 @section('content')
     <!-- Hero Section -->
-    <section class="hero d-flex flex-column align-items-center justify-content-center" data-aos="fade-up" data-aos-once="true">
-        <img src="/image/logo-himaya.png" alt="Himaya Photo Studio" class="hero-logo">
-        <button class="black-btn my-5 rounded-pill" onclick="location.href='#book'">Book Now!</button>
+    <section id="hero-carousel" class="splide hero d-flex flex-column align-items-center justify-content-center"
+        aria-label="My Awesome Gallery">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide">
+                    <img src="{{ asset('assets/carousel/cafe-car.jpeg') }}" alt="">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{ asset('assets/carousel/katalog-cinema-1.jpeg') }}" alt="">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{ asset('assets/carousel/katalog-photo-1.jpeg') }}" alt="">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{ asset('assets/carousel/photo-black.jpeg') }}" alt="">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{ asset('assets/carousel/meet-room-3.jpg') }}" alt="">
+                </li>
+                <li class="splide__slide">
+                    <img src="{{ asset('assets/carousel/meet-room-4.png') }}" alt="">
+                </li>
+            </ul>
+        </div>
     </section>
-
     <!-- Description Section -->
     <section class="description container custom-margin-section" data-aos="fade-up" data-aos-once="true">
         <div class="row">
@@ -26,47 +85,13 @@
     <!-- Content Section -->
     <section class="content container custom-margin-section">
         <div class="row g-2 g-lg-3 py-4">
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cafe1.jpg">
-                    <img class="content-item" src="/assets/img/cafe1.jpg" alt="Pic">
-                </a>
-
-            </div>
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cinema-1.jpg">
-                    <img class="content-item" src="/assets/img/cinema-1.jpg" alt="Pic">
-                </a>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/meet-room-1.jpg">
-                    <img class="content-item" src="/assets/img/meet-room-1.jpg" alt="Pic">
-                </a>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/self-photo-1.jpeg">
-                    <img class="content-item" src="/assets/img/self-photo-1.jpeg" alt="Pic">
-                </a>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cafe2.jpg">
-                    <img class="content-item" src="/assets/img/cafe2.jpg" alt="Pic">
-                </a>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/cinema-2.jpg">
-                    <img class="content-item" src="/assets/img/cinema-2.jpg" alt="Pic">
-                </a>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/meet-room-2.jpg">
-                    <img class="content-item" src="/assets/img/meet-room-2.jpg" alt="Pic">
-                </a>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
-                <a data-fslightbox href="/assets/img/self-photo-2.jpeg">
-                    <img class="content-item" src="/assets/img/self-photo-2.jpeg" alt="Pic">
-                </a>
-            </div>
+            @foreach (['cafe1.jpg', 'cinema-1.jpg', 'meet-room-1.jpg', 'self-photo-1.jpeg', 'cafe2.jpg', 'cinema-2.jpg', 'meet-room-2.jpg', 'self-photo-2.jpeg'] as $image)
+                <div class="col-6 col-lg-3 content-item-box" data-aos="fade-up" data-aos-once="true">
+                    <a data-fslightbox href="{{ asset('assets/img/' . $image) }}">
+                        <img class="content-item" src="{{ asset('assets/img/' . $image) }}" alt="Image">
+                    </a>
+                </div>
+            @endforeach
         </div>
     </section>
 
@@ -80,23 +105,17 @@
                     opening now and want to invite you all to our premium and cozy Nee self photo studio. Our promo are
                     included in any type of self photo sessions including single, couple, squad and families. It will be
                     held from October until early November, but don't shy to talk with us because we always have
-                    something
-                    to offer</p>
+                    something to offer</p>
                 <button class="black-btn black-btn-bgwhite my-5 rounded-pill d-none d-lg-inline-block"
-                    onclick="location.href='#book'">Get Free
-                    Photo Now</button>
+                    onclick="location.href='#book'">Get Free Photo Now</button>
             </div>
             <div class="col-12 col-lg-5 offset-lg-1 d-flex align-items-center justify-content-end">
                 <div class="video-promotion-box">
                     <video class="video-promotion-item" controls>
-                        <source src="/assets/vid/full-ads.mov" type="video/mp4" style="object-fit: cover;">
+                        <source src="{{ asset('assets/vid/full-ads.mov') }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
-            </div>
-            <div class="col-12 d-flex align-items-center justify-content-center d-block d-lg-none">
-                <button class="black-btn my-5 rounded-pill w-100" onclick="location.href='#book'">Get Free
-                    Photo Now</button>
             </div>
         </div>
     </section>
@@ -124,101 +143,6 @@
         </div>
     </section>
 
-    <!-- Our Service Section -->
-    <section class="our-service container custom-margin-section" id="aboutme">
-        <div class="py-lg-5 py-0 d-flex flex-column justify-content-center align-items-center">
-            <h1 class="text-title-small fw-bold pt-lg-5 pt-4 pb-3" data-aos="fade-up" data-aos-once="true">
-                Layanan Kami
-            </h1>
-            <div class="our-service-description" data-aos="fade-up" data-aos-once="true">
-                <p class="text-description pb-5 text-center">
-                    Dari Private Cinema hingga Self-Photo Studio dan Meeting Room. <br>Kami menyediakan beragam layanan yang
-                    dirancang untuk memenuhi kebutuhan Anda
-                </p>
-            </div>
-            <div class="card-container row">
-                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
-                    data-aos="fade-up" data-aos-once="true">
-                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
-                        <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
-                        </div>
-                        <div class="card-body p-0 bg-grey">
-                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <h6 class="h5 mb-3 fw-bold text-dark">Private Cinema</h6>
-                                <p class="card-text pb-2">Nikmati pengalaman menonton film yang eksklusif dan personal
-                                    bersama keluarga, teman, atau pasangan, dengan film-film terbaru dan suasana yang
-                                    nyaman. (2-8 Orang)
-                                </p>
-                            </div>
-                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
-                    data-aos="fade-up" data-aos-once="true">
-                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
-                        <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
-                        </div>
-                        <div class="card-body p-0 bg-grey">
-                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <h6 class="h5 mb-3 fw-bold text-dark">Self-Photo Studio</h6>
-                                <p class="card-text pb-2">Abadikan momen spesial dengan fasilitas studio foto mandiri yang
-                                    modern dan dilengkapi dengan segala kebutuhan fotografi untuk hasil yang sempurna. (2-25
-                                    Orang)
-                                </p>
-                            </div>
-                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
-                    data-aos="fade-up" data-aos-once="true">
-                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
-                        <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
-                        </div>
-                        <div class="card-body p-0 bg-grey">
-                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <h6 class="h5 mb-3 fw-bold text-dark">Meeting Room</h6>
-                                <p class="card-text pb-2">Ruang pertemuan yang nyaman dan profesional, ideal untuk
-                                    keperluan bisnis, presentasi, atau rapat penting Anda. (2-10 Orang)
-                                </p>
-                            </div>
-                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
-                    data-aos="fade-up" data-aos-once="true">
-                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
-                        <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
-                        </div>
-                        <div class="card-body p-0 bg-grey">
-                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <h6 class="h5 mb-3 fw-bold text-dark">Himaya Cafe</h6>
-                                <p class="card-text pb-2">Nikmati hidangan lezat dan suasana santai di Himaya Cafe, tempat
-                                    yang sempurna untuk bersantai untuk di Private Cinema, setelah sesi foto atau ketika
-                                    pertemuan bisnis Anda.
-                            </div>
-                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Visit Now</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Keep Up Section -->
     <section class="keepup container custom-margin-section">
         <div class="keepup-title d-flex align-items-center justify-content-lg-between justify-content-center"
@@ -231,39 +155,19 @@
                 Us</button>
         </div>
         <div class="row g-3 py-4" data-aos="fade-up" data-aos-once="true">
-            <div class="col-6 col-lg-3 content-item-box">
-                <video class="video-promotion-item" controls>
-                    <source src="{{ asset('assets/vid/konten private cinema.mov') }}" type="video/mp4"
-                        style="object-fit: cover;">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box">
-                <video class="video-promotion-item" controls>
-                    <source src="{{ asset('assets/vid/konten cafe vo.mov') }}" type="video/mp4"
-                        style="object-fit: cover;">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box">
-                <video class="video-promotion-item" controls>
-                    <source src="{{ asset('assets/vid/konten ads self photo.MOV') }}" type="video/mp4"
-                        style="object-fit: cover;">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="col-6 col-lg-3 content-item-box">
-                <video class="video-promotion-item" controls>
-                    <source src="{{ asset('assets/vid/konten vo meetroom.mov') }}" type="video/mp4"
-                        style="object-fit: cover;">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-        <div class="w-100 text-center">
-            <button class="black-btn black-btn-bgwhite my-lg-5 my-4 rounded-pill d-inline-block d-lg-none"
-                onclick="location.href='#https://www.instagram.com/himayapotretstudio'" target="_blank">Follow
-                Us</button>
+            @foreach (['konten private cinema.mov', 'konten cafe vo.mov', 'konten ads self photo.MOV', 'konten vo meetroom.mov'] as $video)
+                <div class="col-6 col-lg-3 content-item-box">
+                    <video class="video-promotion-item" controls>
+                        <source src="{{ asset('assets/vid/' . $video) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            @endforeach
         </div>
     </section>
 @endsection
+
+@push('script')
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="{{ asset('assets/js/hero-carousel.js') }}"></script>
+@endpush
