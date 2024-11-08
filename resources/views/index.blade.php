@@ -2,7 +2,7 @@
 
 @push('style')
     <!-- Page CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') . '?v=' . bin2hex(random_bytes(20)) }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') . '?v=' . bin2hex(random_bytes(20)) }}"> --}}
     <!-- Splide CSS -->
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 
@@ -41,7 +41,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section id="hero-carousel" class="splide hero d-flex flex-column align-items-center justify-content-center"
+    <section id="hero-carousel" class="splide d-flex flex-column align-items-center justify-content-center"
         aria-label="My Awesome Gallery">
         <div class="splide__track">
             <ul class="splide__list">
@@ -64,6 +64,9 @@
                     <img src="{{ asset('assets/carousel/meet-room-4.png') }}" alt="">
                 </li>
             </ul>
+            {{-- <div class="splide-overlay">
+                <button class="black-btn my-5 rounded-pill splide-button" onclick="location.href='#book'">Book Now!</button>
+            </div> --}}
         </div>
     </section>
     <!-- Description Section -->
@@ -131,10 +134,11 @@
                 <p class="text-description-white text-center">
                     HIMAYA POTRET STUDIO adalah destinasi utama di Jabodetabek untuk Private Cinema, self-photo studio, dan
                     Meeting Room. Nikmati pengalaman menonton film yang lebih personal dengan koleksi film terbaru, cocok
-                    untuk momen spesial bersama sahabat, keluarga, atau pasangan. Studio self-photo premium kami di Bekasi
+                    untuk momen spesial bersama sahabat, keluarga, atau pasangan. Booking sekarang di HIMAYA POTRET STUDIO! 
+                    {{-- Studio self-photo premium kami di Bekasi
                     juga ideal untuk mengabadikan momen pribadi atau bersenang-senang dengan teman. Meeting Room kami modern
                     dan nyaman untuk keperluan bisnis. Dilengkapi dengan Himaya Cafe, kami berkomitmen memberikan pelayanan
-                    terbaik untuk setiap momen istimewa Anda. Booking sekarang di HIMAYA POTRET STUDIO!
+                    terbaik untuk setiap momen istimewa Anda. Booking sekarang di HIMAYA POTRET STUDIO! --}}
                 </p>
             </div>
             <button class="transparent-btn-bgdark border border-1 border-white rounded-pill mb-3 mb-lg-5"
@@ -143,6 +147,101 @@
         </div>
     </section>
 
+    <section class="our-service container custom-margin-section" id="ourservices">
+        <div class="py-lg-5 py-0 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-title-small fw-bold pt-lg-5 pt-4 pb-3" data-aos="fade-up" data-aos-once="true">
+                Layanan Kami
+            </h1>
+            <div class="our-service-description" data-aos="fade-up" data-aos-once="true">
+                <p class="text-description pb-5 text-center">
+                    Dari Private Cinema hingga Self-Photo Studio dan Meeting Room. <br>Kami menyediakan beragam layanan yang
+                    dirancang untuk memenuhi kebutuhan Anda
+                </p>
+            </div>
+            <div class="card-container row">
+                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
+                    data-aos="fade-up" data-aos-once="true">
+                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
+                        <div class="card-img-box">
+                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                        </div>
+                        <div class="card-body p-0 bg-grey">
+                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <h6 class="h5 mb-3 fw-bold text-dark">Private Cinema</h6>
+                                <p class="card-text pb-2">Nikmati pengalaman menonton film yang eksklusif dan personal
+                                    bersama keluarga, teman, atau pasangan, dengan film-film terbaru dan suasana yang
+                                    nyaman. (2-8 Orang)
+                                </p>
+                            </div>
+                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
+                    data-aos="fade-up" data-aos-once="true">
+                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
+                        <div class="card-img-box">
+                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                        </div>
+                        <div class="card-body p-0 bg-grey">
+                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <h6 class="h5 mb-3 fw-bold text-dark">Self-Photo Studio</h6>
+                                <p class="card-text pb-2">Abadikan momen spesial dengan fasilitas studio foto mandiri yang
+                                    modern dan dilengkapi dengan segala kebutuhan fotografi untuk hasil yang sempurna. (2-25
+                                    Orang)
+                                </p>
+                            </div>
+                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container row">
+                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
+                    data-aos="fade-up" data-aos-once="true">
+                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
+                        <div class="card-img-box">
+                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                        </div>
+                        <div class="card-body p-0 bg-grey">
+                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <h6 class="h5 mb-3 fw-bold text-dark">Meeting Room</h6>
+                                <p class="card-text pb-2">Ruang pertemuan yang nyaman dan profesional, ideal untuk
+                                    keperluan bisnis, presentasi, atau rapat penting Anda. (2-10 Orang)
+                                </p>
+                            </div>
+                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center justify-content-lg-end py-2"
+                    data-aos="fade-up" data-aos-once="true">
+                    <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
+                        <div class="card-img-box">
+                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                        </div>
+                        <div class="card-body p-0 bg-grey">
+                            <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <h6 class="h5 mb-3 fw-bold text-dark">Himaya Cafe</h6>
+                                <p class="card-text pb-2">Nikmati hidangan lezat dan suasana santai di Himaya Cafe, tempat
+                                    yang sempurna untuk bersantai untuk di Private Cinema, setelah sesi foto atau ketika
+                                    pertemuan bisnis Anda.
+                            </div>
+                            <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
+                                <button class="transparent-btn rounded-pill w-100">Visit Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Keep Up Section -->
     <section class="keepup container custom-margin-section">
         <div class="keepup-title d-flex align-items-center justify-content-lg-between justify-content-center"

@@ -9,7 +9,7 @@
         content="Self Photo Studio & Private Cinema | Jatiwaringin | Bekasi — Express Yourself with Your Unique Style, Whether Single, As a Couple or Even With Your Group. Our Place is Spacious and Comfortable, Include With All-New and Premium Photography Technology Gear. Book Now and Get Promo for FREE 1 Photo!">
     <meta name="keywords" content="Self Photo Studio Surabaya, Sewa Studio dan Fotografer, Citraland">
     <link rel="icon" href="assets/img/logo-black-small.avif">
-    {{-- <link rel="apple-touch-icon" href="assets/img/logo-black-small.avif"> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') . '?v=' . bin2hex(random_bytes(20)) }}">
 
     <!-- Montserrat Google Icons -->
     <style>
@@ -17,8 +17,6 @@
     </style>
 
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') . '?v=' . bin2hex(random_bytes(20)) }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') . '?v=' . bin2hex(random_bytes(20)) }}">
-
 
     <!-- BS icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
