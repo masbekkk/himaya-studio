@@ -73,14 +73,13 @@
     <section class="description container custom-margin-section" data-aos="fade-up" data-aos-once="true">
         <div class="row">
             <div class="col-12 col-lg-6 d-flex align-items-center">
-                <h1 class="text-title-big mb-4 mb-lg-0">Himaya Photo Studio. <span class="font-grey">Self Photo Studio &
-                        Private Cinema | Jatiwaringin | Bekasi</span></h1>
+                <h3 class="text-title-big mb-4 mb-lg-0">Himaya Photo Studio. <span class="font-grey">Self Photo Studio &
+                        Private Cinema | Jatiwaringin | Bekasi</span></h3>
             </div>
             <div class="col-12 col-lg-5 offset-lg-1">
-                <p class="text-description mb-0 h6 fw-normal">Nikmati Private Cinema terbaik di Jabodetabek untuk nonton
-                    film terbaru bersama bestie, keluarga, atau pasangan! Rayakan momen spesial seperti ulang tahun atau
-                    bridal shower. Kami juga memiliki self-photo studio premium di Bekasi, Meeting Room nyaman, dan Himaya
-                    Cafe. Potretkan Momen Romantismu bersama kami!</p>
+                <p class="text-description mb-0 h6 fw-normal">Temukan pengalaman Private Cinema terbaik di Jabodetabek! Untuk menonton film yang lebih personal dengan update film yang seru dan terbaru bersama bestie, keluarga atau pasangan anda! Jika anda ingin merayakan ulang tahun, nobar sepak bola, bridal shower, jangan ragu untuk datang ke Private Cinema kami!
+                    Kami juga menawarkan produk lainnya, seperti fotografi terbaik di studio self-photo premium kami yang berlokasi di Bekasi. Jika anda ingin mengabadikan momen pribadi, merayakan acara romantis bersama pasangan, atau ingin menciptakan kenangan abadi dengan teman-teman, studio kami siap memenuhi semua kebutuhan fotografi Anda. Selain itu kami memiliki Meeting Room yang nyaman dan profesional untuk kebutuhan pertemuan Anda, di lengkapi dengan Himaya Cafe untuk melengkapi hari serumu dengan menu yang spesial!
+                    Studio kami melayani pelanggan dengan sepenuh hati, memberikan pelayanan terbaik untuk setiap momen istimewa Anda. Potretkan Momen Romantismu!</p>
             </div>
         </div>
     </section>
@@ -132,13 +131,11 @@
             </h1>
             <div class="aboutme-description pb-3 pb-lg-5 text-center" data-aos="fade-up" data-aos-once="true">
                 <p class="text-description-white text-center">
-                    HIMAYA POTRET STUDIO adalah destinasi utama di Jabodetabek untuk Private Cinema, self-photo studio, dan
-                    Meeting Room. Nikmati pengalaman menonton film yang lebih personal dengan koleksi film terbaru, cocok
-                    untuk momen spesial bersama sahabat, keluarga, atau pasangan. Booking sekarang di HIMAYA POTRET STUDIO! 
-                    {{-- Studio self-photo premium kami di Bekasi
-                    juga ideal untuk mengabadikan momen pribadi atau bersenang-senang dengan teman. Meeting Room kami modern
-                    dan nyaman untuk keperluan bisnis. Dilengkapi dengan Himaya Cafe, kami berkomitmen memberikan pelayanan
-                    terbaik untuk setiap momen istimewa Anda. Booking sekarang di HIMAYA POTRET STUDIO! --}}
+                    HIMAYA POTRET STUDIO adalah destinasi utama Jabodetabek untuk Private Cinema, self-photo studio, dan
+                    Meeting Room. Nikmati pengalaman menonton film pribadi dengan koleksi terbaru, ideal untuk momen
+                    spesial. Studio self-photo premium kami di Bekasi sempurna untuk mengabadikan momen pribadi atau
+                    bersenang-senang. Meeting Room modern siap mendukung kebutuhan bisnis Anda. Dengan Himaya Cafe, kami
+                    berkomitmen memberi layanan terbaik. Booking sekarang di HIMAYA POTRET STUDIO!
                 </p>
             </div>
             <button class="transparent-btn-bgdark border border-1 border-white rounded-pill mb-3 mb-lg-5"
