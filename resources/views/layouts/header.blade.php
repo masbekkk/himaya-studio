@@ -24,15 +24,21 @@
                 <ul class="navbar-nav text-center mt-4 mt-lg-0">
                     <li class="nav-item my-1 my-lg-0">
                         <a class="nav-link pb-1 mx-3 text-black text-decoration-none"
-                            href="{{ route('landing') }}"><span class="nav-active pb-1">Home</span></a>
+                            href="{{ route('landing') }}">
+                            <span class="{{ Request::routeIs('landing') ? 'nav-active' : '' }} pb-1">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item my-1 my-lg-0">
+                        <a class="nav-link pb-1 mx-3 text-black text-decoration-none" 
+                            href="{{ route('landing') }}#aboutme">
+                            <span class="pb-1">About Me</span>
+                        </a>
                     </li>
                     <li class="nav-item my-1 my-lg-0">
                         <a class="nav-link pb-1 mx-3 text-black text-decoration-none"
-                            href="{{ route('landing') }}#aboutme"><span class="pb-1">About Me</span></a>
-                    </li>
-                    <li class="nav-item my-1 my-lg-0">
-                        <a class="nav-link pb-1 mx-3 text-black text-decoration-none"
-                            href="{{ route('book-now') }}"><span class="pb-1">Book Now</span></a>
+                            href="{{ route('book-now') }}">
+                            <span class="{{ Request::routeIs('book-now') ? 'nav-active' : '' }} pb-1">Book Now</span>
+                        </a>
                     </li>
                 </ul>
             </div>
