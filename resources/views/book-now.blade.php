@@ -23,7 +23,7 @@
         <!-- Modal for Private Cinema -->
         <div class="modal fade" id="modal-private-cinema" tabindex="-1" aria-labelledby="modalLabelPrivateCinema"
             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-product">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-product">
                 <div class="modal-content">
                     <div class="modal-body position-relative">
                         <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal"
@@ -52,9 +52,31 @@
                             </div>
                             <div class="col-12 col-lg-6">
                                 <h2 class="modal-title">Private Cinema</h2>
-                                <p class="modal-sub">Rp. 69.000 | 30 min</p>
-                                <p class="modal-location">Northwest Park NA3-01</p>
-                                <p class="modal-desc">Enjoy a private cinema experience with a selection of movies.</p>
+                                <p class="modal-sub-title mb-4">Private Cinema terbaik di Jabodetabek!</p>
+                                <p class="modal-sub">Rp 69.000 | 30 min</p>
+                                <p class="modal-sub">Rp 99.000 | 60 min</p>
+                                <p class="modal-sub">Rp 129.000 | 90 min</p>
+                                <p class="modal-sub">Rp 149.000 | 120 min</p>
+                                <p class="modal-note">(Harga seterusnya mengikuti di atas) <br>*Max 4 orang, tambah orang
+                                    charge Rp 10.000/orang</p>
+
+                                <p class="modal-additional">Additional:</p>
+                                <p class="modal-additional-item">- Tambah 1 per 1 orang: Rp 10.000 (Max add 21)</p>
+
+                                <p class="modal-package-title">Additional Package:</p>
+                                <p class="modal-package">Rp 449.000 | Birthday Standard Package</p>
+                                <p class="modal-package">Rp 599.000 | Birthday Silver Package</p>
+                                <p class="modal-package">Rp 749.000 | Birthday Gold Package</p>
+                                <p class="modal-package">Rp 899.000 | Birthday Platinum Package</p>
+
+                                <p class="modal-package">Rp 499.000 | Bridal Shower Standard Package</p>
+                                <p class="modal-package">Rp 649.000 | Bridal Shower Silver Package</p>
+                                <p class="modal-package">Rp 849.000 | Bridal Shower Gold Package</p>
+                                <p class="modal-package">Rp 999.000 | Bridal Shower Platinum Package</p>
+
+                                <p class="modal-location text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
+                                    Jatiwaringin, Kec. Pd. Gede</p>
+
                                 <button class="modal-btn black-btn my-4 rounded-pill d-block">Book Now</button>
                                 <a href="{{ route('book-detail', ['slug' => 'private-cinema']) }}" class="modal-link">MORE
                                     DETAILS</a>
@@ -98,10 +120,24 @@
                             <div class="col-12 col-lg-6">
                                 <h2 class="modal-title">Self-Photo Studio</h2>
                                 <p class="modal-sub">Rp. 99.000 | 15 min</p>
-                                <p class="modal-location">Northwest Park NA3-02</p>
-                                <p class="modal-desc">Capture your best moments in a self-photo studio with various
-                                    backgrounds.</p>
-                                <button class="modal-btn black-btn my-4 rounded-pill d-block">Book Now</button>
+                                <p class="modal-sub">Rp. 129.000 | 30 min</p>
+                                <p class="modal-sub">Rp. 149.000 | 45 min</p>
+                                <p class="modal-sub">Rp. 179.000 | 60 min</p>
+                                <p class="modal-sub">(Harga seterusnya mengikuti di atas)</p>
+                                <p class="modal-additional">Additional:</p>
+                                <p class="modal-additional">- Kostum : Rp 25,000</p>
+                                <p class="modal-additional">- Hard Copy: Rp 15.000</p>
+                                <p class="modal-location">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec.
+                                    Pd. Gede</p>
+                                <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
+                                    satu</p>
+                                <input class="form-control form-control-lg mb-1" type="text" placeholder="">
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block">Book Now</button>
+
+                                <p class="modal-notes d-block d-lg-none mb-2">
+                                    Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
+                                </p>
+
                                 <a href="{{ route('book-detail', ['slug' => 'self-photo']) }}" class="modal-link">MORE
                                     DETAILS</a>
                             </div>
@@ -140,9 +176,19 @@
                             </div>
                             <div class="col-12 col-lg-6">
                                 <h2 class="modal-title">Meeting Room</h2>
-                                <p class="modal-sub">Rp. 69.000 | 60 min</p>
-                                <p class="modal-location">Northwest Park NA3-03</p>
-                                <p class="modal-desc">Book a professional meeting room with all necessary amenities.</p>
+                                <p class="modal-sub-title mb-4">Meeting Room terbaik di Jabodetabek!</p>
+                                <p class="modal-sub">Rp 69.000 | 60 min</p>
+                                <p class="modal-sub">Rp 99.000 | 120 min</p>
+                                <p class="modal-sub">Rp 129.000 | 150 min</p>
+                                <p class="modal-sub">Rp 149.000 | 180 min</p>
+                                <p class="modal-note">(Harga seterusnya mengikuti di atas)</p>
+
+                                <p class="modal-additional">Additional:</p>
+                                <p class="modal-additional-item">- Proyektor: Rp 20.000</p>
+
+                                <p class="modal-location text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
+                                    Jatiwaringin, Kec. Pd. Gede</p>
+
                                 <button class="modal-btn black-btn my-4 rounded-pill d-block">Book Now</button>
                                 <a href="{{ route('book-detail', ['slug' => 'meeting-room']) }}" class="modal-link">MORE
                                     DETAILS</a>
