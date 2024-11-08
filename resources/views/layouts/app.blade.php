@@ -33,13 +33,12 @@
 
     @yield('content')
     @include('layouts.footer')
+
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     <!-- Import Bootstrap JS -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 
     <script src="{{ asset('assets/js/fslightbox.js') }}"></script>
-
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-
     @stack('script')
     <!-- Import Jquery -->
     <!-- <script src="assets/js/jquery-3.7.1.min.js"></script> -->

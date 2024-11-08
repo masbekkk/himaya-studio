@@ -13,6 +13,10 @@
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+    <style>
+
+    </style>
 @endpush
 @section('content')
     <section class="container">
@@ -150,7 +154,7 @@
         </div>
 
         <!-- Product Section -->
-        <div class="row product-section gy-4 d-flex justify-content-center" data-aos="fade-up" data-aos-once="true"
+        <div class="row product-section d-flex justify-content-center" data-aos="fade-up" data-aos-once="true"
             data-aos-offset="100" data-aos-delay="300">
             <!-- Private Cinema Product Card -->
             <div class="col-12 col-lg-3 product-card">
@@ -160,10 +164,15 @@
                         <img src="assets/img/katalog-cinema-1.jpeg" class="product-img" alt="Private Cinema">
                         <h4 class="product-title">Private Cinema</h4>
                         <p class="product-sub">Rp. 69.000 | 30 min</p>
-                        <button class="btn-product" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modal-private-cinema">Book Now</button>
+                        {{-- <button class="btn-product " type="button" class="btn btn-primary"
+                        data-bs-toggle="modal" data-bs-target="#modal-private-cinema">Book Now</button> --}}
                     </div>
                 </a>
+                <!-- Book Now Button to Open Modal -->
+                <button class="btn-product" type="button" data-bs-toggle="modal"
+                    data-bs-target="#modal-private-cinema">
+                    Book Now
+                </button>
             </div>
 
             <!-- Self-Photo Studio Product Card -->
@@ -174,10 +183,11 @@
                         <img src="assets/img/katalog-photo-1.jpeg" class="product-img" alt="Self-Photo Studio">
                         <h4 class="product-title">Self-Photo Studio</h4>
                         <p class="product-sub">Rp 99.000 | 15 min</p>
-                        <button class="btn-product" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modal-self-photo">Book Now</button>
+
                     </div>
                 </a>
+                <button class="btn-product " type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal-self-photo">Book Now</button>
             </div>
 
             <!-- Meeting Room Product Card -->
@@ -188,10 +198,11 @@
                         <img src="assets/img/meet-room-3.jpg" class="product-img" alt="Meeting Room">
                         <h4 class="product-title">Meeting Room</h4>
                         <p class="product-sub">Rp. 69.000 | 60 min</p>
-                        <button class="btn-product" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modal-meeting-room">Book Now</button>
+
                     </div>
                 </a>
+                <button class="btn-product " type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#modal-meeting-room">Book Now</button>
             </div>
         </div>
 
@@ -217,6 +228,17 @@
 
     <!-- Initialize Splide for each modal carousel -->
     <script>
+        // Select all product cards
+        // document.querySelectorAll('.product-card').forEach(card => {
+        //     // Get the Book Now button inside each card
+        //     const button = card.querySelector('.btn-product');
+
+        //     // Prevent the card's link from activating when clicking the button
+        //     button.addEventListener('click', (event) => {
+        //         event.stopPropagation(); // Prevent the click from bubbling up to the link
+        //     });
+        // });
+
         document.addEventListener('DOMContentLoaded', function() {
             new Splide('#modal-carousel-private-cinema', {
                 type: 'loop',
