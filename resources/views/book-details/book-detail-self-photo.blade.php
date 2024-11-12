@@ -67,7 +67,7 @@
                     satu</p>
                 <input class="form-control form-control-lg mb-5" type="text">
 
-                <button class="detail-btn my-4 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#bookModal">Book
+                <button class="detail-btn my-4 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-self-photo">Book
                     Now</button>
 
                 <p class="notes d-block d-lg-none">

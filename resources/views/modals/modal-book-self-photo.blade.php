@@ -27,12 +27,12 @@
         color: #0d6efd;
     }
 
-    #bookModal>.modal-dialog {
+    #book-modal-self-photo>.modal-dialog {
         width: 60vw;
         max-width: 60vw;
     }
 
-    #bookModal>.modal-content {
+    #book-modal-self-photo>.modal-content {
         overflow-y: hidden;
         border-radius: 1em;
     }
@@ -116,7 +116,7 @@
         grid-template-columns: 60% 40%;
     }
 
-    #bookModal>.modal-title {
+    #book-modal-self-photo>.modal-title {
         font-size: 1.2rem;
         font-weight: normal;
         margin-bottom: 1.5rem;
@@ -141,7 +141,7 @@
         grid-area: time;
     }
 
-    #bookModal>.modal-footer .btn {
+    #book-modal-self-photo>.modal-footer .btn {
         font-size: calc(1rem - 2px);
         min-width: 100px;
     }
@@ -184,7 +184,7 @@
     }
 
     @media screen and (max-width: 992px) {
-        #bookModal>.modal-title:last-child {
+        #book-modal-self-photo>.modal-title:last-child {
             margin-bottom: 0;
         }
 
@@ -192,7 +192,7 @@
             width: 100%;
         }
 
-        #bookModal>.modal-dialog {
+        #book-modal-self-photo>.modal-dialog {
             width: 100%;
             max-width: 100%;
         }
@@ -225,7 +225,7 @@
     }
 </style>
 
-<div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+<div class="modal fade" id="book-modal-self-photo" tabindex="-1" aria-labelledby="book-modal-self-photoLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-lg-down modal-dialog-centered">
         <div class="modal-content rounded" style="overflow: hidden;">
             <div class="modal-body p-0 book-modal-body position-relative">

@@ -129,7 +129,7 @@
                                 <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
                                     satu</p>
                                 <input class="form-control form-control-lg mb-1" type="text" placeholder="">
-                                <button class="modal-btn black-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#bookModal">Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-self-photo">Book Now</button>
 
                                 <p class="modal-notes d-block d-lg-none mb-2">
                                     Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
