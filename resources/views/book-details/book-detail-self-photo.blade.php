@@ -10,7 +10,7 @@
     <!-- start content -->
     <section class="container detail-box">
         <!-- Modal Book when click Book Now Button -->
-        @include('book-details.modal-book', ['product' => 'Self Photo Studio'])
+        @include('modals.modal-book-self-photo', ['product' => 'Self Photo Studio'])
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
                 <section id="main-carousel" class="splide" aria-label="My Awesome Gallery">
