@@ -7,7 +7,7 @@
     <title>Self Photo Studio & Private Cinema | Jatiwaringin | Bekasi | Himaya Photo Studio. </title>
     <meta name="description"
         content="Self Photo Studio & Private Cinema | Jatiwaringin | Bekasi — Express Yourself with Your Unique Style, Whether Single, As a Couple or Even With Your Group. Our Place is Spacious and Comfortable, Include With All-New and Premium Photography Technology Gear. Book Now and Get Promo for FREE 1 Photo!">
-    <meta name="keywords" content="Self Photo Studio Surabaya, Sewa Studio dan Fotografer, Citraland">
+    <meta name="keywords" content="Self Photo Studio Jatiwaringin, Sewa Studio dan Fotografer, Bekasi">
     <link rel="icon" href="assets/img/logo-black-small.avif">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') . '?v=' . bin2hex(random_bytes(20)) }}">
 

@@ -1,0 +1,60 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+.form-control, .form-select {
+	background-color: #f8f9fa;
+	border: 1px solid #e9ecef;
+	padding: 0.75rem;
+}
+
+.btn-apply {
+	background-color: #0d6efd;
+	color: white;
+	padding: 0.5rem 1.5rem;
+}
+
+.btn-confirm {
+	background-color: #0d6efd;
+	color: white;
+	padding: 1rem;
+}
+
+.discount-section {
+	border-top: 1px solid #e9ecef;
+	border-bottom: 1px solid #e9ecef;
+	padding: 1rem 0;
+}
+
+.co-text-price {
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.co-text-title {
+	font-size: 16px;
+}
+
+.co-text-desc {
+	font-size: 14px;
+}
+
+.co-text-desc-small {
+	font-size: 12px;
+}
+
+.co-text-grey {
+	color: #474b4f;
+}
+
+.co-text-grey2 {
+	color: #72777c;
+}
+
+.co-fw-bold {
+	font-weight: 600;
+}
+
+.co-fw-bolder {
+	font-weight: 500;
+}

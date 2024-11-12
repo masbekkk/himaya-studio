@@ -11,6 +11,11 @@ Route::get('book-now', function () {
     // return view('welcome');
 })->name('book-now');
 
+Route::get('checkout', function () {
+    return view('checkout');
+    // return view('welcome');
+})->name('checkout');
+
 Route::get('book-detail/{slug}', function ($slug) {
     
     switch ($slug) {

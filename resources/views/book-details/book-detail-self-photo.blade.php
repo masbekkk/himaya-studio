@@ -87,6 +87,18 @@
             border-color: #0d6efd;
         }
 
+        /* Time input styling */
+        .time-input {
+            display: block;
+            width: 100%;
+            padding: 0.5em;
+            font-size: 1rem;
+            margin-top: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 0.25em;
+        }
+
+
         /* Styles for the enabled book button */
         #btn-book.active-time {
             background-color: #0d6efd;
@@ -222,7 +234,7 @@
                                 </li>
                                 <li class="my-2">
                                     <i class="bi bi-clock me-2"></i>
-                                    <span id="selected-time">--:--</span>
+                                    <span id="time-difference">--:--</span>
                                 </li>
                                 <li class="my-2">
                                     <i class="bi bi-geo-alt me-2"></i>
@@ -239,17 +251,13 @@
                             </div>
                             <div class="timepicker-block">
                                 <p class="current-date mb-5">Thursday, November 7</p>
-                                <div class="time-list">
-                                    <button class="time-btn border border-0">09:00 AM</button>
-                                    <button class="time-btn border border-0">10:00 AM</button>
-                                    <button class="time-btn border border-0">11:00 AM</button>
-                                    <button class="time-btn border border-0">09:00 AM</button>
-                                    <button class="time-btn border border-0">10:00 AM</button>
-                                    <button class="time-btn border border-0">11:00 AM</button>
-                                    <button class="time-btn border border-0">09:00 AM</button>
-                                    <button class="time-btn border border-0">10:00 AM</button>
-                                    <button class="time-btn border border-0">11:00 AM</button>
-                                </div>
+                                <label for="start-time">Start Time:</label>
+                                <input type="time" id="start-time" class="time-input" required>
+
+                                <label for="end-time" class="mt-3">End Time:</label>
+                                <input type="time" id="end-time" class="time-input" required>
+
+                                <p id="error-message" class="text-danger mt-1" style="display: none;">End time must be after start time.</p>
                             </div>
                         </div>
                     </div>
@@ -284,10 +292,10 @@
 
                 <ul id="thumbnails" class="thumbnails">
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/cafe1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/self-photo-1.jpeg') }}" alt="">
                     </li>
                     <li class="thumbnail">
-                        <img src="{{ asset('assets/img/cafe2.jpg') }}" alt="">
+                        <img src="{{ asset('assets/img/self-photo-2.jpeg') }}" alt="">
                     </li>
                     <li class="thumbnail">
                         <img src="{{ asset('assets/img/photo-1.jpeg') }}" alt="">
@@ -415,29 +423,60 @@
                     .catch(error => console.error('Error:', error));
             });
 
-
-            // Handle time button selection
             const bookButton = document.getElementById('btn-book');
+            const startTimeInput = document.getElementById('start-time');
+            const endTimeInput = document.getElementById('end-time');
+            const timeDifferenceDisplay = document.getElementById('time-difference');
+            const errorMessage = document.getElementById('error-message');
+            // const selectedTimeDisplay = document.getElementById('selected-time');
+
             bookButton.disabled = true; // Disable button by default
 
-            // Handle time button selection
-            let selectedTime = '';
-            document.querySelectorAll('.time-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    // Update selected time and style
-                    selectedTime = this.textContent;
-                    document.getElementById('selected-time').textContent = selectedTime;
+            // Function to calculate time difference in minutes
+            function calculateTimeDifference() {
+                const startTime = startTimeInput.value;
+                const endTime = endTimeInput.value;
 
-                    // Remove active class from all time buttons and add to the clicked button
-                    document.querySelectorAll('.time-btn').forEach(btn => btn.classList.remove(
-                        'active-time'));
-                    this.classList.add('active-time');
+                if (startTime && endTime) {
+                    const start = new Date(`1970-01-01T${startTime}:00`);
+                    const end = new Date(`1970-01-01T${endTime}:00`);
+                    const differenceInMinutes = (end - start) / (1000 * 60); // Convert milliseconds to minutes
 
-                    // Enable the book button and add the active-time class to it
-                    bookButton.disabled = false;
-                    bookButton.classList.add('active-time');
-                });
+                    if (differenceInMinutes > 0) {
+                        // Valid time range
+                        timeDifferenceDisplay.textContent = `${differenceInMinutes} minutes`;
+                        // selectedTimeDisplay.textContent = `${differenceInMinutes} minutes`;
+                        errorMessage.style.display = 'none';
+                        bookButton.disabled = false;
+                        bookButton.classList.add('active-time');
+                    } else {
+                        // Invalid time range
+                        timeDifferenceDisplay.textContent = '';
+                        // selectedTimeDisplay.textContent = '';
+                        errorMessage.style.display = 'block';
+                        bookButton.disabled = true;
+                        bookButton.classList.remove('active-time');
+                    }
+                }
+            }
+
+            // Function to update available end times based on selected start time
+            function updateEndTimeOptions() {
+                const startTime = startTimeInput.value;
+                if (startTime) {
+                    // Disable end times earlier than the start time
+                    endTimeInput.min = startTime;
+                }
+            }
+
+            // Add event listeners for changes on start and end time inputs
+            startTimeInput.addEventListener('input', () => {
+                updateEndTimeOptions();
+                calculateTimeDifference();
             });
+
+            endTimeInput.addEventListener('input', calculateTimeDifference);
+
         });
     </script>
 @endpush
