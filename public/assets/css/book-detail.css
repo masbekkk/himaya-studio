@@ -77,6 +77,35 @@
 	background: #1a1a1a;
 }
 
+.pika-single {
+	height: 100%;
+}
+
+.pika-lendar {
+	width: 100%;
+    height: 100%;
+    margin: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+.pika-title {
+	height: 15%;
+}
+
+.pika-table {
+	height: 85%;
+}
+
+.pika-button {
+	background-color: white !important;
+	text-align: center;
+	font-weight: 600;
+	height: 3em;
+}
+
 .splide__pagination__page {
 	background: #333;
 }
