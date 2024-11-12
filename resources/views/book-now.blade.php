@@ -14,177 +14,6 @@
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-    <!-- pikaday -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-    <style>
-        .pika-single {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-
-        .pika-button {
-            background: #f8f9fa;
-            color: #212529;
-        }
-
-        .pika-button:hover {
-            background: #e9ecef !important;
-            color: #212529 !important;
-        }
-
-        .is-selected .pika-button {
-            background: #0d6efd !important;
-            color: #fff !important;
-            box-shadow: none;
-        }
-
-        .is-today .pika-button {
-            color: #0d6efd;
-        }
-
-        #bookModal>.modal-dialog {
-            width: 60vw;
-            max-width: 60vw;
-        }
-
-        #bookModal>.modal-content {
-            overflow-y: hidden;
-            border-radius: 1em;
-        }
-
-        .book-modal-body {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-        }
-
-        .time-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            row-gap: .5em;
-            padding-right: 1.5rem;
-            overflow-y: auto;
-            max-height: 400px;
-        }
-
-        .time-btn {
-            padding: .5em 2.5em;
-            border: 1px solid #1a1a1a;
-            border-radius: .5em;
-            font-size: .8rem;
-            background-color: white;
-            transition: .2s;
-        }
-
-        .time-btn:hover {
-            background-color: #d5dfff;
-            border-color: #d5dfff;
-        }
-
-        .left-side {
-            padding: 3rem;
-        }
-
-        .right-side {
-            padding: 3rem;
-            display: grid;
-            grid-template-areas:
-                'title title'
-                'date time';
-            column-gap: 1.5rem;
-            grid-template-rows: auto 1fr;
-            grid-template-columns: 60% 40%;
-        }
-
-        #bookModal>.modal-title {
-            font-size: 1.2rem;
-            font-weight: normal;
-            margin-bottom: 1.5rem;
-            grid-area: title;
-        }
-
-        .li-no-style {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .current-date {
-            margin-bottom: 1em;
-        }
-
-        .datepicker-block {
-            grid-area: date;
-        }
-
-        .timepicker-block {
-            grid-area: time;
-        }
-
-        #bookModal>.modal-footer .btn {
-            font-size: calc(1rem - 2px);
-            min-width: 100px;
-        }
-
-        #orderSuccessModal .modal-body {
-            padding: 1rem;
-        }
-
-        #orderSuccessModal .modal-title {
-            font-size: 2rem;
-            font-weight: 600;
-        }
-
-        #orderSuccessModal .btn-done {
-            font-size: calc(1rem - 2px);
-            color: white !important;
-            min-width: 100px;
-        }
-
-        #orderSuccessModal .payment-info {
-            padding: 3rem 2rem;
-            margin-top: calc(2.5rem - 4px);
-        }
-
-        @media screen and (max-width: 992px) {
-            #bookModal>.modal-title:last-child {
-                margin-bottom: 0;
-            }
-
-            .timepicker-block {
-                width: 100%;
-            }
-
-            #bookModal>.modal-dialog {
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .book-modal-body {
-                grid-template-columns: 1fr;
-                overflow-y: auto;
-            }
-
-            .left-side {
-                padding: 1rem;
-            }
-
-            .right-side {
-                padding: 1rem;
-                display: flex;
-                gap: 1rem;
-                align-items: center;
-                flex-direction: column;
-            }
-
-            .current-date {
-                margin-bottom: 2rem;
-            }
-
-            .time-list {
-                padding: 0rem 3rem;
-            }
-
-        }
-    </style>
 @endpush
 @section('content')
     <section class="container">
@@ -300,7 +129,7 @@
                                 <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
                                     satu</p>
                                 <input class="form-control form-control-lg mb-1" type="text" placeholder="">
-                                <button class="modal-btn black-btn my-2 rounded-pill d-block">Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#bookModal">Book Now</button>
 
                                 <p class="modal-notes d-block d-lg-none mb-2">
                                     Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
@@ -368,59 +197,7 @@
             </div>
         </div>
 
-        <!-- Modal Book when click Book Now Button -->
-        <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen-lg-down modal-dialog-centered">
-                <div class="modal-content rounded" style="overflow: hidden;">
-                    <div class="modal-body p-0 book-modal-body position-relative">
-                        <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                        <div class="left-side">
-                            <h5 class="modal-title mb-3">COUPLE</h5>
-                            <ul class="li-no-style">
-                                <li class="my-2">
-                                    <i class="bi bi-calendar3 me-2"></i>
-                                    <span id="selected-date">11/6/2024</span>
-                                </li>
-                                <li class="my-2">
-                                    <i class="bi bi-clock me-2"></i>
-                                    <span id="selected-date">--:--</span>
-                                </li>
-                                <li class="my-2">
-                                    <i class="bi bi-geo-alt me-2"></i>
-                                    <span id="selected-date">Northwest Park NA3-01</span>
-                                </li>
-                            </ul>
-
-                        </div>
-                        <div class="right-side bg-grey">
-                            <h5 class="modal-title mb-3">Select Date & Time</h5>
-                            <div class="datepicker-block w-100">
-                                <div class="w-100 h-100" id="datepicker"></div>
-                            </div>
-                            <div class="timepicker-block">
-                                <p class="current-date mb-5">Thursday, November 7</p>
-                                <div class="time-list">
-                                    <button class="time-btn border border-0">09:00 AM</button>
-                                    <button class="time-btn border border-0">10:00 AM</button>
-                                    <button class="time-btn border border-0">11:00 AM</button>
-                                    <button class="time-btn border border-0">09:00 AM</button>
-                                    <button class="time-btn border border-0">10:00 AM</button>
-                                    <button class="time-btn border border-0">11:00 AM</button>
-                                    <button class="time-btn border border-0">09:00 AM</button>
-                                    <button class="time-btn border border-0">10:00 AM</button>
-                                    <button class="time-btn border border-0">11:00 AM</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn bg-transparent px-4" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-secondary text-white px-4">Book</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('book-details.modal-book', ['product' => 'Self Photo Studio'])
 
         <!-- Product Section -->
         <div class="row product-section d-flex justify-content-center" data-aos="fade-up" data-aos-once="true"
@@ -494,28 +271,9 @@
 @push('script')
     <!-- page js -->
     <link rel="stylesheet" href="{{ asset('assets/js/book-now.js') . '?v=' . bin2hex(random_bytes(20)) }}">
-    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="{{ asset('assets/js/book-detail.js') }}"></script>
     <!-- Initialize Splide for each modal carousel -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var picker = new Pikaday({
-                field: document.getElementById('datepicker'),
-                bound: false,
-                container: document.getElementById('datepicker'),
-                format: 'D MMM YYYY',
-                onSelect: function() {
-                    document.getElementById('selectedDate').textContent = this.getMoment().format(
-                        'D MMM YYYY');
-                }
-            });
-
-            // Set initial date
-            var today = new Date();
-            picker.setDate(today);
-            document.getElementById('selectedDate').textContent = picker.toString();
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
             new Splide('#modal-carousel-private-cinema', {
                 type: 'loop',
