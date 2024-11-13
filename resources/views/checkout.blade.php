@@ -9,7 +9,7 @@
         content="Self Photo Studio & Private Cinema | Jatiwaringin | Bekasi — Express Yourself with Your Unique Style, Whether Single, As a Couple or Even With Your Group. Our Place is Spacious and Comfortable, Include With All-New and Premium Photography Technology Gear. Book Now and Get Promo for FREE 1 Photo!">
     <meta name="keywords" content="Self Photo Studio Jatiwaringin, Sewa Studio dan Fotografer, Bekasi">
     <link rel="icon" href="assets/img/logo-black-small.avif">
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') . '?v=' . bin2hex(random_bytes(20)) }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/main.css') . '?v=' . bin2hex(random_bytes(20)) }}"> --}}
 
     <!-- Montserrat Google Icons -->
     <style>
@@ -46,29 +46,37 @@
             <!-- Left Column -->
             <div class="col-12 col-lg-6 px-5">
                 <h6 class="co-text-title co-text-grey fw-bolder mb-0">Pay Nee Studio</h6>
-                <h2 class="co-text-price mb-5">Rp100000.00</h2>
-
+                <h2 class="co-text-price mb-5">Rp {{ $price }}</h2>
+                @php
+                    $add_on = json_decode($add_on, true); // Decode to array
+                @endphp
                 <div class="mb-3">
                     <div class="row co-text-desc">
                         <div class="col-6">
-                            <p class="mb-1 fw-bolder co-text-grey">SQUAD</p>
+                            <p class="mb-1 fw-bolder co-text-grey">{{ $product }} ({{ $duration }}) </p>
                             <p class="co-text-desc-small co-text-grey2 fw-bolder">Warna background (Putih, Abu-abu,
                                 Hitam, Cream) *pilih salah satu Putih</p>
+                            @if (!empty($add_on))
+                                <p class="co-text-desc-small co-text-grey2 fw-bolder">Additional:</p>
+                                @foreach ($add_on as $item)
+                                    <p class="h6 fw-normal mb-3">- {{ $item[key($item)] }}</p>
+                                @endforeach
+                            @endif
                         </div>
                         <div class="col-4 offset-2 text-end">
-                            <p class="fw-bolder co-text-grey">Rp100000.00</p>
+                            <p class="fw-bolder co-text-grey">Rp {{ $price }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <div class="row co-text-desc">
-                        <div class="col-6">
+                        {{-- <div class="col-6">
                             <p class="mb-1 fw-bolder co-text-grey">Subtotal</p>
                         </div>
                         <div class="col-6 text-end">
                             <p class="fw-bolder co-text-grey">Rp100000.00</p>
-                        </div>
+                        </div> --}}
 
                         <div class="col-12 text-center">
                             <hr class="my-0">
@@ -112,7 +120,7 @@
                             <p class="mb-1 fw-bolder co-text-grey">Total due</p>
                         </div>
                         <div class="col-4 offset-2 text-end">
-                            <p class="fw-bolder co-text-grey h6">Rp100000.00</p>
+                            <p class="fw-bolder co-text-grey h6">Rp {{ $price }}</p>
                         </div>
                     </div>
                 </div>
@@ -149,7 +157,7 @@
             </div>
 
             <!-- Payment Method Section -->
-            <div class="col-12 col-lg-6 px-5 mt-5 mt-lg-0">
+            {{-- <div class="col-12 col-lg-6 px-5 mt-5 mt-lg-0">
                 <h6 class="co-text-title co-text-grey fw-bolder mb-5">Payment Method</h6>
                 <div class="ps-2">
                     <div class="border border-secondary-subtle rounded py-2 px-3 mb-4">
@@ -168,7 +176,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Place an order</button>
-            </div>
+            </div> --}}
         </div>
     </section>
 

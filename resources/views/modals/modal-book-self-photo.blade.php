@@ -225,7 +225,8 @@
     }
 </style>
 
-<div class="modal fade" id="book-modal-self-photo" tabindex="-1" aria-labelledby="book-modal-self-photoLabel" aria-hidden="true">
+<div class="modal fade" id="book-modal-self-photo" tabindex="-1" aria-labelledby="book-modal-self-photoLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-lg-down modal-dialog-centered">
         <div class="modal-content rounded" style="overflow: hidden;">
             <div class="modal-body p-0 book-modal-body position-relative">
@@ -240,7 +241,7 @@
                         </li>
                         <li class="my-2">
                             <i class="bi bi-clock me-2"></i>
-                            <span id="time-difference">--:--</span>
+                            <span id="time-difference">0 minutes</span>
                         </li>
                         <li class="my-2">
                             <i class="bi bi-geo-alt me-2"></i>
@@ -268,13 +269,15 @@
 
                         <p class="text-title-add-ons mb-2 mt-4">Add ons:</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="25000" id="check_kustom">
+                            <input class="form-check-input" type="checkbox" name="Kustom" value="25000"
+                                id="check_kustom">
                             <label class="form-check-label" for="check_kustom">
                                 Kustom
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="15000" id="check_hard_copy">
+                            <input class="form-check-input" type="checkbox" name="Hard Copy" value="15000"
+                                id="check_hard_copy">
                             <label class="form-check-label" for="check_hard_copy">
                                 Hard Copy
                             </label>
@@ -305,16 +308,21 @@
     $(document).ready(function() {
         // Get today's date
         const today = new Date();
+        let selectedDate = null;
+        let duration = 0;
+        let totalPrice = 0; // Keep track of total price
+        let addOns = {};
+        let addOnsArray = null;
 
         // Initialize Pikaday date picker
         const picker = new Pikaday({
             field: $('#datepicker')[0],
             bound: false,
             container: $('#datepicker')[0],
-            format: 'D MMM YYYY',
+            format: 'YYYY-MM-DD',
             minDate: today, // Disable dates before today
             onSelect: function(date) {
-                // Format selected date and update both elements
+                selectedDate = this.toString();
                 const options = {
                     weekday: 'long',
                     month: 'long',
@@ -335,43 +343,6 @@
         });
         $('#selected-date').text(initialDate);
         $('.current-date').text(initialDate);
-
-        // AJAX booking request on "Book" button click
-        $('#btn-book').click(function() {
-            const selectedDate = picker.toString();
-            const selectedTime = $('#time-difference')
-                .text(); // Assuming 'time-difference' is the selected time
-
-            if (!selectedDate || !selectedTime) {
-                alert('Please select a date and time');
-                return;
-            }
-
-            // Send data via AJAX
-            $.ajax({
-                url: '/book',
-                type: 'POST',
-                contentType: 'application/json',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Ensure CSRF token is included
-                },
-                data: JSON.stringify({
-                    date: selectedDate,
-                    time: selectedTime,
-                }),
-                success: function(data) {
-                    if (data.success) {
-                        // Redirect to checkout page
-                        window.location.href = '/checkout';
-                    } else {
-                        alert('Booking failed, please try again.');
-                    }
-                },
-                error: function(error) {
-                    console.error('Error:', error);
-                }
-            });
-        });
 
         const $bookButton = $('#btn-book');
         const $startTimeInput = $('#start-time');
@@ -394,6 +365,7 @@
                     // Valid time range
                     $timeDifferenceDisplay.text(`${differenceInMinutes} minutes`);
                     $errorMessage.hide();
+                    duration = differenceInMinutes
                     // $bookButton.prop('disabled', false).addClass('active-time');
                 } else {
                     // Invalid time range
@@ -423,7 +395,6 @@
         });
 
         $endTimeInput.on('input', calculateTimeDifference);
-        let totalPrice = 0; // Keep track of total price
 
         function calculatePrice(duration) {
             // Base prices and durations
@@ -448,6 +419,7 @@
                 const additionalCost = extraIntervals * increment;
 
                 totalPrice = basePrices[3] + additionalCost;
+                $bookButton.prop('disabled', false).addClass('active-time');
                 return totalPrice;
             }
             // $('#text-price').text(`Rp ${totalPrice.toLocaleString()}`);
@@ -458,14 +430,25 @@
             let addOnPrice = 0;
 
             // Add up the prices of checked checkboxes
-            $('.form-check-input:checked').each(function() {
-                addOnPrice += parseInt($(this).val());
+            $('.form-check-input').each(function(index) {
+                if ($(this).is(':checked')) {
+                    // If the checkbox is checked
+                    addOnPrice += parseInt($(this).val());
+                    addOns[`addon${index + 1}`] = $(this).attr('name');
+                } else {
+                    delete addOns[`addon${index + 1}`];
+                }
             });
-            console.log(durationPrice)
+            // Convert the object to an array of objects as required
+            addOnsArray = Object.keys(addOns).map(key => ({
+                [key]: addOns[key]
+            }));
+
             if (Number.isInteger(durationPrice)) {
                 const combinedTotalPrice = durationPrice + addOnPrice;
                 // Update the displayed total price
                 $('#text-price').text(`Price: Rp ${combinedTotalPrice.toLocaleString()}`);
+                totalPrice = combinedTotalPrice
             }
 
 
@@ -482,6 +465,51 @@
         const initialDuration = 0; // Replace with the actual initial duration
         updateTotalPrice(initialDuration);
 
+        const date = new Date(selectedDate);
+        const isoDate = date.toISOString().split('T')[0];
 
+        function submitData() {
+            // Create a new form element
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = "{{ route('book.checkout') }}";
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = '_token';
+            input.value = "{{ csrf_token() }}";
+            form.appendChild(input);
+            // Add data as hidden inputs
+            const data = {
+                date: isoDate,
+                duration: duration,
+                price: totalPrice,
+                product: 'Self Photo Studio',
+                add_on: JSON.stringify(addOnsArray),
+            };
+
+            for (const key in data) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            }
+
+            // Append form to the body and submit it
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        $('#btn-book').click(function() {
+            console.log({
+                date: isoDate,
+                duration: duration,
+                price: totalPrice,
+                product: 'Self Photo Studio',
+                add_on: addOnsArray,
+            });
+
+            submitData()
+        });
     });
 </script>
