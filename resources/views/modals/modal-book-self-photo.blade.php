@@ -394,12 +394,12 @@
                     // Valid time range
                     $timeDifferenceDisplay.text(`${differenceInMinutes} minutes`);
                     $errorMessage.hide();
-                    $bookButton.prop('disabled', false).addClass('active-time');
+                    // $bookButton.prop('disabled', false).addClass('active-time');
                 } else {
                     // Invalid time range
                     $timeDifferenceDisplay.text('');
                     $errorMessage.show();
-                    $bookButton.prop('disabled', true).removeClass('active-time');
+                    // $bookButton.prop('disabled', true).removeClass('active-time');
                 }
                 if (Number.isInteger(calculatePrice(differenceInMinutes))) {
 
@@ -435,9 +435,11 @@
                 for (let i = 0; i < baseDurations.length; i++) {
                     if (duration === baseDurations[i]) {
                         totalPrice = basePrices[i];
+                        $bookButton.prop('disabled', false).addClass('active-time');
                         return totalPrice;
                     }
                 }
+                $bookButton.prop('disabled', true).removeClass('active-time');
                 $('#text-price').text(`Durasi hanya tersedia pada List`);
                 // return 0; // No match found
             } else {
