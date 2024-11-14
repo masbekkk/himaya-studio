@@ -141,16 +141,24 @@
                     </div>
 
                     <div class="mb-5">
+                        <label class="form-label co-text-desc co-fw-bolder mb-3">Phone number</label>
+                        <input type="tel" class="form-control co-text-desc" placeholder="Your phone number">
+                    </div>
+                    <input type="hidden" name="date" id="date" value="{{ $date }}">
+                    <input type="hidden" name="duration" id="duration" value="{{ $duration }}">
+                    <input type="hidden" name="price" id="price" value="{{ $price }}">
+                    <input type="hidden" name="product" id="product" value="{{ $product }}">
+                    <input type="hidden" name="add_on" id="add_on" value="{{ $add_on }}">
+                    <input type="hidden" name="start_time" id="start_time" value="{{ $start_time }}">
+                    <input type="hidden" name="end_time" id="end_time" value="{{ $end_time }}">
+
+                    {{-- <div class="mb-5">
                         <label class="form-label co-text-desc co-fw-bolder mb-3">Country</label>
                         <select class="form-select co-text-desc">
                             <option selected>Indonesia</option>
                         </select>
-                    </div>
+                    </div> --}}
 
-                    <div class="mb-5">
-                        <label class="form-label co-text-desc co-fw-bolder mb-3">Phone number</label>
-                        <input type="tel" class="form-control co-text-desc" placeholder="Your phone number">
-                    </div>
 
                     <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Confirm booking</button>
                 </form>

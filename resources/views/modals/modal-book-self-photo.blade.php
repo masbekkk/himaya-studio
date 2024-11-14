@@ -313,6 +313,8 @@
         let totalPrice = 0; // Keep track of total price
         let addOns = {};
         let addOnsArray = null;
+        let startTime = null;
+        let endTime = null;
 
         // Initialize Pikaday date picker
         const picker = new Pikaday({
@@ -353,8 +355,8 @@
 
         // Function to calculate time difference in minutes
         function calculateTimeDifference() {
-            const startTime = $startTimeInput.val();
-            const endTime = $endTimeInput.val();
+            startTime = $startTimeInput.val();
+            endTime = $endTimeInput.val();
 
             if (startTime && endTime) {
                 const start = new Date(`1970-01-01T${startTime}:00`);
@@ -485,6 +487,7 @@
                 price: totalPrice,
                 product: 'Self Photo Studio',
                 add_on: JSON.stringify(addOnsArray),
+                start_time: 
             };
 
             for (const key in data) {

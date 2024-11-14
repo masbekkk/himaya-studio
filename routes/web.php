@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -36,4 +36,4 @@ Route::get('book-detail/{slug}', function ($slug) {
     // return view('welcome');
 })->name('book-detail');
 
-Route::post('book-checkout', [BookController::class, 'to_checkout'])->name('book.checkout');
+Route::post('book-checkout', [BookingController::class, 'to_checkout'])->name('book.checkout');
