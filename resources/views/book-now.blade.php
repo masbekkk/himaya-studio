@@ -126,9 +126,9 @@
                                 <p class="modal-additional">- Hard Copy: Rp 15.000</p>
                                 <p class="modal-location">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec.
                                     Pd. Gede</p>
-                                <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
+                                {{-- <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
                                     satu</p>
-                                <input class="form-control form-control-lg mb-1" type="text" placeholder="">
+                                <input class="form-control form-control-lg mb-1" type="text" placeholder=""> --}}
                                 <button class="modal-btn black-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-self-photo">Book Now</button>
 
                                 <p class="modal-notes d-block d-lg-none mb-2">

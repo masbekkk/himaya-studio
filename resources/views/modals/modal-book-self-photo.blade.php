@@ -1,6 +1,7 @@
 <!-- pikaday -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') . '?v=' . bin2hex(random_bytes(20)) }}">
+<link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css?v=' . bin2hex(random_bytes(20))) }}">
 <!-- splide -->
 <style>
     .pika-single {
@@ -249,8 +250,18 @@
                                 Kec. Pd. Gede, Kota Bks, Jawa Barat 17411</span>
                         </li>
                     </ul>
-
+                    <span class="fs-6">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah satu</span>
+                    <select class="form-control my-3" style="border: 1px solid #0d6efd;" name="details"
+                        id="input_details" required>
+                        <option value="" disabled selected>Pilih warna</option>
+                        <option value="Putih">Putih</option>
+                        <option value="Biru">Biru</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Abu-abu">Abu-abu</option>
+                        <option value="Kuning">Kuning</option>
+                    </select>
                 </div>
+
                 <div class="right-side bg-grey">
                     <h5 class="modal-title mb-3 text-title">Select Date & Time</h5>
                     <div class="datepicker-block w-100">
@@ -303,7 +314,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         // Get today's date
@@ -471,46 +482,59 @@
         const isoDate = date.toISOString().split('T')[0];
 
         function submitData() {
-            // Create a new form element
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = "{{ route('book.checkout') }}";
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = '_token';
-            input.value = "{{ csrf_token() }}";
-            form.appendChild(input);
-            // Add data as hidden inputs
-            const data = {
-                date: isoDate,
-                duration: duration,
-                price: totalPrice,
-                product: 'Self Photo Studio',
-                add_on: JSON.stringify(addOnsArray),
-                start_time: 
-            };
-
-            for (const key in data) {
+            if ($('#input_details').val() == null) {
+                Swal.fire({
+                    title: 'Background harus Dipilih',
+                    text: "Kamu belum memilih Background Foto",
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                });
+            } else {
+                // Create a new form element
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = "{{ route('book.checkout') }}";
                 const input = document.createElement('input');
                 input.type = 'hidden';
-                input.name = key;
-                input.value = data[key];
+                input.name = '_token';
+                input.value = "{{ csrf_token() }}";
                 form.appendChild(input);
-            }
+                // Add data as hidden inputs
+                const data = {
+                    date: isoDate,
+                    duration: duration,
+                    price: totalPrice,
+                    product: 'Self Photo Studio',
+                    add_on: JSON.stringify(addOnsArray),
+                    start_time: startTime,
+                    end_time: endTime,
+                    details: 'Warna Background: ' + $('#input_details').val()
+                };
 
-            // Append form to the body and submit it
-            document.body.appendChild(form);
-            form.submit();
+                for (const key in data) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = data[key];
+                    form.appendChild(input);
+                }
+
+                // Append form to the body and submit it
+                document.body.appendChild(form);
+                form.submit();
+            }
         }
 
         $('#btn-book').click(function() {
-            console.log({
-                date: isoDate,
-                duration: duration,
-                price: totalPrice,
-                product: 'Self Photo Studio',
-                add_on: addOnsArray,
-            });
+            // console.log({
+            //     date: isoDate,
+            //     duration: duration,
+            //     price: totalPrice,
+            //     product: 'Self Photo Studio',
+            //     add_on: addOnsArray,
+            //     start_time: startTime,
+            //     end_time: endTime
+            // });
 
             submitData()
         });

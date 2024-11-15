@@ -62,19 +62,16 @@
                 <p class="h6 fw-normal mb-3">Additional:</p>
                 <p class="h6 fw-normal mb-3">- Kostum : Rp 25,000</p>
                 <p class="h6 fw-normal mb-3">- Hard Copy: Rp 15.000</p>
-                <p class="text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
-                <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
-                    satu</p>
-                <input class="form-control form-control-lg mb-5" type="text">
-
-                <button class="detail-btn my-4 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-self-photo">Book
+                <p class="text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
+                
+                <button class="detail-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-self-photo">Book
                     Now</button>
 
                 <p class="notes d-block d-lg-none">
                     Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
                 </p>
 
-                <p class="h5 text-description fw-bold mt-5">Syarat & Ketentuan</p>
+                <p class="h5 text-description fw-bold mt-3">Syarat & Ketentuan</p>
                 <ul class="text-description">
                     <li><i>Cashless payment only.</i> (tidak menerima uang tunai, hanya menerima transfer atau QRIS)</li>
                     <li>Uang yang sudah masuk tidak dapat di <i>refund</i>.</li>

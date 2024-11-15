@@ -36,4 +36,5 @@ Route::get('book-detail/{slug}', function ($slug) {
     // return view('welcome');
 })->name('book-detail');
 
-Route::post('book-checkout', [BookingController::class, 'to_checkout'])->name('book.checkout');
+Route::match(['get', 'post'], 'book-checkout', [BookingController::class, 'to_checkout'])->name('book.checkout');
+Route::resource('booking', BookingController::class);

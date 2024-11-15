@@ -31,7 +31,7 @@
     <section class="checkout-box container py-5">
         <div class="row">
             <div class="mb-5 ps-5">
-                <a href="#" class="text-decoration-none fw-bold co-text-desc co-text-grey">
+                <a href="{{ route('book-now') }}" class="text-decoration-none fw-bold co-text-desc co-text-grey">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                         class="bi bi-arrow-left-short h4 text-dark fw-bold mb-0" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -45,17 +45,18 @@
                     <div class="row g-5"> -->
             <!-- Left Column -->
             <div class="col-12 col-lg-6 px-5">
-                <h6 class="co-text-title co-text-grey fw-bolder mb-0">Pay Nee Studio</h6>
-                <h2 class="co-text-price mb-5">Rp {{ $price }}</h2>
+                <h6 class="co-text-title co-text-grey fw-bolder mb-0">Pay Himaya Photo Studio.</h6>
+                <h2 class="co-text-price mb-5">{{ format_price_idr($price) }}</h2>
                 @php
                     $add_on = json_decode($add_on, true); // Decode to array
                 @endphp
                 <div class="mb-3">
                     <div class="row co-text-desc">
-                        <div class="col-6">
-                            <p class="mb-1 fw-bolder co-text-grey">{{ $product }} ({{ $duration }}) </p>
-                            <p class="co-text-desc-small co-text-grey2 fw-bolder">Warna background (Putih, Abu-abu,
-                                Hitam, Cream) *pilih salah satu Putih</p>
+                        <div class="col-12">
+                            <p class="mb-1 fw-bolder co-text-grey">{{ $product }} ({{ $duration }} menit) </p>
+                            <p class="mb-1 fw-bolder co-text-grey">{{ format_indonesian_date($date) }}
+                                {{ $start_time }} - {{ $end_time }} </p>
+                            <p class="co-text-desc-small co-text-grey2 fw-bolder">{{ $details }}</p>
                             @if (!empty($add_on))
                                 <p class="co-text-desc-small co-text-grey2 fw-bolder">Additional:</p>
                                 @foreach ($add_on as $item)
@@ -63,9 +64,9 @@
                                 @endforeach
                             @endif
                         </div>
-                        <div class="col-4 offset-2 text-end">
+                        {{-- <div class="col-4 offset-2 text-end">
                             <p class="fw-bolder co-text-grey">Rp {{ $price }}</p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -120,7 +121,7 @@
                             <p class="mb-1 fw-bolder co-text-grey">Total due</p>
                         </div>
                         <div class="col-4 offset-2 text-end">
-                            <p class="fw-bolder co-text-grey h6">Rp {{ $price }}</p>
+                            <p class="fw-bolder co-text-grey h6">{{ format_price_idr($price) }}</p>
                         </div>
                     </div>
                 </div>
@@ -129,68 +130,172 @@
             <!-- Right Column -->
             <div class="col-12 col-lg-6 px-5 mt-4 mt-lg-0">
                 <h6 class="co-text-title co-text-grey fw-bolder mb-5">Contact information</h6>
-                <form class="px-2">
-                    <div class="mb-5">
+                <form class="px-2" id="form_booking">
+                    @csrf
+                    <div class="mb-3">
                         <label class="form-label co-text-desc co-fw-bolder mb-3">Email</label>
-                        <input type="email" class="form-control co-text-desc" placeholder="Email">
+                        <input type="email" name="booker_email" class="form-control co-text-desc" placeholder="Email">
                     </div>
 
-                    <div class="mb-5">
+                    <div class="mb-3">
                         <label class="form-label co-text-desc co-fw-bolder mb-3">Full name</label>
-                        <input type="text" class="form-control co-text-desc" placeholder="Your full name">
+                        <input type="text" name="booker_name" class="form-control co-text-desc"
+                            placeholder="Your full name">
                     </div>
 
-                    <div class="mb-5">
+                    <div class="mb-3">
                         <label class="form-label co-text-desc co-fw-bolder mb-3">Phone number</label>
-                        <input type="tel" class="form-control co-text-desc" placeholder="Your phone number">
+                        <input type="tel" name="booker_phone" class="form-control co-text-desc"
+                            placeholder="Your phone number">
                     </div>
-                    <input type="hidden" name="date" id="date" value="{{ $date }}">
+                    <input type="hidden" name="date_books" id="date" value="{{ $date }}">
                     <input type="hidden" name="duration" id="duration" value="{{ $duration }}">
                     <input type="hidden" name="price" id="price" value="{{ $price }}">
                     <input type="hidden" name="product" id="product" value="{{ $product }}">
-                    <input type="hidden" name="add_on" id="add_on" value="{{ $add_on }}">
+                    <input type="hidden" name="add_on" id="add_on" value="{{ json_encode($add_on) }}">
                     <input type="hidden" name="start_time" id="start_time" value="{{ $start_time }}">
                     <input type="hidden" name="end_time" id="end_time" value="{{ $end_time }}">
-
-                    {{-- <div class="mb-5">
-                        <label class="form-label co-text-desc co-fw-bolder mb-3">Country</label>
-                        <select class="form-select co-text-desc">
-                            <option selected>Indonesia</option>
-                        </select>
-                    </div> --}}
-
-
-                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Confirm booking</button>
+                    <input type="hidden" name="details" id="details" value="{{ $details }}">
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" id="btn_booking">Confirm
+                        booking</button>
                 </form>
             </div>
-
-            <!-- Payment Method Section -->
-            {{-- <div class="col-12 col-lg-6 px-5 mt-5 mt-lg-0">
-                <h6 class="co-text-title co-text-grey fw-bolder mb-5">Payment Method</h6>
-                <div class="ps-2">
-                    <div class="border border-secondary-subtle rounded py-2 px-3 mb-4">
-                        <h6 class="co-text-grey co-text-desc fw-bold mb-3 mt-2">Bank Transfer (FULL PAYMENT)</h6>
-                        <div class="ps-2 co-text-desc co-text-grey2">
-                            <p class="mb-0">3880728198</p>
-                            <p>BCA a/n Made Indira</p>
-
-                            <p class="mb-0">WAJIB mengirim bukti transfer ke WhatsApp kami untuk konfirmasi booking
-                                Anda.</p>
-                            <p>Klik link berikut : https://wa.link/dpxpde</p>
-
-                            <p class="mb-1">You will get a copy of these instructions to your email after placing an
-                                order</p>
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
+                aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">Booking Successful</h5>
+                        </div>
+                        <div class="modal-body">
+                            <h6 class="co-text-grey co-text-desc fw-bold mb-3 mt-2">Bank Transfer (FULL PAYMENT)</h6>
+                            <div class="ps-2 co-text-desc co-text-grey2">
+                                <div class="d-flex align-items-center mb-2">
+                                    <p class="mb-0 no_rek fw-bold" id="accountNumber">5725566830</p>
+                                    <button class="btn btn-link text-decoration-none ms-2 copy-btn"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
+                                        <i class="bi bi-clipboard"></i>
+                                    </button>
+                                </div>
+                                <p>Dimas Rangga Arya Gardika (BCA)</p>
+                                <p class="mb-0">WAJIB mengirim bukti transfer ke WhatsApp kami untuk konfirmasi
+                                    booking Anda.</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="whatsappButton">
+                                <i class="bi bi-whatsapp"></i> Konfirmasi lewat Whatsapp
+                            </button>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Place an order</button>
-            </div> --}}
+            </div>
+
         </div>
     </section>
 
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-    <!-- Import Bootstrap JS -->
-    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 </body>
+
+<script src="{{ asset('assets/js/main.js') }}"></script>
+<!-- Import Bootstrap JS -->
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('form').on('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Serialize the form data
+            const formData = $(this).serialize();
+
+            // Send AJAX request
+            $.ajax({
+                url: "{{ route('booking.store') }}", // Your endpoint
+                type: 'POST',
+                data: formData, // Send serialized data
+                success: function(data) {
+                    if (data.status) {
+                        // Show the modal on success
+                        const modal = new bootstrap.Modal(document.getElementById(
+                            'successModal'));
+                        modal.show();
+                    } else {
+                        alert('Booking failed: ' + (data.message || 'Unknown error'));
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                    alert('An error occurred while processing your request.');
+                }
+            });
+        });
+
+        // Initialize tooltips
+        $('[data-bs-toggle="tooltip"]').tooltip();
+
+        // Handle copy button click
+        $('.copy-btn').on('click', function() {
+            // Get the account number text
+            const accountNumber = $('#accountNumber').text().trim();
+
+            // Copy the text to the clipboard
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                // Show tooltip with "Copied!" feedback
+                const $tooltip = $(this).tooltip('dispose').attr('title', 'Copied!').tooltip(
+                    'show');
+
+                // Reset tooltip text after 2 seconds
+                setTimeout(() => {
+                    $tooltip.tooltip('dispose').attr('title', 'Copy').tooltip();
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text:', err);
+                alert('Failed to copy. Please try again.');
+            });
+        });
+
+        $('#whatsappButton').on('click', function() {
+            // Gather data from the form
+            const bookerEmail = $('input[name="booker_email"]').val();
+            const bookerName = $('input[name="booker_name"]').val();
+            const bookerPhone = $('input[name="booker_phone"]').val();
+            const dateBooks = $('#date').val();
+            const duration = $('#duration').val();
+            const price = $('#price').val();
+            const product = $('#product').val();
+            const addOn = JSON.parse($('#add_on').val() || '[]');
+            const startTime = $('#start_time').val();
+            const endTime = $('#end_time').val();
+            const details = $('#details').val();
+
+            // Construct the WhatsApp message
+            let message = `Halo, saya ingin konfirmasi booking:\n\n`;
+            message += `📅 Tanggal: ${dateBooks}\n`;
+            message += `⏰ Waktu: ${startTime} - ${endTime}\n`;
+            message += `📌 Durasi: ${duration} menit\n`;
+            message += `🎯 Produk: ${product}\n`;
+            message += `💵 Harga: Rp ${price}\n`;
+
+            if (addOn.length > 0) {
+                message += `🛠️ Add-ons: ${addOn.map(item => `- ${item[key]}`).join('\n')}\n`;
+            }
+
+            message += `📋 Detail: ${details || 'Tidak ada'}\n\n`;
+            message += `👤 Nama: ${bookerName}\n`;
+            message += `📧 Email: ${bookerEmail}\n`;
+            message += `📱 Nomor Telepon: ${bookerPhone}`;
+
+            // Encode the message for WhatsApp URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // WhatsApp API URL
+            const whatsappURL = `https://wa.me/6281410265823?text=${encodedMessage}`;
+
+            // Redirect to WhatsApp
+            window.open(whatsappURL, '_blank');
+        });
+    });
+</script>
+
 
 </html>

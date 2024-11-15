@@ -13,8 +13,17 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('product');
             $table->date('date_books');
-            $table->
+            $table->string('duration');
+            $table->string('price');
+            $table->text('add_on')->nullable();
+            $table->string('start_time');
+            $table->string('end_time');
+            $table->string('details')->nullable();
+            $table->string('booker_name');
+            $table->string('booker_email');
+            $table->string('booker_phone');
             $table->timestamps();
         });
     }

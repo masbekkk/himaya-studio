@@ -26,3 +26,48 @@ if (!function_exists('formatResponse')) {
         ], is_int($httpCode) ? $httpCode : 500);
     }
 }
+
+if (!function_exists('format_price_idr')) {
+    function format_price_idr($amount)
+    {
+        return 'Rp ' . number_format($amount, 0, ',', '.');
+    }
+}
+
+if (!function_exists('format_indonesian_date')) {
+    function format_indonesian_date($date)
+    {
+        $days = [
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => "Jum'at",
+            'Saturday' => 'Sabtu'
+        ];
+
+        $months = [
+            'Jan' => 'Jan',
+            'Feb' => 'Feb',
+            'Mar' => 'Mar',
+            'Apr' => 'Apr',
+            'May' => 'Mei',
+            'Jun' => 'Jun',
+            'Jul' => 'Jul',
+            'Aug' => 'Agu',
+            'Sep' => 'Sep',
+            'Oct' => 'Okt',
+            'Nov' => 'Nov',
+            'Dec' => 'Des'
+        ];
+
+        // Convert to DateTime object
+        $dateObject = \Carbon\Carbon::parse($date);
+
+        $dayName = $days[$dateObject->format('l')];
+        $monthName = $months[$dateObject->format('M')];
+
+        return "{$dayName}, " . $dateObject->format('d') . " {$monthName} " . $dateObject->format('Y');
+    }
+}
