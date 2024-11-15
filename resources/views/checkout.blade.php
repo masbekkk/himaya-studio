@@ -270,20 +270,20 @@
 
             // Construct the WhatsApp message
             let message = `Halo, saya ingin konfirmasi booking:\n\n`;
-            message += `📅 Tanggal: ${dateBooks}\n`;
-            message += `⏰ Waktu: ${startTime} - ${endTime}\n`;
-            message += `📌 Durasi: ${duration} menit\n`;
-            message += `🎯 Produk: ${product}\n`;
-            message += `💵 Harga: Rp ${price}\n`;
+            message += `Tanggal: ${dateBooks}\n`;
+            message += `Waktu: ${startTime} - ${endTime}\n`;
+            message += `Durasi: ${duration} menit\n`;
+            message += `Produk: ${product}\n`;
+            message += `Harga: Rp ${price}\n`;
 
             if (addOn.length > 0) {
-                message += `🛠️ Add-ons: ${addOn.map(item => `- ${item[key]}`).join('\n')}\n`;
+                message += `Add-ons: ${addOn.map(item => `- ${item[key]}`).join('\n')}\n`;
             }
 
-            message += `📋 Detail: ${details || 'Tidak ada'}\n\n`;
-            message += `👤 Nama: ${bookerName}\n`;
-            message += `📧 Email: ${bookerEmail}\n`;
-            message += `📱 Nomor Telepon: ${bookerPhone}`;
+            message += `Detail: ${details || 'Tidak ada'}\n\n`;
+            message += `Nama: ${bookerName}\n`;
+            message += `Email: ${bookerEmail}\n`;
+            message += `Nomor Telepon: ${bookerPhone}`;
 
             // Encode the message for WhatsApp URL
             const encodedMessage = encodeURIComponent(message);
