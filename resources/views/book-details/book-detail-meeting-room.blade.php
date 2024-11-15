@@ -10,6 +10,7 @@
 @section('content')
     <!-- start content -->
     <section class="container detail-box">
+        @include('modals.modal-meet-room', ['product' => 'Meeting Room'])
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
                 <section id="main-carousel" class="splide" aria-label="Image Carousel">
@@ -39,11 +40,6 @@
                         <img src="{{ asset('assets/img/meet-room-3.jpg') }}" alt="Meet Room 3">
                     </li>
                 </ul>
-
-
-                {{-- <p class="notes d-none d-lg-block">
-                    Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
-                </p> --}}
             </div>
             <div class="col-12 col-lg-6">
                 <h1 class="detail-title">Meeting Room</h1>
@@ -55,18 +51,11 @@
                 <p class="h5 fw-normal mb-3">(Harga seterusnya mengikuti di atas)</p>
                 <p class="h6 fw-normal mb-3">Additional:</p>
                 <p class="h6 fw-normal mb-3">- Proyektor : Rp 20.000</p>
-                <p class="text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
-                {{-- <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
-                    satu</p>
-                <input class="form-control form-control-lg mb-5" type="text"> --}}
+                <p class="text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
+                <button class="detail-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-meet-room">Book
+                    Now</button>
 
-                <button class="detail-btn my-4 rounded-pill d-block">Book Now</button>
-
-                {{-- <p class="notes d-block d-lg-none">
-                    Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
-                </p> --}}
-
-                <p class="h5 text-description fw-bold mt-5">Syarat & Ketentuan</p>
+                <p class="h5 text-description fw-bold mt-3">Syarat & Ketentuan</p>
                 <ul class="text-description">
                     <li><i>Cashless payment only.</i> (tidak menerima uang tunai, hanya menerima transfer atau QRIS)</li>
                     <li>Uang yang sudah masuk tidak dapat di <i>refund</i>.</li>

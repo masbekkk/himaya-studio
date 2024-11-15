@@ -56,7 +56,7 @@
                             <p class="mb-1 fw-bolder co-text-grey">{{ $product }} ({{ $duration }} menit) </p>
                             <p class="mb-1 fw-bolder co-text-grey">{{ format_indonesian_date($date) }}
                                 {{ $start_time }} - {{ $end_time }} </p>
-                            <p class="co-text-desc-small co-text-grey2 fw-bolder">{{ $details }}</p>
+                            <p class="co-text-desc-small co-text-grey2 fw-bolder">{{ $details ?? NULL }}</p>
                             @if (!empty($add_on))
                                 <p class="co-text-desc-small co-text-grey2 fw-bolder">Additional:</p>
                                 @foreach ($add_on as $item)
@@ -155,7 +155,7 @@
                     <input type="hidden" name="add_on" id="add_on" value="{{ json_encode($add_on) }}">
                     <input type="hidden" name="start_time" id="start_time" value="{{ $start_time }}">
                     <input type="hidden" name="end_time" id="end_time" value="{{ $end_time }}">
-                    <input type="hidden" name="details" id="details" value="{{ $details }}">
+                    <input type="hidden" name="details" id="details" value="{{ $details ?? NULL }}">
                     <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" id="btn_booking">Confirm
                         booking</button>
                 </form>
