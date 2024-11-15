@@ -39,4 +39,4 @@ Route::get('book-detail/{slug}', function ($slug) {
 Route::match(['get', 'post'], 'book-checkout', [BookingController::class, 'to_checkout'])->name('book.checkout');
 Route::resource('booking', BookingController::class);
 
-Route::get('open-modal', [BookingController::class, 'open_modal'])->name('book.open_modal');
+Route::post('open-modal', [BookingController::class, 'open_modal'])->name('book.open_modal');

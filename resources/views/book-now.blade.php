@@ -231,7 +231,7 @@
             <div class="col-12 col-lg-3 product-card">
                 <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
                     <div class="position-relative">
-                        <span class="product-label">Book Now</span>
+                        <span class="product-label bg-red">Book Now</span>
                         <img src="assets/img/katalog-photo-1.jpeg" class="product-img" alt="Self-Photo Studio">
                         <h4 class="product-title">Self-Photo Studio</h4>
                         <p class="product-sub">Rp 99.000 | 15 min</p>
@@ -246,7 +246,7 @@
             <div class="col-12 col-lg-3 product-card">
                 <a class="no-decor" href="{{ route('book-detail', ['slug' => 'meeting-room']) }}">
                     <div class="position-relative">
-                        <span class="product-label">Book Now</span>
+                        <span class="product-label bg-red">Book Now</span>
                         <img src="assets/img/meet-room-3.jpg" class="product-img" alt="Meeting Room">
                         <h4 class="product-title">Meeting Room</h4>
                         <p class="product-sub">Rp. 69.000 | 60 min</p>
@@ -296,28 +296,39 @@
             }).mount();
         });
 
+        function generateModal(response) {
+            // Remove the existing modal to avoid duplicates
+            $('#booking-modal').remove();
+
+            // Append the new modal HTML to the body
+            $('body').append(response);
+
+            // Initialize the modal using its id
+            const modalElement = document.getElementById('booking-modal');
+            if (modalElement) {
+                const modalInstance = new bootstrap.Modal(modalElement);
+                modalInstance.show(); // Display the modal
+            } else {
+                console.error('Modal element not found in the DOM.');
+            }
+        }
         $('#btn-meet-room').click(function(e) {
             e.preventDefault(); // Prevent default behavior
             $.ajax({
-                url: "{{ route('book.open_modal') }}", // Replace with your endpoint
-                type: 'GET', // Assuming a GET request
-                dataType: 'html', // Expecting HTML response
+                url: "{{ route('book.open_modal') }}",
+                type: 'POST',
+                dataType: 'html',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    product: 'Meeting Room',
+                    price_lists: JSON.stringify([69000, 99000, 129000, 149000]),
+                    duration_lists: JSON.stringify([60, 120, 150, 180]),
+                    add_ons_meet_room: true,
+                    background: false,
+                    add_ons_self_photo: false,
+                },
                 success: function(response) {
-                    console.log(response)
-                    // Remove the existing modal to avoid duplicates
-                    $('#book-modal-self-photo').remove();
-
-                    // Append the new modal HTML to the body
-                    $('body').append(response);
-
-                    // Initialize the modal using its id
-                    const modalElement = document.getElementById('book-modal-self-photo');
-                    if (modalElement) {
-                        const modalInstance = new bootstrap.Modal(modalElement);
-                        modalInstance.show(); // Display the modal
-                    } else {
-                        console.error('Modal element not found in the DOM.');
-                    }
+                    generateModal(response)
                 },
                 error: function(xhr, status, error) {
                     console.error('Error loading modal:', error);

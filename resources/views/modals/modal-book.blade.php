@@ -226,8 +226,7 @@
     }
 </style>
 
-<div class="modal fade" id="book-modal-self-photo" tabindex="-1" aria-labelledby="book-modal-self-photoLabel"
-    aria-hidden="true">
+<div class="modal fade" id="booking-modal" tabindex="-1" aria-labelledby="book-modal-self-photoLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-lg-down modal-dialog-centered">
         <div class="modal-content rounded" style="overflow: hidden;">
             <div class="modal-body p-0 book-modal-body position-relative">
@@ -250,16 +249,19 @@
                                 Kec. Pd. Gede, Kota Bks, Jawa Barat 17411</span>
                         </li>
                     </ul>
-                    <span class="fs-6">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah satu</span>
-                    <select class="form-control my-3" style="border: 1px solid #0d6efd;" name="details"
-                        id="input_details" required>
-                        <option value="" disabled selected>Pilih warna</option>
-                        <option value="Putih">Putih</option>
-                        <option value="Biru">Biru</option>
-                        <option value="Pink">Pink</option>
-                        <option value="Abu-abu">Abu-abu</option>
-                        <option value="Kuning">Kuning</option>
-                    </select>
+                    @if ($background === 'true')
+                        <span class="fs-6">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
+                            satu</span>
+                        <select class="form-control my-3" style="border: 1px solid #0d6efd;" name="details"
+                            id="input_details" required>
+                            <option value="" disabled selected>Pilih warna</option>
+                            <option value="Putih">Putih</option>
+                            <option value="Biru">Biru</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Abu-abu">Abu-abu</option>
+                            <option value="Kuning">Kuning</option>
+                        </select>
+                    @endif
                 </div>
 
                 <div class="right-side bg-grey">
@@ -268,7 +270,6 @@
                         <div class="w-100 h-100" id="datepicker"></div>
                     </div>
                     <div class="timepicker-block">
-                        {{-- <p class="current-date mb-3">Thursday, November 7</p> --}}
                         <label for="start-time">Start Time:</label>
                         <input type="time" id="start-time" class="time-input" required>
 
@@ -279,20 +280,31 @@
                             start time.</p>
 
                         <p class="text-title-add-ons mb-2 mt-4">Add ons:</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="Kustom" value="25000"
-                                id="check_kustom">
-                            <label class="form-check-label" for="check_kustom">
-                                Kustom
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="Hard Copy" value="15000"
-                                id="check_hard_copy">
-                            <label class="form-check-label" for="check_hard_copy">
-                                Hard Copy
-                            </label>
-                        </div>
+                        @if ($add_ons_meet_room === 'true')
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="Proyektor" value="20000"
+                                    id="check_kustom">
+                                <label class="form-check-label" for="check_kustom">
+                                    Proyektor
+                                </label>
+                            </div>
+                        @endif
+                        @if ($add_ons_self_photo === 'true')
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="Kustom" value="25000"
+                                    id="check_kustom">
+                                <label class="form-check-label" for="check_kustom">
+                                    Kustom
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="Hard Copy" value="15000"
+                                    id="check_hard_copy">
+                                <label class="form-check-label" for="check_hard_copy">
+                                    Hard Copy
+                                </label>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -364,7 +376,6 @@
         function calculateTimeDifference() {
             startTime = $startTimeInput.val();
             endTime = $endTimeInput.val();
-
             if (startTime && endTime) {
                 const start = new Date(`1970-01-01T${startTime}:00`);
                 const end = new Date(`1970-01-01T${endTime}:00`);
@@ -406,11 +417,9 @@
         $endTimeInput.on('input', calculateTimeDifference);
 
         function calculatePrice(duration) {
-            // Base prices and durations
-            const basePrices = [99000, 129000, 149000, 179000];
-            const baseDurations = [15, 30, 45, 60];
-            const increment = 30000; // Additional price for every 15 minutes past 60 minutes
-
+            let basePrices = JSON.parse(@json($price_lists));
+            let baseDurations = JSON.parse(@json($duration_lists));
+            const increment = 30000;
             if (duration <= 60) {
                 for (let i = 0; i < baseDurations.length; i++) {
                     if (duration === baseDurations[i]) {
@@ -433,7 +442,6 @@
             }
             // $('#text-price').text(`Rp ${totalPrice.toLocaleString()}`);
         }
-
         function updateTotalPrice(duration) {
             let durationPrice = calculatePrice(duration); // Calculate the base price based on duration
             let addOnPrice = 0;
@@ -465,8 +473,6 @@
 
         // Listen for changes on checkboxes and update the price dynamically
         $('.form-check-input').change(function() {
-            // Assuming 'duration' is a variable you get from user input
-            const duration = 60; // Replace with actual duration input
             updateTotalPrice(duration);
         });
 
@@ -478,7 +484,7 @@
         const isoDate = date.toISOString().split('T')[0];
 
         function submitData() {
-            if ($('#input_details').val() == null) {
+            if ($('#input_details').length && $('#input_details').val() == null) {
                 Swal.fire({
                     title: 'Background harus Dipilih',
                     text: "Kamu belum memilih Background Foto",
