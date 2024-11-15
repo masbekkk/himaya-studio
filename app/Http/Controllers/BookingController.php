@@ -27,6 +27,11 @@ class BookingController extends Controller
         }
     }
 
+    public function open_modal(Request $request)
+    {
+        return view('modals.modal-book', ['product' => 'Self Photo Studio'])->render();
+    }
+
     // Create a new booking
     public function store(Request $request)
     {

@@ -14,6 +14,11 @@
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
 @endpush
 @section('content')
     <section class="container">
@@ -129,7 +134,8 @@
                                 {{-- <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
                                     satu</p>
                                 <input class="form-control form-control-lg mb-1" type="text" placeholder=""> --}}
-                                <button class="modal-btn black-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-self-photo">Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" data-bs-toggle="modal"
+                                    data-bs-target="#book-modal-self-photo">Book Now</button>
 
                                 <p class="modal-notes d-block d-lg-none mb-2">
                                     Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
@@ -183,10 +189,12 @@
                                 <p class="modal-additional">Additional:</p>
                                 <p class="modal-additional-item">- Proyektor: Rp 20.000</p>
 
-                                <p class="modal-location text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
+                                <p class="modal-location text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
                                     Jatiwaringin, Kec. Pd. Gede</p>
 
-                                <button class="modal-btn black-btn my-4 rounded-pill d-block">Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-meet-room"
+                                    {{-- data-bs-toggle="modal"
+                                    data-bs-target="#book-modal-meet-room" --}}>Book Now</button>
                                 <a href="{{ route('book-detail', ['slug' => 'meeting-room']) }}" class="modal-link">MORE
                                     DETAILS</a>
                             </div>
@@ -195,8 +203,7 @@
                 </div>
             </div>
         </div>
-
-        @include('modals.modal-book-self-photo', ['product' => 'Self Photo Studio'])
+        {{-- @include('modals.modal-book-self-photo', ['product' => 'Self Photo Studio']) --}}
 
         <!-- Product Section -->
         <div class="row product-section d-flex justify-content-center" data-aos="fade-up" data-aos-once="true"
@@ -271,6 +278,7 @@
     <!-- page js -->
     <link rel="stylesheet" href="{{ asset('assets/js/book-now.js') . '?v=' . bin2hex(random_bytes(20)) }}">
     <script src="{{ asset('assets/js/book-detail.js') }}"></script>
+
     <!-- Initialize Splide for each modal carousel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -286,6 +294,36 @@
                 type: 'loop',
                 autoplay: false
             }).mount();
+        });
+
+        $('#btn-meet-room').click(function(e) {
+            e.preventDefault(); // Prevent default behavior
+            $.ajax({
+                url: "{{ route('book.open_modal') }}", // Replace with your endpoint
+                type: 'GET', // Assuming a GET request
+                dataType: 'html', // Expecting HTML response
+                success: function(response) {
+                    console.log(response)
+                    // Remove the existing modal to avoid duplicates
+                    $('#book-modal-self-photo').remove();
+
+                    // Append the new modal HTML to the body
+                    $('body').append(response);
+
+                    // Initialize the modal using its id
+                    const modalElement = document.getElementById('book-modal-self-photo');
+                    if (modalElement) {
+                        const modalInstance = new bootstrap.Modal(modalElement);
+                        modalInstance.show(); // Display the modal
+                    } else {
+                        console.error('Modal element not found in the DOM.');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading modal:', error);
+                    alert('An error occurred while loading the modal. Please try again.');
+                }
+            });
         });
     </script>
 @endpush

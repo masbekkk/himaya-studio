@@ -1,6 +1,7 @@
 <!-- pikaday -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') . '?v=' . bin2hex(random_bytes(20)) }}">
+<link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.min.css?v=' . bin2hex(random_bytes(20))) }}">
 <!-- splide -->
 <style>
     .pika-single {
@@ -27,12 +28,12 @@
         color: #0d6efd;
     }
 
-    #book-modal-meet-room>.modal-dialog {
+    #book-modal-self-photo>.modal-dialog {
         width: 60vw;
         max-width: 60vw;
     }
 
-    #book-modal-meet-room>.modal-content {
+    #book-modal-self-photo>.modal-content {
         overflow-y: hidden;
         border-radius: 1em;
     }
@@ -116,7 +117,7 @@
         grid-template-columns: 60% 40%;
     }
 
-    #book-modal-meet-room>.modal-title {
+    #book-modal-self-photo>.modal-title {
         font-size: 1.2rem;
         font-weight: normal;
         margin-bottom: 1.5rem;
@@ -141,7 +142,7 @@
         grid-area: time;
     }
 
-    #book-modal-meet-room>.modal-footer .btn {
+    #book-modal-self-photo>.modal-footer .btn {
         font-size: calc(1rem - 2px);
         min-width: 100px;
     }
@@ -184,7 +185,7 @@
     }
 
     @media screen and (max-width: 992px) {
-        #book-modal-meet-room>.modal-title:last-child {
+        #book-modal-self-photo>.modal-title:last-child {
             margin-bottom: 0;
         }
 
@@ -192,7 +193,7 @@
             width: 100%;
         }
 
-        #book-modal-meet-room>.modal-dialog {
+        #book-modal-self-photo>.modal-dialog {
             width: 100%;
             max-width: 100%;
         }
@@ -225,7 +226,7 @@
     }
 </style>
 
-<div class="modal fade" id="book-modal-meet-room" tabindex="-1" aria-labelledby="book-modal-meet-roomLabel"
+<div class="modal fade" id="book-modal-self-photo" tabindex="-1" aria-labelledby="book-modal-self-photoLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-lg-down modal-dialog-centered">
         <div class="modal-content rounded" style="overflow: hidden;">
@@ -249,7 +250,16 @@
                                 Kec. Pd. Gede, Kota Bks, Jawa Barat 17411</span>
                         </li>
                     </ul>
-
+                    <span class="fs-6">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah satu</span>
+                    <select class="form-control my-3" style="border: 1px solid #0d6efd;" name="details"
+                        id="input_details" required>
+                        <option value="" disabled selected>Pilih warna</option>
+                        <option value="Putih">Putih</option>
+                        <option value="Biru">Biru</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Abu-abu">Abu-abu</option>
+                        <option value="Kuning">Kuning</option>
+                    </select>
                 </div>
 
                 <div class="right-side bg-grey">
@@ -270,10 +280,17 @@
 
                         <p class="text-title-add-ons mb-2 mt-4">Add ons:</p>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="Proyektor" value="20000"
+                            <input class="form-check-input" type="checkbox" name="Kustom" value="25000"
                                 id="check_kustom">
                             <label class="form-check-label" for="check_kustom">
-                                Proyektor
+                                Kustom
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="Hard Copy" value="15000"
+                                id="check_hard_copy">
+                            <label class="form-check-label" for="check_hard_copy">
+                                Hard Copy
                             </label>
                         </div>
                     </div>
@@ -294,9 +311,6 @@
     </div>
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
         // Get today's date
@@ -393,8 +407,8 @@
 
         function calculatePrice(duration) {
             // Base prices and durations
-            const basePrices = [69000, 99000, 129000, 149000];
-            const baseDurations = [60, 120, 150, 180];
+            const basePrices = [99000, 129000, 149000, 179000];
+            const baseDurations = [15, 30, 45, 60];
             const increment = 30000; // Additional price for every 15 minutes past 60 minutes
 
             if (duration <= 60) {
@@ -464,38 +478,47 @@
         const isoDate = date.toISOString().split('T')[0];
 
         function submitData() {
-            // Create a new form element
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = "{{ route('book.checkout') }}";
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = '_token';
-            input.value = "{{ csrf_token() }}";
-            form.appendChild(input);
-            // Add data as hidden inputs
-            const data = {
-                date: isoDate,
-                duration: duration,
-                price: totalPrice,
-                product: "{{ $product }}",
-                add_on: JSON.stringify(addOnsArray),
-                start_time: startTime,
-                end_time: endTime,
-                // details: 'Warna Background: ' + $('#input_details').val()
-            };
-
-            for (const key in data) {
+            if ($('#input_details').val() == null) {
+                Swal.fire({
+                    title: 'Background harus Dipilih',
+                    text: "Kamu belum memilih Background Foto",
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                });
+            } else {
+                // Create a new form element
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = "{{ route('book.checkout') }}";
                 const input = document.createElement('input');
                 input.type = 'hidden';
-                input.name = key;
-                input.value = data[key];
+                input.name = '_token';
+                input.value = "{{ csrf_token() }}";
                 form.appendChild(input);
-            }
+                // Add data as hidden inputs
+                const data = {
+                    date: isoDate,
+                    duration: duration,
+                    price: totalPrice,
+                    product: "{{ $product }}",
+                    add_on: JSON.stringify(addOnsArray),
+                    start_time: startTime,
+                    end_time: endTime,
+                    details: 'Warna Background: ' + $('#input_details').val()
+                };
 
-            // Append form to the body and submit it
-            document.body.appendChild(form);
-            form.submit();
+                for (const key in data) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = data[key];
+                    form.appendChild(input);
+                }
+
+                // Append form to the body and submit it
+                document.body.appendChild(form);
+                form.submit();
+            }
         }
 
         $('#btn-book').click(function() {

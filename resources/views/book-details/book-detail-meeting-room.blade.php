@@ -10,7 +10,7 @@
 @section('content')
     <!-- start content -->
     <section class="container detail-box">
-        @include('modals.modal-meet-room', ['product' => 'Meeting Room'])
+        @include('modals.modal-book-meet-room', ['product' => 'Meeting Room'])
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
                 <section id="main-carousel" class="splide" aria-label="Image Carousel">
