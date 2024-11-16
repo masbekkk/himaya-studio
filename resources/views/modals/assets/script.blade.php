@@ -26,7 +26,6 @@
         const modalElement = $('#booking-modal');
         if (modalElement.length) {
             modalElement.modal('show');
-            initializeDatePicker(); // Initialize date picker for the modal
         } else {
             console.error('Modal element not found in the DOM.');
         }
@@ -112,55 +111,4 @@
             }
         });
     });
-    let selectedDate = null;
-    let picker = null;
-    const today = new Date();
-
-    function initializeDatePicker() {
-        // Destroy any existing Pikaday instance before initializing
-        destroyPikaday();
-
-        // Check if the #datepicker exists in the DOM
-        const datePickerField = $('#datepicker')[0];
-        if (datePickerField) {
-            // Create a new Pikaday instance
-            picker = new Pikaday({
-                field: datePickerField,
-                bound: false,
-                container: datePickerField,
-                format: 'YYYY-MM-DD',
-                minDate: new Date(), // Disable dates before today
-                onSelect: function(date) {
-                    const options = {
-                        weekday: 'long',
-                        month: 'long',
-                        day: 'numeric'
-                    };
-                    const formattedDate = date.toLocaleDateString('en-US', options);
-                    $('#selected-date').text(formattedDate);
-                    $('.current-date').text(formattedDate);
-                }
-            });
-
-            // Set the initial date to today and update both elements
-            picker.setDate(today);
-            const initialDate = today.toLocaleDateString('en-US', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric'
-            });
-            $('#selected-date').text(initialDate);
-            $('.current-date').text(initialDate);
-        } else {
-            console.warn('Datepicker field not found in the DOM.');
-        }
-    }
-
-    function destroyPikaday() {
-        // Destroy the Pikaday instance if it exists
-        if (picker) {
-            picker.destroy();
-            picker = null; // Clear the reference to avoid reuse
-        }
-    }
 </script>

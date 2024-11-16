@@ -241,11 +241,10 @@
                         </li>
                         <li class="my-2">
                             <i class="bi bi-clock me-2"></i>
-                            <span id="time-difference">0 minutes
-                                @if ($add_ons_private_cinema === 'true')
-                                    (<text class="total_people">4 orang</text>)
-                                @endif
-                            </span>
+                            <span id="time-difference">0 minutes</span>
+                            @if ($add_ons_private_cinema === 'true')
+                                (<text class="total_people">4 orang</text>)
+                            @endif
                         </li>
                         <li class="my-2">
                             <i class="bi bi-geo-alt me-2"></i>
@@ -268,8 +267,8 @@
                     @endif
                     @if ($total_people === 'true')
                         <span class="fs-6">Max 4 orang, nambah orang charge 10k/orang</span>
-                        <label>Masukkan Total Orang</label>
-                        <input type="number" name="total_people" class="form-control">
+                        <label class="form-label">Masukkan Tambahan Orang</label>
+                        <input type="number" name="total_people" class="form-control input_total_people">
                     @endif
                 </div>
 
@@ -352,28 +351,28 @@
                             <div class="mb-4">
                                 <h4>Bridal Shower Packages</h4>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
                                         id="bridalStandard" value="499000">
                                     <label class="form-check-label" for="bridalStandard">
                                         Rp 499.000 | Bridal Shower Standard Package
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
                                         id="bridalSilver" value="649000">
                                     <label class="form-check-label" for="bridalSilver">
                                         Rp 649.000 | Bridal Shower Silver Package
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
                                         id="bridalGold" value="849000">
                                     <label class="form-check-label" for="bridalGold">
                                         Rp 849.000 | Bridal Shower Gold Package
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
                                         id="bridalPlatinum" value="999000">
                                     <label class="form-check-label" for="bridalPlatinum">
                                         Rp 999.000 | Bridal Shower Platinum Package
@@ -402,6 +401,8 @@
 <script>
     $(document).ready(function() {
         // Get today's date
+        let selectedDate = null;
+        let picker = null;
         const today = new Date();
         let duration = 0;
         let totalPrice = 0; // Keep track of total price
@@ -416,6 +417,58 @@
         const $timeDifferenceDisplay = $('#time-difference');
         const $errorMessage = $('#error-message');
         $bookButton.prop('disabled', true); // Disable button by default
+
+        function initializeDatePicker() {
+            // Destroy any existing Pikaday instance before initializing
+            destroyPikaday();
+
+            // Check if the #datepicker exists in the DOM
+            const datePickerField = $('#datepicker')[0];
+            if (datePickerField) {
+                // Create a new Pikaday instance
+                picker = new Pikaday({
+                    field: datePickerField,
+                    bound: false,
+                    container: datePickerField,
+                    format: 'YYYY-MM-DD',
+                    minDate: new Date(), // Disable dates before today
+                    onSelect: function(date) {
+                        const options = {
+                            weekday: 'long',
+                            month: 'long',
+                            day: 'numeric',
+                            year: 'numeric'
+                        };
+                        const formattedDate = date.toLocaleDateString('en-US', options);
+                        selectedDate = formattedDate
+                        $('#selected-date').text(formattedDate);
+                        $('.current-date').text(formattedDate);
+                    }
+                });
+            } else {
+                console.warn('Datepicker field not found in the DOM.');
+            }
+        }
+
+        function destroyPikaday() {
+            // Destroy the Pikaday instance if it exists
+            if (picker) {
+                picker.destroy();
+                picker = null; // Clear the reference to avoid reuse
+            }
+        }
+        initializeDatePicker(); // Initialize date picker for the modal
+        // Set the initial date to today and update both elements
+        picker.setDate(today);
+        const initialDate = today.toLocaleDateString('en-US', {
+            weekday: 'long',
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric'
+        });
+        selectedDate = initialDate
+        $('#selected-date').text(initialDate);
+        $('.current-date').text(initialDate);
 
         // Function to calculate time difference in minutes
         function calculateTimeDifference() {
@@ -461,6 +514,19 @@
 
         $endTimeInput.on('input', calculateTimeDifference);
 
+        let totalPeople = 0;
+
+        // Attach the 'input' event handler to the input field
+        $('.input_total_people').on('input', function(e) {
+            let value = parseInt($(this).val()) || 0;
+            $('.total_people').text(4 + value + " Orang");
+            $()
+            totalPeople = value * 10000;
+            // totalPrice += totalPeople
+            $('#text-price').text(`Price: Rp ${calculatePrice(duration).toLocaleString()}`);
+        });
+
+
         function calculatePrice(duration) {
             let basePrices = JSON.parse(@json($price_lists));
             let baseDurations = JSON.parse(@json($duration_lists));
@@ -470,7 +536,7 @@
                     if (duration === baseDurations[i]) {
                         totalPrice = basePrices[i];
                         $bookButton.prop('disabled', false).addClass('active-time');
-                        return totalPrice;
+                        return totalPrice + totalPeople;
                     }
                 }
                 $bookButton.prop('disabled', true).removeClass('active-time');
@@ -483,7 +549,7 @@
 
                 totalPrice = basePrices[3] + additionalCost;
                 $bookButton.prop('disabled', false).addClass('active-time');
-                return totalPrice;
+                return totalPrice + totalPeople;
             }
             // $('#text-price').text(`Rp ${totalPrice.toLocaleString()}`);
         }
@@ -506,9 +572,18 @@
 
                 // Handle radio buttons for package selection
                 let selectedPackagePrice = 0; // Default for radio button values
-                $('input[type="radio"]:checked').each(function() {
-                    selectedPackagePrice += parseInt($(this).val());
+                $('input[type="radio"]').each(function(index) {
+                    if ($(this).is(':checked')) {
+                        selectedPackagePrice += parseInt($(this).val());
+
+                        // Fetch the associated label text
+                        const labelText = $(`label[for="${$(this).attr('id')}"]`).text().trim();
+                        addOns[`addon${index + 1}`] = labelText;
+                    } else {
+                        delete addOns[`addon${index + 1}`];
+                    }
                 });
+
 
                 // Convert the object to an array of objects as required
                 addOnsArray = Object.keys(addOns).map(key => ({
@@ -549,9 +624,10 @@
         });
 
         const date = new Date(selectedDate);
-        const isoDate = date.toISOString().split('T')[0];
+        const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+        const isoDate = localDate.toISOString().split('T')[0];
 
-        function submitData() {
+        function submitData(data) {
             if ($('#input_details').length && $('#input_details').val() == null) {
                 Swal.fire({
                     title: 'Background harus Dipilih',
@@ -560,6 +636,7 @@
                     confirmButtonText: 'OK',
                 });
             } else {
+
                 // Create a new form element
                 const form = document.createElement('form');
                 form.method = 'POST';
@@ -570,17 +647,7 @@
                 input.value = "{{ csrf_token() }}";
                 form.appendChild(input);
                 // Add data as hidden inputs
-                const data = {
-                    date: isoDate,
-                    duration: duration,
-                    price: totalPrice,
-                    product: "{{ $product }}",
-                    add_on: JSON.stringify(addOnsArray),
-                    start_time: startTime,
-                    end_time: endTime,
-                    details: $('#input_details').length ? 'Warna Background: ' + $('#input_details').val() :
-                        null
-                };
+
 
                 for (const key in data) {
                     const input = document.createElement('input');
@@ -597,17 +664,23 @@
         }
 
         $('#btn-book').click(function() {
-            // console.log({
-            //     date: isoDate,
-            //     duration: duration,
-            //     price: totalPrice,
-            //     product: 'Self Photo Studio',
-            //     add_on: addOnsArray,
-            //     start_time: startTime,
-            //     end_time: endTime
-            // });
-
-            submitData()
+            let details = $('#input_details').length ?
+                'Warna Background: ' + $('#input_details').val() :
+                $('.total_people').length ?
+                $('.total_people').text() :
+                null;
+            const data = {
+                date: isoDate,
+                duration: duration,
+                price: totalPrice,
+                product: "{{ $product }}",
+                add_on: JSON.stringify(addOnsArray),
+                start_time: startTime,
+                end_time: endTime,
+                details: details
+            };
+            // console.log(data)
+            submitData(data)
         });
     });
 </script>
