@@ -12,8 +12,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
-    {{-- @include('modals.assets.style')
-    @include('modals.assets.script') --}}
 @endpush
 @section('content')
     <section class="container">
@@ -291,6 +289,14 @@
         });
 
         function generateModal(response) {
+            const existingModal = $('#booking-modal');
+            if (existingModal.length) {
+                existingModal.remove();  // Hide the modal
+            }
+            appendAndShowModal(response);
+        }
+
+        function appendAndShowModal(response) {
             // Close all currently open modals
             $('.modal.show').each(function() {
                 const modalId = $(this).attr('id'); // Get the modal's ID
@@ -298,7 +304,6 @@
                     $(`#${modalId}`).modal('hide'); // Hide the modal using jQuery
                 }
             });
-
             // Append the new modal HTML to the body
             $('body').append(response);
 
@@ -306,11 +311,12 @@
             const modalElement = $('#booking-modal');
             if (modalElement.length) {
                 modalElement.modal('show');
-                initializeDatePicker();
+                initializeDatePicker(); // Initialize date picker for the modal
             } else {
                 console.error('Modal element not found in the DOM.');
             }
         }
+
 
         $('#btn-meet-room').click(function(e) {
             e.preventDefault(); // Prevent default behavior
