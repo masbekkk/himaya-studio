@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @push('style')
-    <!-- page css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/book-now.css') . '?v=' . bin2hex(random_bytes(20)) }}">
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+     <!-- page css -->
+     <link rel="stylesheet" href="{{ asset('assets/css/book-now.css') . '?v=' . bin2hex(random_bytes(20)) }}">
 @endpush
 @section('content')
     <section class="container">
@@ -19,7 +19,7 @@
                             aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
-                                <section id="modal-carousel-private-cinema" class="splide modal-carousel"
+                                <section id="modal-carousel-private-cinema" class="splide main-carousel"
                                     aria-label="Private Cinema Images">
                                     <div class="splide__track">
                                         <ul class="splide__list">
@@ -86,7 +86,7 @@
                             aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
-                                <section id="modal-carousel-self-photo" class="splide modal-carousel"
+                                <section id="modal-carousel-self-photo" class="splide main-carousel"
                                     aria-label="Self-Photo Studio Images">
                                     <div class="splide__track">
                                         <ul class="splide__list">
@@ -118,9 +118,7 @@
                                 <p class="modal-additional">- Hard Copy: Rp 15.000</p>
                                 <p class="modal-location">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec.
                                     Pd. Gede</p>
-                                {{-- <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
-                                    satu</p>
-                                <input class="form-control form-control-lg mb-1" type="text" placeholder=""> --}}
+                                
                                 <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-self-photo">Book
                                     Now</button>
 
@@ -147,7 +145,7 @@
                             aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
-                                <section id="modal-carousel-meeting-room" class="splide modal-carousel"
+                                <section id="modal-carousel-meeting-room" class="splide main-carousel"
                                     aria-label="Meeting Room Images">
                                     <div class="splide__track">
                                         <ul class="splide__list">
@@ -179,9 +177,7 @@
                                 <p class="modal-location text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
                                     Jatiwaringin, Kec. Pd. Gede</p>
 
-                                <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-meet-room"
-                                    {{-- data-bs-toggle="modal"
-                                    data-bs-target="#book-modal-meet-room" --}}>Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-meet-room">Book Now</button>
                                 <a href="{{ route('book-detail', ['slug' => 'meeting-room']) }}" class="modal-link">MORE
                                     DETAILS</a>
                             </div>
@@ -265,22 +261,4 @@
     <script src="{{ asset('assets/js/book-now.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
     {{-- <script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script> --}}
     @include('modals.assets.script')
-    
-    <!-- Initialize Splide for each modal carousel -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            new Splide('#modal-carousel-private-cinema', {
-                type: 'loop',
-                autoplay: false
-            }).mount();
-            new Splide('#modal-carousel-self-photo', {
-                type: 'loop',
-                autoplay: false
-            }).mount();
-            new Splide('#modal-carousel-meeting-room', {
-                type: 'loop',
-                autoplay: false
-            }).mount();
-        });
-    </script>
 @endpush

@@ -1,10 +1,12 @@
-// init aos
-AOS.init();
-
 //init splide
 document.addEventListener('DOMContentLoaded', function () {
-    new Splide('.modal-carousel').mount();
+    new Splide('#modal-carousel-private-cinema').mount();
+    new Splide('#modal-carousel-self-photo').mount();
+    new Splide('#modal-carousel-meeting-room').mount();
 });
+
+// init aos
+AOS.init();
 
 // prevent product's buttons from redirect
 const productButtons = document.querySelectorAll('.btn-product');
