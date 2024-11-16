@@ -10,7 +10,6 @@
 @section('content')
     <!-- start content -->
     <section class="container detail-box">
-        @include('modals.modal-book-meet-room', ['product' => 'Meeting Room'])
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
                 <section class="splide main-carousel" aria-label="Image Carousel">
@@ -52,7 +51,7 @@
                 <p class="h6 fw-normal mb-3">Additional:</p>
                 <p class="h6 fw-normal mb-3">- Proyektor : Rp 20.000</p>
                 <p class="text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
-                <button class="detail-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-meet-room">Book
+                <button class="detail-btn my-2 rounded-pill d-block" id="btn-meet-room">Book
                     Now</button>
 
                 <p class="h5 text-description fw-bold mt-3">Syarat & Ketentuan</p>
@@ -75,5 +74,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('assets/js/book-detail.js') }}"></script>
+<script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
+@include('modals.assets.script')
 @endpush

@@ -22,5 +22,6 @@ class Booking extends Model
         'booker_name',
         'booker_email',
         'booker_phone',
+        'status',
     ];
 }

@@ -29,7 +29,6 @@ class BookingController extends Controller
 
     public function open_modal(Request $request)
     {
-        // dd($request->all());
         return view('modals.modal-book', $request->all());
     }
 

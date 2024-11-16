@@ -107,5 +107,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('assets/js/book-detail.js') }}"></script>
+<script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
 @endpush

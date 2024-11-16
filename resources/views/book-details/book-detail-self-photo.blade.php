@@ -9,8 +9,6 @@
 @section('content')
     <!-- start content -->
     <section class="container detail-box">
-        <!-- Modal Book when click Book Now Button -->
-        @include('modals.modal-book-self-photo', ['product' => 'Self Photo Studio'])
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
                 <section class="splide main-carousel" aria-label="My Awesome Gallery">
@@ -63,8 +61,8 @@
                 <p class="h6 fw-normal mb-3">- Kostum : Rp 25,000</p>
                 <p class="h6 fw-normal mb-3">- Hard Copy: Rp 15.000</p>
                 <p class="text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
-                
-                <button class="detail-btn my-2 rounded-pill d-block" data-bs-toggle="modal" data-bs-target="#book-modal-self-photo">Book
+
+                <button class="detail-btn my-2 rounded-pill d-block" id="btn-self-photo">Book
                     Now</button>
 
                 <p class="notes d-block d-lg-none">
@@ -92,5 +90,6 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('assets/js/book-detail.js') }}"></script>
+<script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
+@include('modals.assets.script')
 @endpush

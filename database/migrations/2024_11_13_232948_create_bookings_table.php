@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('booker_name');
             $table->string('booker_email');
             $table->string('booker_phone');
+            $table->enum('status', ['APPROVED', 'SUCCESS', 'REJECT', 'NOT YET PAY'])->default('NOT YET PAY');
             $table->timestamps();
         });
     }
