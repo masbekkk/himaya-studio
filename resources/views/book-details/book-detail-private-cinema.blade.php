@@ -12,7 +12,7 @@
     <section class="container detail-box">
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
-                <section id="main-carousel" class="splide" aria-label="Cinema Gallery">
+                <section class="splide main-carousel" aria-label="Cinema Gallery">
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">

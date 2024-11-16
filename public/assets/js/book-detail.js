@@ -2,7 +2,7 @@
 AOS.init();
 
 // init splide
-let splide = new Splide('#main-carousel', {
+let splide = new Splide('.main-carousel', {
     pagination: true,
 });
 

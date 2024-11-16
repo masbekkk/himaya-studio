@@ -3,13 +3,6 @@
 @push('style')
     <!-- page css -->
     <link rel="stylesheet" href="{{ asset('assets/css/book-now.css') . '?v=' . bin2hex(random_bytes(20)) }}">
-    <!-- Page CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/book-detail.css') . '?v=' . bin2hex(random_bytes(20)) }}">
-    <!-- leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
@@ -19,6 +12,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="{{ asset('assets/js/sweetalert2.min.js') }}"></script>
+    {{-- @include('modals.assets.style')
+    @include('modals.assets.script') --}}
 @endpush
 @section('content')
     <section class="container">
@@ -32,7 +27,7 @@
                             aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
-                                <section id="modal-carousel-private-cinema" class="splide"
+                                <section id="modal-carousel-private-cinema" class="splide main-carousel"
                                     aria-label="Private Cinema Images">
                                     <div class="splide__track">
                                         <ul class="splide__list">
@@ -99,7 +94,7 @@
                             aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
-                                <section id="modal-carousel-self-photo" class="splide"
+                                <section id="modal-carousel-self-photo" class="splide main-carousel"
                                     aria-label="Self-Photo Studio Images">
                                     <div class="splide__track">
                                         <ul class="splide__list">
@@ -134,8 +129,8 @@
                                 {{-- <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
                                     satu</p>
                                 <input class="form-control form-control-lg mb-1" type="text" placeholder=""> --}}
-                                <button class="modal-btn black-btn my-2 rounded-pill d-block" data-bs-toggle="modal"
-                                    data-bs-target="#book-modal-self-photo">Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-self-photo">Book
+                                    Now</button>
 
                                 <p class="modal-notes d-block d-lg-none mb-2">
                                     Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
@@ -160,7 +155,7 @@
                             aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
-                                <section id="modal-carousel-meeting-room" class="splide"
+                                <section id="modal-carousel-meeting-room" class="splide main-carousel"
                                     aria-label="Meeting Room Images">
                                     <div class="splide__track">
                                         <ul class="splide__list">
@@ -203,7 +198,6 @@
                 </div>
             </div>
         </div>
-        {{-- @include('modals.modal-book-self-photo', ['product' => 'Self Photo Studio']) --}}
 
         <!-- Product Section -->
         <div class="row product-section d-flex justify-content-center" data-aos="fade-up" data-aos-once="true"
@@ -297,21 +291,27 @@
         });
 
         function generateModal(response) {
-            // Remove the existing modal to avoid duplicates
-            $('#booking-modal').remove();
+            // Close all currently open modals
+            $('.modal.show').each(function() {
+                const modalId = $(this).attr('id'); // Get the modal's ID
+                if (modalId) {
+                    $(`#${modalId}`).modal('hide'); // Hide the modal using jQuery
+                }
+            });
 
             // Append the new modal HTML to the body
             $('body').append(response);
 
-            // Initialize the modal using its id
-            const modalElement = document.getElementById('booking-modal');
-            if (modalElement) {
-                const modalInstance = new bootstrap.Modal(modalElement);
-                modalInstance.show(); // Display the modal
+            // Initialize and show the new modal
+            const modalElement = $('#booking-modal');
+            if (modalElement.length) {
+                modalElement.modal('show');
+                initializeDatePicker();
             } else {
                 console.error('Modal element not found in the DOM.');
             }
         }
+
         $('#btn-meet-room').click(function(e) {
             e.preventDefault(); // Prevent default behavior
             $.ajax({
@@ -336,5 +336,81 @@
                 }
             });
         });
+
+        $('#btn-self-photo').click(function(e) {
+            e.preventDefault(); // Prevent default behavior
+            $.ajax({
+                url: "{{ route('book.open_modal') }}",
+                type: 'POST',
+                dataType: 'html',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    product: 'Self Photo Studio',
+                    price_lists: JSON.stringify([99000, 129000, 149000, 179000]),
+                    duration_lists: JSON.stringify([15, 30, 45, 60]),
+                    add_ons_meet_room: false,
+                    background: true,
+                    add_ons_self_photo: true,
+                },
+                success: function(response) {
+                    generateModal(response)
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading modal:', error);
+                    alert('An error occurred while loading the modal. Please try again.');
+                }
+            });
+        });
+        let selectedDate = null;
+        let picker = null;
+        const today = new Date();
+
+        function initializeDatePicker() {
+            // Destroy any existing Pikaday instance before initializing
+            destroyPikaday();
+
+            // Check if the #datepicker exists in the DOM
+            const datePickerField = $('#datepicker')[0];
+            if (datePickerField) {
+                // Create a new Pikaday instance
+                picker = new Pikaday({
+                    field: datePickerField,
+                    bound: false,
+                    container: datePickerField,
+                    format: 'YYYY-MM-DD',
+                    minDate: new Date(), // Disable dates before today
+                    onSelect: function(date) {
+                        const options = {
+                            weekday: 'long',
+                            month: 'long',
+                            day: 'numeric'
+                        };
+                        const formattedDate = date.toLocaleDateString('en-US', options);
+                        $('#selected-date').text(formattedDate);
+                        $('.current-date').text(formattedDate);
+                    }
+                });
+
+                // Set the initial date to today and update both elements
+                picker.setDate(today);
+                const initialDate = today.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                $('#selected-date').text(initialDate);
+                $('.current-date').text(initialDate);
+            } else {
+                console.warn('Datepicker field not found in the DOM.');
+            }
+        }
+
+        function destroyPikaday() {
+            // Destroy the Pikaday instance if it exists
+            if (picker) {
+                picker.destroy();
+                picker = null; // Clear the reference to avoid reuse
+            }
+        }
     </script>
 @endpush

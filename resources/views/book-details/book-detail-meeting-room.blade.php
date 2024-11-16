@@ -13,7 +13,7 @@
         @include('modals.modal-book-meet-room', ['product' => 'Meeting Room'])
         <div class="row gy-4">
             <div class="col-12 col-lg-6">
-                <section id="main-carousel" class="splide" aria-label="Image Carousel">
+                <section class="splide main-carousel" aria-label="Image Carousel">
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">

@@ -28,12 +28,12 @@
         color: #0d6efd;
     }
 
-    #book-modal-self-photo>.modal-dialog {
+    #booking-modal>.modal-dialog {
         width: 60vw;
         max-width: 60vw;
     }
 
-    #book-modal-self-photo>.modal-content {
+    #booking-modal>.modal-content {
         overflow-y: hidden;
         border-radius: 1em;
     }
@@ -117,7 +117,7 @@
         grid-template-columns: 60% 40%;
     }
 
-    #book-modal-self-photo>.modal-title {
+    #booking-modal>.modal-title {
         font-size: 1.2rem;
         font-weight: normal;
         margin-bottom: 1.5rem;
@@ -142,7 +142,7 @@
         grid-area: time;
     }
 
-    #book-modal-self-photo>.modal-footer .btn {
+    #booking-modal>.modal-footer .btn {
         font-size: calc(1rem - 2px);
         min-width: 100px;
     }
@@ -185,7 +185,7 @@
     }
 
     @media screen and (max-width: 992px) {
-        #book-modal-self-photo>.modal-title:last-child {
+        #booking-modal>.modal-title:last-child {
             margin-bottom: 0;
         }
 
@@ -193,7 +193,7 @@
             width: 100%;
         }
 
-        #book-modal-self-photo>.modal-dialog {
+        #booking-modal>.modal-dialog {
             width: 100%;
             max-width: 100%;
         }
@@ -226,7 +226,7 @@
     }
 </style>
 
-<div class="modal fade" id="booking-modal" tabindex="-1" aria-labelledby="book-modal-self-photoLabel" aria-hidden="true">
+<div class="modal fade" id="booking-modal" tabindex="-1" aria-labelledby="booking-modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-lg-down modal-dialog-centered">
         <div class="modal-content rounded" style="overflow: hidden;">
             <div class="modal-body p-0 book-modal-body position-relative">
@@ -327,43 +327,12 @@
     $(document).ready(function() {
         // Get today's date
         const today = new Date();
-        let selectedDate = null;
         let duration = 0;
         let totalPrice = 0; // Keep track of total price
         let addOns = {};
         let addOnsArray = null;
         let startTime = null;
         let endTime = null;
-
-        // Initialize Pikaday date picker
-        const picker = new Pikaday({
-            field: $('#datepicker')[0],
-            bound: false,
-            container: $('#datepicker')[0],
-            format: 'YYYY-MM-DD',
-            minDate: today, // Disable dates before today
-            onSelect: function(date) {
-                selectedDate = this.toString();
-                const options = {
-                    weekday: 'long',
-                    month: 'long',
-                    day: 'numeric'
-                };
-                const formattedDate = date.toLocaleDateString('en-US', options);
-                $('#selected-date').text(formattedDate);
-                $('.current-date').text(formattedDate);
-            }
-        });
-
-        // Set the initial date to today and update both elements
-        picker.setDate(today);
-        const initialDate = today.toLocaleDateString('en-US', {
-            weekday: 'long',
-            month: 'long',
-            day: 'numeric'
-        });
-        $('#selected-date').text(initialDate);
-        $('.current-date').text(initialDate);
 
         const $bookButton = $('#btn-book');
         const $startTimeInput = $('#start-time');
@@ -442,6 +411,7 @@
             }
             // $('#text-price').text(`Rp ${totalPrice.toLocaleString()}`);
         }
+
         function updateTotalPrice(duration) {
             let durationPrice = calculatePrice(duration); // Calculate the base price based on duration
             let addOnPrice = 0;
@@ -510,7 +480,8 @@
                     add_on: JSON.stringify(addOnsArray),
                     start_time: startTime,
                     end_time: endTime,
-                    details: 'Warna Background: ' + $('#input_details').val()
+                    details: $('#input_details').length ? 'Warna Background: ' + $('#input_details').val() :
+                        null
                 };
 
                 for (const key in data) {
