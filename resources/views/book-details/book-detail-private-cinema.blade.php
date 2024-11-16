@@ -45,11 +45,6 @@
                         <img src="{{ asset('assets/img/cinema-4.jpg') }}" alt="Cinema 4">
                     </li>
                 </ul>
-
-
-                {{-- <p class="notes d-none d-lg-block">
-                    Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
-                </p> --}}
             </div>
             <div class="col-12 col-lg-6">
                 <h1 class="detail-title">Private Cinema</h1>
@@ -74,18 +69,10 @@
                 <p class="h5 fw-normal mb-3">Rp 849.000 | Bridal Shower Gold Package</p>
                 <p class="h5 fw-normal mb-3">Rp 999.000 | Bridal Shower Platinum Package</p>
 
-                <p class="text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
-                {{-- <p class="modal-desc">Warna background (Putih, Biru, Pink, Abu-abu, Kuning) *pilih salah
-                    satu</p>
-                <input class="form-control form-control-lg mb-5" type="text"> --}}
-
-                <button class="detail-btn my-4 rounded-pill d-block">Book Now</button>
-
-                {{-- <p class="notes d-block d-lg-none">
-                    Semua file foto yang dikirim melalui Whatsapp 60 Menit setelah sesi foto
-                </p> --}}
-
-                <p class="h5 text-description fw-bold mt-5">Syarat & Ketentuan</p>
+                <p class="text-black-50 mb-2">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
+            
+                <button class="detail-btn my-2 rounded-pill d-block" id="btn-private-cinema">Book Now</button>
+                <p class="h5 text-description fw-bold mt-3">Syarat & Ketentuan</p>
                 <ul class="text-description">
                     <li><i>Cashless payment only.</i> (tidak menerima uang tunai, hanya menerima transfer atau QRIS)</li>
                     <li>Uang yang sudah masuk tidak dapat di <i>refund</i>.</li>
@@ -108,4 +95,5 @@
 
 @push('script')
 <script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
+@include('modals.assets.script')
 @endpush

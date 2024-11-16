@@ -241,7 +241,11 @@
                         </li>
                         <li class="my-2">
                             <i class="bi bi-clock me-2"></i>
-                            <span id="time-difference">0 minutes</span>
+                            <span id="time-difference">0 minutes
+                                @if ($add_ons_private_cinema === 'true')
+                                    (<text class="total_people">4 orang</text>)
+                                @endif
+                            </span>
                         </li>
                         <li class="my-2">
                             <i class="bi bi-geo-alt me-2"></i>
@@ -261,6 +265,11 @@
                             <option value="Abu-abu">Abu-abu</option>
                             <option value="Kuning">Kuning</option>
                         </select>
+                    @endif
+                    @if ($total_people === 'true')
+                        <span class="fs-6">Max 4 orang, nambah orang charge 10k/orang</span>
+                        <label>Masukkan Total Orang</label>
+                        <input type="number" name="total_people" class="form-control">
                     @endif
                 </div>
 
@@ -303,6 +312,73 @@
                                 <label class="form-check-label" for="check_hard_copy">
                                     Hard Copy
                                 </label>
+                            </div>
+                        @endif
+                        @if ($add_ons_private_cinema === 'true')
+                            <!-- Birthday Packages -->
+                            <div class="mb-4">
+                                <h4>Birthday Packages</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
+                                        id="birthdayStandard" value="449000">
+                                    <label class="form-check-label" for="birthdayStandard">
+                                        Rp 449.000 | Birthday Standard Package
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
+                                        id="birthdaySilver" value="599000">
+                                    <label class="form-check-label" for="birthdaySilver">
+                                        Rp 599.000 | Birthday Silver Package
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
+                                        id="birthdayGold" value="749000">
+                                    <label class="form-check-label" for="birthdayGold">
+                                        Rp 749.000 | Birthday Gold Package
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="birthdayPackage"
+                                        id="birthdayPlatinum" value="899000">
+                                    <label class="form-check-label" for="birthdayPlatinum">
+                                        Rp 899.000 | Birthday Platinum Package
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Bridal Shower Packages -->
+                            <div class="mb-4">
+                                <h4>Bridal Shower Packages</h4>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                        id="bridalStandard" value="499000">
+                                    <label class="form-check-label" for="bridalStandard">
+                                        Rp 499.000 | Bridal Shower Standard Package
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                        id="bridalSilver" value="649000">
+                                    <label class="form-check-label" for="bridalSilver">
+                                        Rp 649.000 | Bridal Shower Silver Package
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                        id="bridalGold" value="849000">
+                                    <label class="form-check-label" for="bridalGold">
+                                        Rp 849.000 | Bridal Shower Gold Package
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="bridalPackage"
+                                        id="bridalPlatinum" value="999000">
+                                    <label class="form-check-label" for="bridalPlatinum">
+                                        Rp 999.000 | Bridal Shower Platinum Package
+                                    </label>
+                                </div>
                             </div>
                         @endif
                     </div>
@@ -413,42 +489,64 @@
         }
 
         function updateTotalPrice(duration) {
-            let durationPrice = calculatePrice(duration); // Calculate the base price based on duration
-            let addOnPrice = 0;
-
-            // Add up the prices of checked checkboxes
-            $('.form-check-input').each(function(index) {
-                if ($(this).is(':checked')) {
-                    // If the checkbox is checked
-                    addOnPrice += parseInt($(this).val());
-                    addOns[`addon${index + 1}`] = $(this).attr('name');
-                } else {
-                    delete addOns[`addon${index + 1}`];
-                }
-            });
-            // Convert the object to an array of objects as required
-            addOnsArray = Object.keys(addOns).map(key => ({
-                [key]: addOns[key]
-            }));
-
+            let durationPrice = calculatePrice(duration);
             if (Number.isInteger(durationPrice)) {
-                const combinedTotalPrice = durationPrice + addOnPrice;
+                let addOnPrice = 0;
+
+                // Add up the prices of checked checkboxes
+                $('.form-check-input:checkbox').each(function(index) {
+                    if ($(this).is(':checked')) {
+                        // If the checkbox is checked
+                        addOnPrice += parseInt($(this).val());
+                        addOns[`addon${index + 1}`] = $(this).attr('name');
+                    } else {
+                        delete addOns[`addon${index + 1}`];
+                    }
+                });
+
+                // Handle radio buttons for package selection
+                let selectedPackagePrice = 0; // Default for radio button values
+                $('input[type="radio"]:checked').each(function() {
+                    selectedPackagePrice += parseInt($(this).val());
+                });
+
+                // Convert the object to an array of objects as required
+                addOnsArray = Object.keys(addOns).map(key => ({
+                    [key]: addOns[key]
+                }));
+
+
+                const combinedTotalPrice = durationPrice + addOnPrice + selectedPackagePrice;
                 // Update the displayed total price
                 $('#text-price').text(`Price: Rp ${combinedTotalPrice.toLocaleString()}`);
-                totalPrice = combinedTotalPrice
+                totalPrice = combinedTotalPrice;
+            } else {
+                Swal.fire({
+                    title: 'Belum pilih durasi yang sesuai',
+                    text: "Kamu belum memilih durasi yang sesuai",
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                }).then(() => {
+                    // Clear all checked checkboxes and radio buttons
+                    $('.form-check-input:checkbox').prop('checked', false);
+                    $('input[type="radio"]').prop('checked', false);
+
+                    // Reset addOns object
+                    addOns = {};
+                    addOnsArray = [];
+
+                    // Reset displayed total price
+                    $('#text-price').text('Price: Rp 0');
+                    totalPrice = 0;
+                });
             }
-
-
         }
+
 
         // Listen for changes on checkboxes and update the price dynamically
         $('.form-check-input').change(function() {
             updateTotalPrice(duration);
         });
-
-        // Initial calculation with any pre-selected checkboxes and a sample duration
-        const initialDuration = 0; // Replace with the actual initial duration
-        updateTotalPrice(initialDuration);
 
         const date = new Date(selectedDate);
         const isoDate = date.toISOString().split('T')[0];

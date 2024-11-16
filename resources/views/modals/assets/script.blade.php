@@ -46,6 +46,8 @@
                 add_ons_meet_room: true,
                 background: false,
                 add_ons_self_photo: false,
+                add_ons_private_cinema: false,
+                total_people: false,
             },
             success: function(response) {
                 generateModal(response)
@@ -71,6 +73,35 @@
                 add_ons_meet_room: false,
                 background: true,
                 add_ons_self_photo: true,
+                add_ons_private_cinema: false,
+                total_people: false,
+            },
+            success: function(response) {
+                generateModal(response)
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading modal:', error);
+                alert('An error occurred while loading the modal. Please try again.');
+            }
+        });
+    });
+
+    $('#btn-private-cinema').click(function(e) {
+        e.preventDefault(); // Prevent default behavior
+        $.ajax({
+            url: "{{ route('book.open_modal') }}",
+            type: 'POST',
+            dataType: 'html',
+            data: {
+                _token: "{{ csrf_token() }}",
+                product: 'Private Cinema',
+                price_lists: JSON.stringify([69000, 99000, 129000, 149000]),
+                duration_lists: JSON.stringify([30, 60, 90, 120]),
+                add_ons_meet_room: false,
+                background: false,
+                add_ons_self_photo: false,
+                add_ons_private_cinema: true,
+                total_people: true,
             },
             success: function(response) {
                 generateModal(response)

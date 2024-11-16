@@ -4,8 +4,8 @@
     <!-- splide -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
-     <!-- page css -->
-     <link rel="stylesheet" href="{{ asset('assets/css/book-now.css') . '?v=' . bin2hex(random_bytes(20)) }}">
+    <!-- page css -->
+    <link rel="stylesheet" href="{{ asset('assets/css/book-now.css') . '?v=' . bin2hex(random_bytes(20)) }}">
 @endpush
 @section('content')
     <section class="container">
@@ -63,10 +63,10 @@
                                 <p class="modal-package">Rp 849.000 | Bridal Shower Gold Package</p>
                                 <p class="modal-package">Rp 999.000 | Bridal Shower Platinum Package</p>
 
-                                <p class="modal-location text-black-50 mb-5">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
+                                <p class="modal-location text-black-50 mb-0">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
                                     Jatiwaringin, Kec. Pd. Gede</p>
-
-                                <button class="modal-btn black-btn my-4 rounded-pill d-block">Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-private-cinema">Book
+                                    Now</button>
                                 <a href="{{ route('book-detail', ['slug' => 'private-cinema']) }}" class="modal-link">MORE
                                     DETAILS</a>
                             </div>
@@ -118,7 +118,7 @@
                                 <p class="modal-additional">- Hard Copy: Rp 15.000</p>
                                 <p class="modal-location">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec.
                                     Pd. Gede</p>
-                                
+
                                 <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-self-photo">Book
                                     Now</button>
 
@@ -177,7 +177,8 @@
                                 <p class="modal-location text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
                                     Jatiwaringin, Kec. Pd. Gede</p>
 
-                                <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-meet-room">Book Now</button>
+                                <button class="modal-btn black-btn my-2 rounded-pill d-block" id="btn-meet-room">Book
+                                    Now</button>
                                 <a href="{{ route('book-detail', ['slug' => 'meeting-room']) }}" class="modal-link">MORE
                                     DETAILS</a>
                             </div>
