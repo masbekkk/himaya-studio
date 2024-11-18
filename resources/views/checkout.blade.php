@@ -8,7 +8,7 @@
     <meta name="description"
         content="Self Photo Studio & Private Cinema | Jatiwaringin | Bekasi — Express Yourself with Your Unique Style, Whether Single, As a Couple or Even With Your Group. Our Place is Spacious and Comfortable, Include With All-New and Premium Photography Technology Gear. Book Now and Get Promo for FREE 1 Photo!">
     <meta name="keywords" content="Self Photo Studio Jatiwaringin, Sewa Studio dan Fotografer, Bekasi">
-    <link rel="icon" href="{{ asset('image/logo-himaya.png')}}">
+    <link rel="icon" href="{{ asset('image/logo-himaya.png') }}">
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/main.css') . '?v=' . bin2hex(random_bytes(20)) }}"> --}}
 
     <!-- Montserrat Google Icons -->
@@ -40,9 +40,6 @@
                     Return to store
                 </a>
             </div>
-            <!-- <div class="col-12 col-lg-10">
-                    
-                    <div class="row g-5"> -->
             <!-- Left Column -->
             <div class="col-12 col-lg-6 px-5">
                 <h6 class="co-text-title co-text-grey fw-bolder mb-0">Pay Himaya Photo Studio.</h6>
@@ -56,7 +53,7 @@
                             <p class="mb-1 fw-bolder co-text-grey">{{ $product }} ({{ $duration }} menit) </p>
                             <p class="mb-1 fw-bolder co-text-grey">{{ format_indonesian_date($date) }}
                                 {{ $start_time }} - {{ $end_time }} </p>
-                            <p class="co-text-desc-small co-text-grey2 fw-bolder">{{ $details ?? NULL }}</p>
+                            <p class="co-text-desc-small co-text-grey2 fw-bolder">{{ $details ?? null }}</p>
                             @if (!empty($add_on))
                                 <p class="co-text-desc-small co-text-grey2 fw-bolder">Additional:</p>
                                 @foreach ($add_on as $item)
@@ -155,45 +152,43 @@
                     <input type="hidden" name="add_on" id="add_on" value="{{ json_encode($add_on) }}">
                     <input type="hidden" name="start_time" id="start_time" value="{{ $start_time }}">
                     <input type="hidden" name="end_time" id="end_time" value="{{ $end_time }}">
-                    <input type="hidden" name="details" id="details" value="{{ $details ?? NULL }}">
+                    <input type="hidden" name="details" id="details" value="{{ $details ?? null }}">
                     <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" id="btn_booking">Confirm
                         booking</button>
                 </form>
             </div>
-            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel"
-                aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="successModalLabel">Booking Successful</h5>
-                        </div>
-                        <div class="modal-body">
-                            <h6 class="co-text-grey co-text-desc fw-bold mb-3 mt-2">Bank Transfer (FULL PAYMENT)</h6>
-                            <div class="ps-2 co-text-desc co-text-grey2">
-                                <div class="d-flex align-items-center mb-2">
-                                    <p class="mb-0 no_rek fw-bold" id="accountNumber">5725566830</p>
-                                    <button class="btn btn-link text-decoration-none ms-2 copy-btn"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Copy">
-                                        <i class="bi bi-clipboard"></i>
-                                    </button>
-                                </div>
-                                <p>Dimas Rangga Arya Gardika (BCA)</p>
-                                <p class="mb-0">WAJIB mengirim bukti transfer ke WhatsApp kami untuk konfirmasi
-                                    booking Anda.</p>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success" id="whatsappButton">
-                                <i class="bi bi-whatsapp"></i> Konfirmasi lewat Whatsapp
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
-
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Booking Successful</h5>
+                </div>
+                <div class="modal-body">
+                    <h6 class="co-text-grey co-text-desc fw-bold mb-3 mt-2">Bank Transfer (FULL PAYMENT)</h6>
+                    <div class="ps-2 co-text-desc co-text-grey2">
+                        <div class="d-flex align-items-center mb-2">
+                            <p class="mb-0 no_rek fw-bold" id="accountNumber">5725566830</p>
+                            <button class="btn btn-link text-decoration-none ms-2 copy-btn" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Copy">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                        </div>
+                        <p>Dimas Rangga Arya Gardika (BCA)</p>
+                        <p class="mb-0">WAJIB mengirim bukti transfer ke WhatsApp kami untuk konfirmasi
+                            booking Anda.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="whatsappButton">
+                        <i class="bi bi-whatsapp"></i> Konfirmasi lewat Whatsapp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script src="{{ asset('assets/js/main.js') }}"></script>
