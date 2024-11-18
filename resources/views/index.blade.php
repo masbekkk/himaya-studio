@@ -77,9 +77,18 @@
                         Private Cinema | Jatiwaringin | Bekasi</span></h3>
             </div>
             <div class="col-12 col-lg-5 offset-lg-1">
-                <p class="text-description mb-0 h6 fw-normal">Temukan pengalaman Private Cinema terbaik di Jabodetabek! Untuk menonton film yang lebih personal dengan update film yang seru dan terbaru bersama bestie, keluarga atau pasangan anda! Jika anda ingin merayakan ulang tahun, nobar sepak bola, bridal shower, jangan ragu untuk datang ke Private Cinema kami!
-                    Kami juga menawarkan produk lainnya, seperti fotografi terbaik di studio self-photo premium kami yang berlokasi di Bekasi. Jika anda ingin mengabadikan momen pribadi, merayakan acara romantis bersama pasangan, atau ingin menciptakan kenangan abadi dengan teman-teman, studio kami siap memenuhi semua kebutuhan fotografi Anda. Selain itu kami memiliki Meeting Room yang nyaman dan profesional untuk kebutuhan pertemuan Anda, di lengkapi dengan Himaya Cafe untuk melengkapi hari serumu dengan menu yang spesial!
-                    Studio kami melayani pelanggan dengan sepenuh hati, memberikan pelayanan terbaik untuk setiap momen istimewa Anda. Potretkan Momen Romantismu!</p>
+                <p class="text-description mb-0 h6 fw-normal">Temukan pengalaman Private Cinema terbaik di Jabodetabek!
+                    Untuk menonton film yang lebih personal dengan update film yang seru dan terbaru bersama bestie,
+                    keluarga atau pasangan anda! Jika anda ingin merayakan ulang tahun, nobar sepak bola, bridal shower,
+                    jangan ragu untuk datang ke Private Cinema kami!
+                    Kami juga menawarkan produk lainnya, seperti fotografi terbaik di studio self-photo premium kami yang
+                    berlokasi di Bekasi. Jika anda ingin mengabadikan momen pribadi, merayakan acara romantis bersama
+                    pasangan, atau ingin menciptakan kenangan abadi dengan teman-teman, studio kami siap memenuhi semua
+                    kebutuhan fotografi Anda. Selain itu kami memiliki Meeting Room yang nyaman dan profesional untuk
+                    kebutuhan pertemuan Anda, di lengkapi dengan Himaya Cafe untuk melengkapi hari serumu dengan menu yang
+                    spesial!
+                    Studio kami melayani pelanggan dengan sepenuh hati, memberikan pelayanan terbaik untuk setiap momen
+                    istimewa Anda. Potretkan Momen Romantismu!</p>
             </div>
         </div>
     </section>
@@ -160,7 +169,7 @@
                     data-aos="fade-up" data-aos-once="true">
                     <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
                         <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                            <img src="{{ asset('assets/img/cinema-3.jpg') }}" class="card-img-top" alt="Self Photo Studio Setup">
                         </div>
                         <div class="card-body p-0 bg-grey">
                             <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
@@ -171,7 +180,9 @@
                                 </p>
                             </div>
                             <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
+                                <button
+                                    onclick="window.location.href='{{ route('book-detail', ['slug' => 'private-cinema']) }}'"
+                                    class="transparent-btn rounded-pill w-100">Book Now</button>
                             </div>
                         </div>
                     </div>
@@ -180,7 +191,7 @@
                     data-aos="fade-up" data-aos-once="true">
                     <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
                         <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                            <img src="assets/img/photo-1.jpeg" class="card-img-top" alt="Self Photo Studio Setup">
                         </div>
                         <div class="card-body p-0 bg-grey">
                             <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
@@ -191,7 +202,9 @@
                                 </p>
                             </div>
                             <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
+                                <button
+                                    onclick="window.location.href='{{ route('book-detail', ['slug' => 'self-photo']) }}'"
+                                    class="transparent-btn rounded-pill w-100">Book Now</button>
                             </div>
                         </div>
                     </div>
@@ -202,7 +215,7 @@
                     data-aos="fade-up" data-aos-once="true">
                     <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
                         <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                            <img src="assets/img/meet-room-3.jpg" class="card-img-top" alt="Self Photo Studio Setup">
                         </div>
                         <div class="card-body p-0 bg-grey">
                             <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
@@ -212,7 +225,9 @@
                                 </p>
                             </div>
                             <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Book Now</button>
+                                <button
+                                    onclick="window.location.href='{{ route('book-detail', ['slug' => 'meeting-room']) }}'"
+                                    class="transparent-btn rounded-pill w-100">Book Now</button>
                             </div>
                         </div>
                     </div>
@@ -221,7 +236,7 @@
                     data-aos="fade-up" data-aos-once="true">
                     <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
                         <div class="card-img-box">
-                            <img src="/assets/img/card-header.webp" class="card-img-top" alt="Self Photo Studio Setup">
+                            <img src="{{ asset('assets/img/cafe2.jpg') }}" class="card-img-top" alt="Self Photo Studio Setup">
                         </div>
                         <div class="card-body p-0 bg-grey">
                             <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
@@ -231,7 +246,11 @@
                                     pertemuan bisnis Anda.
                             </div>
                             <div class="w-100 px-lg-5 px-4 pb-lg-4 pb-3">
-                                <button class="transparent-btn rounded-pill w-100">Visit Now</button>
+                                <button
+                                    onclick="window.open('https://www.google.com/maps/place/Jl.+Sanggata+1+Blok+D7+No.8,+RT.007/RW.013,+Jatiwaringin,+Kec.+Pd.+Gede,+Kota+Bks,+Jawa+Barat+17411/@-6.2726851,106.920561,17z', '_blank')"
+                                    class="transparent-btn rounded-pill w-100">
+                                    Visit Now
+                                </button>
                             </div>
                         </div>
                     </div>
