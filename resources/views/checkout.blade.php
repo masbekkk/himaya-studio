@@ -276,7 +276,7 @@
             message += `Produk: ${product}\n`;
             message += `Harga: Rp ${price}\n`;
 
-            if (addOn.length > 0) {
+            if (addOn?.length > 0) {
                 message += `Add-ons: ${addOn.map(item => `- ${item[key]}`).join('\n')}\n`;
             }
 
