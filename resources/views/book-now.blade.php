@@ -14,9 +14,11 @@
             aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-product">
                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mx-2">Private Cinema</h5>
+                        <button type="button" class="btn-close mr-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body position-relative">
-                        <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
                                 <section id="modal-carousel-private-cinema" class="splide main-carousel"
@@ -40,7 +42,7 @@
                                 </section>
                             </div>
                             <div class="col-12 col-lg-6">
-                                <h2 class="modal-title">Private Cinema</h2>
+                               
                                 <p class="modal-sub-title mb-4">Private Cinema terbaik di Jabodetabek!</p>
                                 <p class="modal-sub">Rp 69.000 | 30 min</p>
                                 <p class="modal-sub">Rp 99.000 | 60 min</p>
@@ -81,9 +83,11 @@
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-product">
                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mx-2">Self-Photo Studio</h5>
+                        <button type="button" class="btn-close mr-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body position-relative">
-                        <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
                                 <section id="modal-carousel-self-photo" class="splide main-carousel"
@@ -107,7 +111,6 @@
                                 </section>
                             </div>
                             <div class="col-12 col-lg-6">
-                                <h2 class="modal-title">Self-Photo Studio</h2>
                                 <p class="modal-sub">Rp. 99.000 | 15 min</p>
                                 <p class="modal-sub">Rp. 129.000 | 30 min</p>
                                 <p class="modal-sub">Rp. 149.000 | 45 min</p>
@@ -140,6 +143,10 @@
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-product">
                 <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mx-2">Meeting Room</h5>
+                        <button type="button" class="btn-close mr-4" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body position-relative">
                         <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal"
                             aria-label="Close"></button>
@@ -163,7 +170,6 @@
                                 </section>
                             </div>
                             <div class="col-12 col-lg-6">
-                                <h2 class="modal-title">Meeting Room</h2>
                                 <p class="modal-sub-title mb-4">Meeting Room terbaik di Jabodetabek!</p>
                                 <p class="modal-sub">Rp 69.000 | 60 min</p>
                                 <p class="modal-sub">Rp 99.000 | 120 min</p>
@@ -192,7 +198,7 @@
         <div class="row product-section d-flex justify-content-center" data-aos="fade-up" data-aos-once="true"
             data-aos-offset="100" data-aos-delay="300">
             <!-- Private Cinema Product Card -->
-            <div class="col-12 col-lg-3 product-card">
+            <div class="col-12 col-lg-3 product-card mb-3">
                 <a class="no-decor" href="{{ route('book-detail', ['slug' => 'private-cinema']) }}">
                     <div class="position-relative">
                         <span class="product-label bg-red">Book Now</span>
@@ -211,7 +217,7 @@
             </div>
 
             <!-- Self-Photo Studio Product Card -->
-            <div class="col-12 col-lg-3 product-card">
+            <div class="col-12 col-lg-3 product-card mb-3">
                 <a class="no-decor" href="{{ route('book-detail', ['slug' => 'self-photo']) }}">
                     <div class="position-relative">
                         <span class="product-label bg-red">Book Now</span>
@@ -226,7 +232,7 @@
             </div>
 
             <!-- Meeting Room Product Card -->
-            <div class="col-12 col-lg-3 product-card">
+            <div class="col-12 col-lg-3 product-card mb-3">
                 <a class="no-decor" href="{{ route('book-detail', ['slug' => 'meeting-room']) }}">
                     <div class="position-relative">
                         <span class="product-label bg-red">Book Now</span>
