@@ -11,8 +11,8 @@
                 </div>
                 <div class="footer-block my-3 my-lg-5">
                     <p class="m-0 footer-sub">Contacts</p>
-                    <p class="m-0">0814-1026-5823</p>
-                    <p class="m-0">info@himayapotretstudio.com</p>
+                    <p class="m-0"><a href="https://wa.me/6281410265823" target="_blank"> 0814-1026-5823</a></p>
+                    <p class="m-0"><a href="mailto:info@himayapotretstudio.com" target="_blank">info@himayapotretstudio.com</a></p>
                 </div>
                 <div class="footer-block my-3 my-lg-5">
                     <a class="text-decoration-none text-dark h5 fw-bold"
