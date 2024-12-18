@@ -37,6 +37,8 @@ Route::get('book-detail/{slug}', function ($slug) {
 })->name('book-detail');
 
 Route::match(['get', 'post'], 'book-checkout', [BookingController::class, 'to_checkout'])->name('book.checkout');
-Route::resource('booking', BookingController::class);
+Route::resource('booking', BookingController::class)->middleware('auth');
 
 Route::post('open-modal', [BookingController::class, 'open_modal'])->name('book.open_modal');
+
+require __DIR__ . '/auth.php';
