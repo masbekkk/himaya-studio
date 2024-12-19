@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="footer px-5 mt-auto fixed-bottom">
-        @include('components.footer')
+        @include('admin.layouts.footer')
     </div>
 @endsection
 
