@@ -42,7 +42,7 @@
     <div class="col-lg-5 col-12 d-flex flex-column">
         <div id="auth-left">
             <div class="auth-logo">
-                <a href="/"><img src="{{ asset('images/logo-kpspam.png') }}" alt="Logo"></a>
+                <a href="/"><img src="{{ asset('image/logo-himaya.png') }}" alt="Logo"></a>
             </div>
             <h1 class="auth-title mb-0">Masuk.</h1>
             <p class="auth-subtitle mb-4 mt-0">Masuk menggunakan akun yang telah terdaftar</p>
@@ -82,7 +82,7 @@
                 <button class="btn btn-primary btn-block shadow-lg mt-4">Masuk</button>
             </form>
             <div class="text-center mt-3 text-lg">
-                <p>Belum punya akun? <a href="{{ route('register') }}" class="fw-bold">Daftar</a>.</p>
+                {{-- <p>Belum punya akun? <a href="{{ route('register') }}" class="fw-bold">Daftar</a>.</p> --}}
                 <p><a class="font-bold" href="#forgot-password" data-bs-toggle="modal"
                         data-bs-target="#forgotPasswordModal">Lupa Kata Sandi?</a>.</p>
             </div>

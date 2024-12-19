@@ -154,6 +154,23 @@
             const modalImage = document.getElementById('modalImage');
             modalImage.src = imageUrl;
         }
+
+        $("#button-logout").click(function() {
+            Swal.fire({
+                title: 'Keluar?',
+                text: "Anda akan keluar dari aplikasi!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $("#logout-form").submit();
+                }
+            });
+        });
     </script>
     @yield('scripts')
 </body>

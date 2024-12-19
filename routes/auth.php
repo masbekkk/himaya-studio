@@ -11,14 +11,14 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/register', function () {
-    return view('auth.register');
-})
-    ->middleware('guest')
-    ->name('register');
-Route::post('/register', [RegisteredUserController::class, 'store'])
-    ->middleware('guest')
-    ->name('register');
+// Route::get('/register', function () {
+//     return view('auth.register');
+// })
+//     ->middleware('guest')
+//     ->name('register');
+// Route::post('/register', [RegisteredUserController::class, 'store'])
+//     ->middleware('guest')
+//     ->name('register');
 
 Route::get('/login', function () {
     
