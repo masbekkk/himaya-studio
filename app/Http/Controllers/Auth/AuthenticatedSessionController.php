@@ -21,7 +21,7 @@ class AuthenticatedSessionController extends Controller
         }
         $request->session()->regenerate();
 
-        return redirect()->route('booking');
+        return redirect()->route('booking.index');
         // return response()->noContent();
     }
 
@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        return redirect()->route('booking');
+        return redirect()->route('booking.index');
         // return response()->noContent();
     }
 }

@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ env('APP_NAME') }} - @yield('title') </title>
 
-    <link rel="shortcut icon" href="{{ asset('admin/images/logo-kpspam.png') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('admin/images/logo-kpspam.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('image/logo-himaya.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('image/logo-himaya.png') }}" />
 
     <link rel="stylesheet" href="{{ asset('admin/css/custom.css?v=' . bin2hex(random_bytes(20))) }}">
     <link rel="stylesheet" href="{{ asset('admin/css/app.css?v=' . bin2hex(random_bytes(20))) }}">

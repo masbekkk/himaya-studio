@@ -3,8 +3,8 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/white-kpspam.png') }}" alt="Logo" srcset="">
+                    <a href="{{ route('landing') }}">
+                        <img src="{{ asset('image/logo-himaya.png') }}" alt="Logo" srcset="">
                     </a>
                 </div>
             </div>
@@ -13,10 +13,17 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item {{ Route::is('landing') ? 'active' : '' }}">
-                    <a href="{{ route('landing') }}" class='sidebar-link'>
+                <li class="sidebar-item {{ Route::is('booking.index') ? 'active' : '' }}">
+                    <a href="{{ route('booking.index') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
-                        <span>Beranda</span>
+                        <span>Booking</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item {{ Route::is('voucher.index') ? 'active' : '' }}">
+                    <a href="{{ route('voucher.index') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Voucher</span>
                     </a>
                 </li>
 

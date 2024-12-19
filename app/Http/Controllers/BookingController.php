@@ -62,12 +62,16 @@ class BookingController extends Controller
     // Retrieve all bookings
     public function index()
     {
-        try {
-            $bookings = Booking::all();
-            return formatResponse(true, 'Bookings retrieved successfully.', $bookings);
-        } catch (\Exception $e) {
-            Log::error('Error retrieving bookings: ' . $e->getMessage());
-            return formatResponse(false, 'Failed to retrieve bookings.', null, $e->getMessage(), 500);
+        if (request()->ajax()) {
+            try {
+                $bookings = Booking::all();
+                return formatResponse(true, 'Bookings retrieved successfully.', $bookings);
+            } catch (\Exception $e) {
+                Log::error('Error retrieving bookings: ' . $e->getMessage());
+                return formatResponse(false, 'Failed to retrieve bookings.', null, $e->getMessage(), 500);
+            }
+        } else {
+            return view('admin.list-booking');
         }
     }
 

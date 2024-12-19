@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\VoucherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -38,6 +39,7 @@ Route::get('book-detail/{slug}', function ($slug) {
 
 Route::match(['get', 'post'], 'book-checkout', [BookingController::class, 'to_checkout'])->name('book.checkout');
 Route::resource('booking', BookingController::class)->middleware('auth');
+Route::resource('voucher', VoucherController::class)->middleware('auth');
 
 Route::post('open-modal', [BookingController::class, 'open_modal'])->name('book.open_modal');
 
