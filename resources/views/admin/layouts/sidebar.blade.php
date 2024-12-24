@@ -22,7 +22,7 @@
 
                 <li class="sidebar-item {{ Route::is('voucher.index') ? 'active' : '' }}">
                     <a href="{{ route('voucher.index') }}" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
+                        <i class="bi bi-ticket-perforated"></i>
                         <span>Voucher</span>
                     </a>
                 </li>

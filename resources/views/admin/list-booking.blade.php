@@ -215,6 +215,14 @@
                         render: (data, type, full, meta) => `<p class="text-center">${meta.row + 1}</p>`
                     },
                     {
+                        targets: [3],
+                        render: (data) => `${data} minutes`
+                    },
+                    {
+                        targets: [4],
+                        render: (data) => formatToIndonesianCurrency(data)
+                    },
+                    {
                         targets: [6],
                         render: (data, type, full) => `
                     <a class="btn btn-warning btn-edit" 
