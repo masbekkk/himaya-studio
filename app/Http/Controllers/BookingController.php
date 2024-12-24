@@ -64,7 +64,7 @@ class BookingController extends Controller
     {
         if (request()->ajax()) {
             try {
-                $bookings = Booking::all();
+                $bookings = Booking::with('voucher')->get();
                 return formatResponse(true, 'Bookings retrieved successfully.', $bookings);
             } catch (\Exception $e) {
                 Log::error('Error retrieving bookings: ' . $e->getMessage());
@@ -103,10 +103,12 @@ class BookingController extends Controller
                 'booker_name' => 'nullable|string',
                 'booker_email' => 'nullable|email',
                 'booker_phone' => 'nullable|string',
+                'status' => 'nullable|string',
             ]);
 
             $booking = Booking::findOrFail($id);
             $booking->update($validatedData);
+            // dd($booking);
 
             return formatResponse(true, 'Booking updated successfully.', $booking);
         } catch (\Exception $e) {

@@ -17,4 +17,9 @@ class Voucher extends Model
         'minimum_payments',
         'status'
     ];
+
+    public function booking()
+    {
+        return $this->hasMany(Voucher::class, 'voucher_id', 'id');
+    }
 }

@@ -36,14 +36,14 @@
                                 </h5>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <button type="button" class="btn btn-info btn-rounded m-t-10 mb-2" data-bs-toggle="modal"
+                                {{-- <button type="button" class="btn btn-info btn-rounded m-t-10 mb-2" data-bs-toggle="modal"
                                     data-bs-target=".add-booking">
                                     Tambah Booking Baru
-                                </button>
+                                </button> --}}
                             </div>
 
                             <!-- Add Booking Popup Modal -->
-                            <div class="modal fade in add-booking" tabindex="-1" role="dialog"
+                            {{-- <div class="modal fade in add-booking" tabindex="-1" role="dialog"
                                 aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                                     <div class="modal-content">
@@ -65,7 +65,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- Edit Booking Popup Modal -->
                             <div class="modal fade in edit-booking" tabindex="-1" role="dialog"
@@ -74,7 +74,7 @@
                                     <div class="modal-content">
                                         <form action="#" method="POST" id="form_update_booking">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="editBookingLabel">Edit Booking</h4>
+                                                <h4 class="modal-title" id="editBookingLabel">Update Status Booking</h4>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
@@ -83,7 +83,7 @@
                                                 @method('PUT')
                                                 <input type="hidden" name="id" class="booking-id">
                                                 <div class="row">
-                                                    <div class="col-md-6 mb-3">
+                                                   {{--  <div class="col-md-6 mb-3">
                                                         <label>Product</label>
                                                         <input type="text" name="product"
                                                             class="form-control booking-product" required>
@@ -136,15 +136,15 @@
                                                         <label>Booker Phone</label>
                                                         <input type="text" name="booker_phone"
                                                             class="form-control booking-booker_phone" required>
-                                                    </div>
-                                                    <div class="col-md-6 mb-3">
+                                                    </div> --}}
+                                                    <div class="col-md-12 mb-3">
                                                         <label>Status</label>
-                                                        <select name="status" class="form-control booking-status"
-                                                            required>
-                                                            <option value="Pending">Pending</option>
-                                                            <option value="Confirmed">Confirmed</option>
-                                                            <option value="Cancelled">Cancelled</option>
-                                                        </select>
+                                                        <select name="status" class="form-control booking-status_edit" required>
+                                                            <option value="NOT YET PAY">NOT YET PAY</option>
+                                                            <option value="APPROVED">APPROVED</option>
+                                                            <option value="SUCCESS">SUCCESS</option>
+                                                            <option value="REJECT">REJECT</option>
+                                                        </select>                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,6 +166,7 @@
                                             <th>Product</th>
                                             <th>Date</th>
                                             <th>Duration</th>
+                                            <th>Voucher</th>
                                             <th>Price</th>
                                             <th>Status</th>
                                             <th>Actions</th>
@@ -200,6 +201,9 @@
                         data: 'duration'
                     },
                     {
+                        data: 'voucher.voucher_name'
+                    },
+                    {
                         data: 'price'
                     },
                     {
@@ -215,15 +219,19 @@
                         render: (data, type, full, meta) => `<p class="text-center">${meta.row + 1}</p>`
                     },
                     {
+                        targets: [2],
+                        render: (data) => formatDateIndonesian(data)
+                    },
+                    {
                         targets: [3],
                         render: (data) => `${data} minutes`
                     },
                     {
-                        targets: [4],
+                        targets: [5],
                         render: (data) => formatToIndonesianCurrency(data)
                     },
                     {
-                        targets: [6],
+                        targets: [7],
                         render: (data, type, full) => `
                     <a class="btn btn-warning btn-edit" 
                         href="#" 
@@ -242,15 +250,15 @@
                         data-booker_phone="${full.booker_phone}">
                         Edit
                     </a>
-                    <a class="btn btn-danger" href="#" 
-                        data-delete-url="/booking/${data}" 
-                        onclick="return deleteConfirm(this, 'DELETE')">
-                        Delete
-                    </a>
+                  
                 `
                     }
                 ];
-
+                // <a class="btn btn-danger" href="#" 
+                //         data-delete-url="/booking/${data}" 
+                //         onclick="return deleteConfirm(this, 'DELETE')">
+                //         Delete
+                //     </a>
                 var params = {
                     idTable: '#table-1',
                     urlAjax: "{{ route('booking.index') }}",
@@ -295,7 +303,7 @@
                 });
 
                 // Handle Edit button click to populate the modal
-                $('#booking-table').on('click', '.btn-edit', function() {
+                $('#table-1').on('click', '.btn-edit', function() {
                     var data = $(this).data();
                     $('.booking-id').val(data.id);
                     $('.booking-product').val(data.product);
@@ -309,7 +317,7 @@
                     $('.booking-booker_name').val(data.booker_name);
                     $('.booking-booker_email').val(data.booker_email);
                     $('.booking-booker_phone').val(data.booker_phone);
-                    $('.booking-status').val(data.status);
+                    $('.booking-status_edit').val(data.status);
                     $('.edit-booking').modal('show');
                 });
             });

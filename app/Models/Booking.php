@@ -24,4 +24,9 @@ class Booking extends Model
         'booker_phone',
         'status',
     ];
+
+    public function voucher()
+    {
+        return $this->belongsTo(Voucher::class, 'voucher_id', 'id');
+    }
 }
