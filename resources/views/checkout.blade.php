@@ -25,10 +25,17 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/checkout.css') . '?v=' . bin2hex(random_bytes(20)) }}">
+
+    <style>
+        .price-strike {
+            text-decoration: line-through;
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
-    <section class="checkout-box container py-5">
+    <section class="checkout-box container py-5 header">
         <div class="row">
             <div class="mb-5 ps-5">
                 <a href="{{ route('book-now') }}" class="text-decoration-none fw-bold co-text-desc co-text-grey">
@@ -43,7 +50,10 @@
             <!-- Left Column -->
             <div class="col-12 col-lg-6 px-5">
                 <h6 class="co-text-title co-text-grey fw-bolder mb-0">Pay Himaya Photo Studio.</h6>
-                <h2 class="co-text-price mb-5">{{ format_price_idr($price) }}</h2>
+                <div class="mb-5">
+                    <h2 class="co-text-price normal-price ">{{ format_price_idr($price) }}</h2>
+                    <h2 class="co-text-price discount-price d-none">{{ format_price_idr($price) }}</h2>
+                </div>
                 @php
                     $add_on = json_decode($add_on, true); // Decode to array
                 @endphp
@@ -95,10 +105,10 @@
                                     <div class="accordion-body px-0">
                                         <div class="discount-section mb-4">
                                             <div class="d-flex gap-2">
-                                                <input type="text"
+                                                <input type="text" id="voucher-text"
                                                     class="form-control ps-3 co-text-grey2 co-text-desc"
                                                     placeholder="Enter discount code">
-                                                <button class="btn btn-primary px-3">Apply</button>
+                                                <button class="btn btn-primary px-3 apply-voucher-btn">Apply</button>
                                             </div>
                                         </div>
                                     </div>
@@ -118,7 +128,9 @@
                             <p class="mb-1 fw-bolder co-text-grey">Total due</p>
                         </div>
                         <div class="col-4 offset-2 text-end">
-                            <p class="fw-bolder co-text-grey h6">{{ format_price_idr($price) }}</p>
+                            <p class="fw-bolder normal-price co-text-grey h6">{{ format_price_idr($price) }}</p>
+                            <p class="fw-bolder discount-price co-text-grey h6 d-none">{{ format_price_idr($price) }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +166,7 @@
                     <input type="hidden" name="end_time" id="end_time" value="{{ $end_time }}">
                     <input type="hidden" name="details" id="details" value="{{ $details ?? null }}">
                     <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" id="btn_booking">Confirm
-                        booking</button>
+                        Booking</button>
                 </form>
             </div>
         </div>
@@ -195,7 +207,30 @@
 <!-- Import Bootstrap JS -->
 <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    function formatToIndonesianCurrency(number) {
+        // Force the number to an integer by rounding down
+        const integerNumber = Math.floor(Number(number));
+        return 'Rp ' + integerNumber.toLocaleString('id-ID', {
+            minimumFractionDigits: 0
+        });
+    }
+
+    function formatDateIndonesian(dateString) {
+        if (!dateString) {
+            return '-';
+        }
+
+        const options = {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('id-ID', options);
+    }
     $(document).ready(function() {
         $('form').on('submit', function(e) {
             e.preventDefault(); // Prevent default form submission
@@ -216,11 +251,29 @@
                         modal.show();
                     } else {
                         alert('Booking failed: ' + (data.message || 'Unknown error'));
+                        Swal.fire({
+                            toast: true,
+                            icon: 'error',
+                            title: 'Booking failed: ' + (data.message ||
+                                'Unknown error'),
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true
+                        });
                     }
                 },
                 error: function(xhr, status, error) {
                     console.error('Error:', error);
-                    alert('An error occurred while processing your request.');
+                    Swal.fire({
+                        toast: true,
+                        icon: 'error',
+                        title: `Apply Voucher Gagal: ${xhr.responseJSON.message}`,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true
+                    });
                 }
             });
         });
@@ -245,7 +298,71 @@
                 }, 2000);
             }).catch(err => {
                 console.error('Failed to copy text:', err);
-                alert('Failed to copy. Please try again.');
+                Swal.fire({
+                    toast: true,
+                    icon: 'error',
+                    title: `'Failed to copy. Please try again.'`,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true
+                });
+            });
+        });
+
+        $('.apply-voucher-btn').on('click', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: "{{ route('book.check-voucher') }}", // Your endpoint
+                type: 'POST',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    voucher: $('#voucher-text').val(),
+                    price: "{!! $price !!}"
+                },
+                success: function(data) {
+                    console.log(data.data)
+                    $('.normal-price').addClass('price-strike');
+                    $('.discount-price').text(formatToIndonesianCurrency(data.data
+                        .new_price))
+                    $('.discount-price').removeClass('d-none')
+                    if (data.status) {
+                        Swal.fire({
+                            toast: true,
+                            icon: 'success',
+                            title: 'Voucher applied successfully!',
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true
+                        });
+                    } else {
+                        $('.normal-price').removeClass('price-strike');
+                        $('.discount-price').addClass('d-none')
+                        Swal.fire({
+                            toast: true,
+                            icon: 'error',
+                            title: data.responseJSON.messagee,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('.normal-price').removeClass('price-strike');
+                    $('.discount-price').addClass('d-none')
+                    Swal.fire({
+                        toast: true,
+                        icon: 'error',
+                        title: `Apply Voucher Gagal: ${xhr.responseJSON.message}`,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true
+                    });
+                }
             });
         });
 

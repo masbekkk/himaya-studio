@@ -42,5 +42,6 @@ Route::resource('booking', BookingController::class)->middleware('auth');
 Route::resource('voucher', VoucherController::class)->middleware('auth');
 
 Route::post('open-modal', [BookingController::class, 'open_modal'])->name('book.open_modal');
+Route::post('check-voucher', [VoucherController::class, 'checkVoucher'])->name('book.check-voucher');
 
 require __DIR__ . '/auth.php';

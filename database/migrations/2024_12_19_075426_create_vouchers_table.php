@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id();
             $table->string('voucher_name');
-            $table->string('voucher_code');
+            $table->string('voucher_code')->index();
             $table->integer('disc_percentage');
             $table->integer('max_disc');
             $table->integer('minimum_payments');

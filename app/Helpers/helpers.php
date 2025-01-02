@@ -71,3 +71,16 @@ if (!function_exists('format_indonesian_date')) {
         return "{$dayName}, " . $dateObject->format('d') . " {$monthName} " . $dateObject->format('Y');
     }
 }
+
+if (!function_exists('countDisc')) {
+    function countDisc($price, $discount, $max)
+    {
+        $totalDiscount = $price * $discount/100;
+        if($price > $max){
+            $finalPrice = $price - $max;
+            return $finalPrice;
+        }
+        $finalPrice = $price - $totalDiscount;
+        return $finalPrice;
+    }
+}

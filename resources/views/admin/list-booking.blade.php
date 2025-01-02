@@ -201,7 +201,7 @@
                         data: 'duration'
                     },
                     {
-                        data: 'voucher.voucher_name'
+                        data: 'voucher.voucher_code'
                     },
                     {
                         data: 'price'
