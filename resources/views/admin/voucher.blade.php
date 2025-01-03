@@ -65,7 +65,7 @@
         <div class="modal fade add-voucher-modal" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <form id="form_store_voucher">
+                    <form id="form_store_voucher" data-modal="add-voucher-modal">
                         <div class="modal-header">
                             <h5 class="modal-title">Add New Voucher</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -115,7 +115,7 @@
         <div class="modal fade edit-voucher-modal" tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <form id="form_update_voucher">
+                    <form id="form_update_voucher" data-modal="edit-voucher-modal">
                         <div class="modal-header">
                             <h5 class="modal-title">Edit Voucher</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -256,17 +256,19 @@
 
             $('#form_store_voucher').on('submit', function(e) {
                 e.preventDefault();
+                let form = $(this);
                 ajaxSaveDatas({
                     url: "{{ route('voucher.store') }}",
                     method: 'POST',
                     input: $(this).serialize(),
+                    modal: $('.' + form.data('modal')).modal('hide'),
                     // reload: true
                 });
             });
 
             $('#form_update_voucher').on('submit', function(e) {
                 e.preventDefault();
-
+                let form = $(this);
                 const voucherId = $('#edit_voucher_modal_id').val();
                 // console.log(voucherId)
 
@@ -275,7 +277,8 @@
                         voucherId), // Dynamically replace ID
                     method: 'PUT', // HTTP method for updating
                     input: $(this).serialize(), // Serialize form data
-                    reload: true // Reload the DataTable on success
+                    // reload: true // Reload the DataTable on success
+                    modal: $('.' + form.data('modal')).modal('hide'),
                 });
             });
 

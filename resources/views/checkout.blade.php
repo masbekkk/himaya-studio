@@ -165,6 +165,7 @@
                     <input type="hidden" name="start_time" id="start_time" value="{{ $start_time }}">
                     <input type="hidden" name="end_time" id="end_time" value="{{ $end_time }}">
                     <input type="hidden" name="details" id="details" value="{{ $details ?? null }}">
+                    <input type="hidden" name="voucher_id" id="voucher_id">
                     <button type="submit" class="btn btn-primary w-100 py-2 fw-bold" id="btn_booking">Confirm
                         Booking</button>
                 </form>
@@ -250,7 +251,6 @@
                             'successModal'));
                         modal.show();
                     } else {
-                        alert('Booking failed: ' + (data.message || 'Unknown error'));
                         Swal.fire({
                             toast: true,
                             icon: 'error',
@@ -268,12 +268,15 @@
                     Swal.fire({
                         toast: true,
                         icon: 'error',
-                        title: `Apply Voucher Gagal: ${xhr.responseJSON.message}`,
+                        title: `Booking Failed: ${xhr.responseJSON.message}`,
                         position: 'top-end',
                         showConfirmButton: false,
                         timer: 3000,
                         timerProgressBar: true
                     });
+                    if (xhr.status === 419) {
+                        window.location.reload()
+                    }
                 }
             });
         });
@@ -325,6 +328,9 @@
                     $('.normal-price').addClass('price-strike');
                     $('.discount-price').text(formatToIndonesianCurrency(data.data
                         .new_price))
+                    $('#price').val(data.data
+                        .new_price)
+                    $('#voucher_id').val(data.data.voucher_id);
                     $('.discount-price').removeClass('d-none')
                     if (data.status) {
                         Swal.fire({
@@ -362,6 +368,9 @@
                         timer: 3000,
                         timerProgressBar: true
                     });
+                    if (xhr.status === 419) {
+                        window.location.reload()
+                    }
                 }
             });
         });

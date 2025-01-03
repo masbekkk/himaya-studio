@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Voucher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class VoucherController extends Controller
 {
@@ -96,7 +97,7 @@ class VoucherController extends Controller
     public function checkVoucher(Request $request)
     {
         try {
-            $voucher = Voucher::where('voucher_code', $request->voucher)->first();
+            $voucher = Voucher::whereRaw('BINARY voucher_code = ?', [$request->voucher])->first();
             if (!$voucher) {
                 return formatResponse(false, 'Voucher Tidak Terdaftar!', null, "Voucher Tidak Terdaftar!", 422);
             }
@@ -105,7 +106,7 @@ class VoucherController extends Controller
                 return formatResponse(false, 'Tidak Mencapai Minimun Pembelian: ' . format_price_idr($voucher->minimum_payments) . '!', null,  'Tidak Mencapai Minimun Pembelian: ' . format_price_idr($voucher->minimum_payments) . '!', 422);
             }
             $newPrice = countDisc($request->price, $voucher->disc_percentage, $voucher->max_disc);
-            return formatResponse(true, 'Voucher applied successfully', ['new_price' => $newPrice]);
+            return formatResponse(true, 'Voucher applied successfully', ['new_price' => $newPrice, 'voucher_id' => Crypt::encryptString($voucher->id)]);
         } catch (\Exception $e) {
             return formatResponse(false, 'Error deleting voucher', null, $e->getMessage(), 500);
         }

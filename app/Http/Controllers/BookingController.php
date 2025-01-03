@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
@@ -48,8 +49,9 @@ class BookingController extends Controller
                 'booker_name' => 'required|string',
                 'booker_email' => 'required|email',
                 'booker_phone' => 'required|string',
+                'voucher_id'    => 'nullable|string',
             ]);
-
+            $validatedData['voucher_id'] = $request->input('voucher_id') ? Crypt::decryptString($validatedData['voucher_id']) : NULL;
             $booking = Booking::create($validatedData);
 
             return formatResponse(true, 'Booking created successfully.', $booking);

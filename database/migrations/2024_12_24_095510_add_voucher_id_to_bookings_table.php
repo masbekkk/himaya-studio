@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('bookings', function (Blueprint $table) {
-            $table->bigInteger('voucher_id')->unsigned();
+            $table->bigInteger('voucher_id')->unsigned()->nullable();
             $table->foreign('voucher_id')->references('id')->on('vouchers')->onDelete('restrict')->onUpdate('restrict');
         });
     }

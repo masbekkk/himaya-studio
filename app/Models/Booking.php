@@ -23,6 +23,7 @@ class Booking extends Model
         'booker_email',
         'booker_phone',
         'status',
+        'voucher_id'
     ];
 
     public function voucher()
