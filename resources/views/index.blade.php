@@ -112,11 +112,13 @@
             <div class="col-12 col-lg-6 pe-5">
                 <h1 class="promo-title text-title">Book Now <span class="font-grey">And Get</span> Free 1 Printed Photo
                 </h1>
-                <p class="text-description mb-0 h6 fw-normal">Great news for Surabaya Barat peeps! We are currently soft
-                    opening now and want to invite you all to our premium and cozy Nee self photo studio. Our promo are
-                    included in any type of self photo sessions including single, couple, squad and families. It will be
-                    held from October until early November, but don't shy to talk with us because we always have
-                    something to offer</p>
+                <p class="text-description mb-0 h6 fw-normal">Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
+                    an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived
+                    not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
                 <button class="black-btn black-btn-bgwhite my-5 rounded-pill d-none d-lg-inline-block"
                     onclick="location.href='#book'">Get Free Photo Now</button>
             </div>
@@ -169,7 +171,8 @@
                     data-aos="fade-up" data-aos-once="true">
                     <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
                         <div class="card-img-box">
-                            <img src="{{ asset('assets/img/cinema-3.jpg') }}" class="card-img-top" alt="Self Photo Studio Setup">
+                            <img src="{{ asset('assets/img/cinema-3.jpg') }}" class="card-img-top"
+                                alt="Self Photo Studio Setup">
                         </div>
                         <div class="card-body p-0 bg-grey">
                             <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
@@ -236,7 +239,8 @@
                     data-aos="fade-up" data-aos-once="true">
                     <div class="card border border-0 h-100 mx-4 mb-5 mb-lg-0">
                         <div class="card-img-box">
-                            <img src="{{ asset('assets/img/cafe2.jpg') }}" class="card-img-top" alt="Self Photo Studio Setup">
+                            <img src="{{ asset('assets/img/cafe2.jpg') }}" class="card-img-top"
+                                alt="Self Photo Studio Setup">
                         </div>
                         <div class="card-body p-0 bg-grey">
                             <div class="pt-lg-5 pt-4 px-lg-5 px-4 pb-lg-4 pb-3">
