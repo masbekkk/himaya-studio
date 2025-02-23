@@ -14,6 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \RealRashid\SweetAlert\ToSweetAlert::class,
         ]);
+        $middleware->validateCsrfTokens(except: [
+            'check-voucher','book-checkout','open-modal'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
