@@ -418,6 +418,11 @@
         const $errorMessage = $('#error-message');
         $bookButton.prop('disabled', true); // Disable button by default
 
+        console.log(selectedDate)
+        const date = new Date(selectedDate);
+        let localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+        let isoDate = localDate.toISOString().split('T')[0];
+
         function initializeDatePicker() {
             // Destroy any existing Pikaday instance before initializing
             destroyPikaday();
@@ -439,6 +444,9 @@
                             day: 'numeric',
                             year: 'numeric'
                         };
+                        localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+                        isoDate = localDate.toISOString().split('T')[0];
+
                         const formattedDate = date.toLocaleDateString('en-US', options);
                         selectedDate = formattedDate
                         $('#selected-date').text(formattedDate);
@@ -520,7 +528,6 @@
         $('.input_total_people').on('input', function(e) {
             let value = parseInt($(this).val()) || 0;
             $('.total_people').text(4 + value + " Orang");
-            $()
             totalPeople = value * 10000;
             // totalPrice += totalPeople
             $('#text-price').text(`Price: Rp ${calculatePrice(duration).toLocaleString()}`);
@@ -622,10 +629,6 @@
         $('.form-check-input').change(function() {
             updateTotalPrice(duration);
         });
-
-        const date = new Date(selectedDate);
-        const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-        const isoDate = localDate.toISOString().split('T')[0];
 
         function submitData(data) {
             if ($('#input_details').length && $('#input_details').val() == null) {

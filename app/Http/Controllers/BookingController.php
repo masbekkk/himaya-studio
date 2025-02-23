@@ -110,7 +110,6 @@ class BookingController extends Controller
 
             $booking = Booking::findOrFail($id);
             $booking->update($validatedData);
-            // dd($booking);
 
             return formatResponse(true, 'Booking updated successfully.', $booking);
         } catch (\Exception $e) {
