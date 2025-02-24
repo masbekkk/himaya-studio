@@ -244,7 +244,7 @@
                         <li class="my-2">
                             <i class="bi bi-clock me-2"></i>
                             <span id="time-difference">0 minutes</span>
-                            @if ($add_ons_private_cinema === 'true')
+                            @if ($total_people != 0)
                                 (<text class="total_people">4 orang</text>)
                             @endif
                         </li>
@@ -267,10 +267,14 @@
                             <option value="Kuning">Kuning</option>
                         </select>
                     @endif
-                    @if ($total_people === 'true')
+                    @if ($total_people != 0)
                         <span class="fs-6">Max 4 orang, nambah orang charge 10k/orang</span>
                         <label class="form-label">Masukkan Tambahan Orang</label>
-                        <input type="number" name="total_people" class="form-control input_total_people">
+                        <input type="number" name="total_people" class="form-control input_total_people"
+                            max={{ $total_people }} id="total_people_input">
+                        <small class="text-danger error-message" style="display:none;">Jumlah orang tidak boleh lebih
+                            dari
+                            {{ $total_people }}.</small>
                     @endif
                 </div>
 
@@ -288,9 +292,7 @@
 
                         <p id="error-message" class="text-danger mt-1" style="display: none;">End time must be after
                             start time.</p>
-
-                        <p class="text-title-add-ons mb-2 mt-4">Add ons:</p>
-                        @if ($add_ons_meet_room === 'true')
+                        {{-- @if ($add_ons_meet_room === 'true')
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="Proyektor" value="20000"
                                     id="check_kustom">
@@ -298,8 +300,9 @@
                                     Proyektor
                                 </label>
                             </div>
-                        @endif
+                        @endif --}}
                         @if ($add_ons_self_photo === 'true')
+                            <p class="text-title-add-ons mb-2 mt-4">Add ons:</p>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="Kustom" value="25000"
                                     id="check_kustom">
@@ -316,6 +319,7 @@
                             </div>
                         @endif
                         @if ($add_ons_private_cinema === 'true')
+                            <p class="text-title-add-ons mb-2 mt-4">Add ons:</p>
                             <!-- Birthday Packages -->
                             <div class="mb-4">
                                 <h4>Birthday Packages</h4>
@@ -669,11 +673,20 @@
         }
 
         $('#btn-book').click(function() {
-            let details = $('#input_details').length ?
-                'Warna Background: ' + $('#input_details').val() :
-                $('.total_people').length ?
-                $('.total_people').text() :
-                null;
+            let details = '';
+
+            if ($('#input_details').length) {
+                details = 'Warna Background: ' + $('#input_details').val();
+                if ($('.total_people').length) {
+                    details += ' ' + $('.total_people').text();
+                }
+            } else if ($('.total_people').length) {
+                details = $('.total_people').text();
+            } else {
+                details = null;
+            }
+
+            null;
             const data = {
                 date: isoDate,
                 duration: duration,
@@ -686,6 +699,22 @@
             };
             // console.log(data)
             submitData(data)
+        });
+
+        const inputField = document.querySelector('#total_people_input');
+        const errorMessage = document.querySelector('.error-message');
+
+        inputField.addEventListener('input', function() {
+            const maxVal = parseInt(inputField.getAttribute('max'), 10);
+            const currentVal = parseInt(inputField.value, 10);
+
+            if (currentVal > maxVal) {
+                inputField.setCustomValidity('Invalid');
+                errorMessage.style.display = 'block';
+            } else {
+                inputField.setCustomValidity('');
+                errorMessage.style.display = 'none';
+            }
         });
     });
 </script>

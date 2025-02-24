@@ -47,13 +47,13 @@
         <li>📝 White Board – Cocok untuk brainstorming dan diskusi tim!</li>
     </ul>
 </p>`,
-                price_lists: JSON.stringify([69000, 99000, 129000, 149000]),
-                duration_lists: JSON.stringify([60, 120, 150, 180]),
-                add_ons_meet_room: true,
+                price_lists: JSON.stringify([50000, 90000, 120000, 149000]),
+                duration_lists: JSON.stringify([60, 90, 120]),
+                add_ons_meet_room: false,
                 background: false,
                 add_ons_self_photo: false,
                 add_ons_private_cinema: false,
-                total_people: false,
+                total_people: 0,
             },
             success: function(response) {
                 generateModal(response)
@@ -82,13 +82,13 @@
         <li>🎀 Accesories – Tambahkan gaya dan keseruan dalam setiap foto!</li>
     </ul>
 </p>`,
-                price_lists: JSON.stringify([99000, 129000, 149000, 179000]),
+                price_lists: JSON.stringify([75000, 130000, 175000, 220000]),
                 duration_lists: JSON.stringify([15, 30, 45, 60]),
                 add_ons_meet_room: false,
                 background: true,
                 add_ons_self_photo: true,
                 add_ons_private_cinema: false,
-                total_people: false,
+                total_people: 4,
             },
             success: function(response) {
                 generateModal(response)
@@ -118,13 +118,13 @@
         <li>🎮 Free Games – Seru-seruan dengan berbagai pilihan game gratis!</li>
     </ul>
 </p>`,
-                price_lists: JSON.stringify([69000, 99000, 129000, 149000]),
+                price_lists: JSON.stringify([90000, 150000, 220000, 275000]),
                 duration_lists: JSON.stringify([30, 60, 90, 120]),
                 add_ons_meet_room: false,
                 background: false,
                 add_ons_self_photo: false,
                 add_ons_private_cinema: true,
-                total_people: true,
+                total_people: 11,
             },
             success: function(response) {
                 generateModal(response)

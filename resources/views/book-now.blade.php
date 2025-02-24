@@ -193,8 +193,8 @@
                                     </ul>
                                     </p>
                                 <p class="modal-sub">Rp 50.000 | 60 min</p>
-                                <p class="modal-sub">Rp 90.000 | 120 min</p>
-                                <p class="modal-sub">Rp 120.000 | 150 min</p>
+                                <p class="modal-sub">Rp 90.000 | 90 min</p>
+                                <p class="modal-sub">Rp 120.000 | 120 min</p>
                                 {{-- <p class="modal-sub">Rp 149.000 | 180 min</p> --}}
                                 <p class="modal-note">(Harga seterusnya mengikuti di atas)</p>
 
@@ -225,7 +225,7 @@
                         <span class="product-label bg-red">Book Now</span>
                         <img src="assets/img/katalog-cinema-1.jpeg" class="product-img" alt="Private Cinema">
                         <h4 class="product-title">Private Cinema</h4>
-                        <p class="product-sub">Rp. 69.000 | 30 min</p>
+                        <p class="product-sub">Rp. 90.000 | 30 min</p>
                         {{-- <button class="btn-product " type="button" class="btn btn-primary"
                         data-bs-toggle="modal" data-bs-target="#modal-private-cinema">Book Now</button> --}}
                     </div>
@@ -244,7 +244,7 @@
                         <span class="product-label bg-red">Book Now</span>
                         <img src="assets/img/katalog-photo-1.jpeg" class="product-img" alt="Self-Photo Studio">
                         <h4 class="product-title">Self-Photo Studio</h4>
-                        <p class="product-sub">Rp 99.000 | 15 min</p>
+                        <p class="product-sub">Rp 75.000 | 15 min</p>
 
                     </div>
                 </a>
@@ -259,7 +259,7 @@
                         <span class="product-label bg-red">Book Now</span>
                         <img src="assets/img/meet-room-3.jpg" class="product-img" alt="Meeting Room">
                         <h4 class="product-title">Meeting Room</h4>
-                        <p class="product-sub">Rp. 69.000 | 60 min</p>
+                        <p class="product-sub">Rp. 50.000 | 60 min</p>
 
                     </div>
                 </a>
