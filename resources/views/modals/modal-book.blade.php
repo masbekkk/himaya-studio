@@ -234,6 +234,8 @@
                     aria-label="Close"></button>
                 <div class="left-side">
                     <h5 class="modal-title title-product mb-3">{{ $product }}</h5>
+                    {!! $benefits !!}
+                    </p>
                     <ul class="li-no-style">
                         <li class="my-2">
                             <i class="bi bi-calendar3 me-2"></i>

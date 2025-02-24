@@ -51,15 +51,24 @@
             </div>
             <div class="col-12 col-lg-6">
                 <h1 class="detail-title">Self Photo Studio</h1>
-                <h2 class="detail-sub-title mb-4">all files, no printed photo</h2>
-                <p class="h5 fw-normal mb-3">Rp 99.000 | 15 min</p>
-                <p class="h5 fw-normal mb-3">Rp 129.000 | 30 min</p>
-                <p class="h5 fw-normal mb-3">Rp 149.000 | 45 min</p>
-                <p class="h5 fw-normal mb-3">Rp 179.000 | 60 min</p>
-                <p class="h5 fw-normal mb-3">(Harga seterusnya mengikuti di atas)</p>
+                <h2 class="detail-sub-title mb-4"> Self Photo Studio dengan Paket Lengkap!</h2>
+                <p class="detail-sub-info">Sudah termasuk:
+                <ul>
+                    <li>💾 All Softcopy – Simpan dan bagikan semua momen spesialmu!</li>
+                    <li>📸 Hardcopy 1 Pcs – Kenangan yang bisa dipajang di rumah!</li>
+                    <li>🎀 Accesories – Tambahkan gaya dan keseruan dalam setiap foto!</li>
+                </ul>
+                </p>
+                <p class="h5 fw-normal mb-3">Rp 75.000 | 15 min</p>
+                <p class="h5 fw-normal mb-3">Rp 130.000 | 30 min</p>
+                <p class="h5 fw-normal mb-3">Rp 175.000 | 45 min</p>
+                <p class="h5 fw-normal mb-3">Rp 220.000 | 60 min</p>
+                <p class="h5 fw-normal mb-3">(Harga seterusnya mengikuti di atas)<br>*Max 4 orang, nambah orang charge
+                    10k/orang</p>
                 <p class="h6 fw-normal mb-3">Additional:</p>
-                <p class="h6 fw-normal mb-3">- Kostum : Rp 25,000</p>
-                <p class="h6 fw-normal mb-3">- Hard Copy: Rp 15.000</p>
+                <p class="h6 fw-normal mb-3">- Tambah 1 per 1 orang: Rp 10.000 (Max add 4)</p>
+                <p class="h6 fw-normal mb-3">- Kostum : Rp 15,000</p>
+                <p class="h6 fw-normal mb-3">- Hard Copy: Rp 10.000</p>
                 <p class="text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
 
                 <button class="detail-btn my-2 rounded-pill d-block" id="btn-self-photo">Book
@@ -90,6 +99,6 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
-@include('modals.assets.script')
+    <script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
+    @include('modals.assets.script')
 @endpush

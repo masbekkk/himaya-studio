@@ -48,15 +48,22 @@
             </div>
             <div class="col-12 col-lg-6">
                 <h1 class="detail-title">Private Cinema</h1>
-                <h2 class="detail-sub-title mb-4"> Private Cinema terbaik di Jabodetabek!</h2>
-                <p class="h5 fw-normal mb-3">Rp 69.000 | 30 min</p>
-                <p class="h5 fw-normal mb-3">Rp 99.000 | 60 min</p>
-                <p class="h5 fw-normal mb-3">Rp 129.000 | 90 min</p>
-                <p class="h5 fw-normal mb-3">Rp 149.000 | 120 min</p>
+                <h2 class="detail-sub-title mb-4">Nikmati Hiburan Tanpa Batas dengan Fasilitas Lengkap!</h2>
+                <p class="detail-sub-info">Sudah termasuk:
+                <ul>
+                    <li>🎬 Netflix Premium – Tonton film dan serial favorit tanpa iklan!</li>
+                    <li>📺 YouTube Premium – Streaming tanpa jeda iklan yang mengganggu!</li>
+                    <li>🎮 Free Games – Seru-seruan dengan berbagai pilihan game gratis!</li>
+                </ul>
+                </p>
+                <p class="h5 fw-normal mb-3">Rp 90.000 | 30 min</p>
+                <p class="h5 fw-normal mb-3">Rp 150.000 | 60 min</p>
+                <p class="h5 fw-normal mb-3">Rp 220.000 | 90 min</p>
+                <p class="h5 fw-normal mb-3">Rp 275.000 | 120 min</p>
                 <p class="h5 fw-normal mb-3">(Harga seterusnya mengikuti di atas)<br>*Max 4 orang, nambah orang charge
                     10k/orang</p>
                 <p class="h6 fw-normal mb-3">Additional:</p>
-                <p class="h6 fw-normal mb-3">- Tambah 1 per 1 orang: Rp 10.000 (Max add 21)</p>
+                <p class="h6 fw-normal mb-3">- Tambah 1 per 1 orang: Rp 10.000 (Max add 11)</p>
 
                 <p class="h5 fw-normal mb-3">Additional Package:</p>
                 <p class="h5 fw-normal mb-3">Rp 449.000 | Birthday Standard Package</p>
@@ -70,7 +77,7 @@
                 <p class="h5 fw-normal mb-3">Rp 999.000 | Bridal Shower Platinum Package</p>
 
                 <p class="text-black-50 mb-2">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
-            
+
                 <button class="detail-btn my-2 rounded-pill d-block" id="btn-private-cinema">Book Now</button>
                 <p class="h5 text-description fw-bold mt-3">Syarat & Ketentuan</p>
                 <ul class="text-description">
@@ -94,6 +101,6 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
-@include('modals.assets.script')
+    <script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
+    @include('modals.assets.script')
 @endpush

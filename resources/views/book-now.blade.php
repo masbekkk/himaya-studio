@@ -42,17 +42,23 @@
                                 </section>
                             </div>
                             <div class="col-12 col-lg-6">
-                               
-                                <p class="modal-sub-title mb-4">Private Cinema terbaik di Jabodetabek!</p>
-                                <p class="modal-sub">Rp 69.000 | 30 min</p>
-                                <p class="modal-sub">Rp 99.000 | 60 min</p>
-                                <p class="modal-sub">Rp 129.000 | 90 min</p>
-                                <p class="modal-sub">Rp 149.000 | 120 min</p>
+                                <p class="modal-sub-title mb-4">Nikmati Hiburan Tanpa Batas dengan Fasilitas Lengkap!</p>
+                                <p class="detail-sub-info">Sudah termasuk:
+                                <ul>
+                                    <li>🎬 Netflix Premium – Tonton film dan serial favorit tanpa iklan!</li>
+                                    <li>📺 YouTube Premium – Streaming tanpa jeda iklan yang mengganggu!</li>
+                                    <li>🎮 Free Games – Seru-seruan dengan berbagai pilihan game gratis!</li>
+                                </ul>
+                                </p>
+                                <p class="modal-sub">Rp 90.000 | 30 min</p>
+                                <p class="modal-sub">Rp 150.000 | 60 min</p>
+                                <p class="modal-sub">Rp 220.000 | 90 min</p>
+                                <p class="modal-sub">Rp 275.000 | 120 min</p>
                                 <p class="modal-note">(Harga seterusnya mengikuti di atas) <br>*Max 4 orang, tambah orang
                                     charge Rp 10.000/orang</p>
 
                                 <p class="modal-additional">Additional:</p>
-                                <p class="modal-additional-item">- Tambah 1 per 1 orang: Rp 10.000 (Max add 21)</p>
+                                <p class="modal-additional-item">- Tambah 1 per 1 orang: Rp 10.000 (Max add 11)</p>
 
                                 <p class="modal-package-title">Additional Package:</p>
                                 <p class="modal-package">Rp 449.000 | Birthday Standard Package</p>
@@ -111,14 +117,24 @@
                                 </section>
                             </div>
                             <div class="col-12 col-lg-6">
-                                <p class="modal-sub">Rp. 99.000 | 15 min</p>
-                                <p class="modal-sub">Rp. 129.000 | 30 min</p>
-                                <p class="modal-sub">Rp. 149.000 | 45 min</p>
-                                <p class="modal-sub">Rp. 179.000 | 60 min</p>
-                                <p class="modal-sub">(Harga seterusnya mengikuti di atas)</p>
+                                <p class="modal-sub-title mb-4"> Self Photo Studio dengan Paket Lengkap!</p>
+                                <p class="detail-sub-info">Sudah termasuk:
+                                <ul>
+                                    <li>💾 All Softcopy – Simpan dan bagikan semua momen spesialmu!</li>
+                                    <li>📸 Hardcopy 1 Pcs – Kenangan yang bisa dipajang di rumah!</li>
+                                    <li>🎀 Accesories – Tambahkan gaya dan keseruan dalam setiap foto!</li>
+                                </ul>
+                                </p>
+                                <p class="modal-sub">Rp 75.000 | 15 min</p>
+                                <p class="modal-sub">Rp 130.000 | 30 min</p>
+                                <p class="modal-sub">Rp 175.000 | 45 min</p>
+                                <p class="modal-sub">Rp 220.000 | 60 min</p>
+                                <p class="modal-sub">(Harga seterusnya mengikuti di atas)<br>*Max 4 orang, nambah orang charge
+                                    10k/orang</p>
                                 <p class="modal-additional">Additional:</p>
-                                <p class="modal-additional">- Kostum : Rp 25,000</p>
-                                <p class="modal-additional">- Hard Copy: Rp 15.000</p>
+                                <p class="modal-additional">- Tambah 1 per 1 orang: Rp 10.000 (Max add 4)</p>
+                                <p class="modal-additional">- Kostum : Rp 15,000</p>
+                                <p class="modal-additional">- Hard Copy: Rp 10.000</p>
                                 <p class="modal-location">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec.
                                     Pd. Gede</p>
 
@@ -148,8 +164,6 @@
                         <button type="button" class="btn-close mr-4" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body position-relative">
-                        <button type="button" class="btn-close position-absolute" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
                         <div class="row gy-4">
                             <div class="col-12 col-lg-6">
                                 <section id="modal-carousel-meeting-room" class="splide main-carousel"
@@ -170,15 +184,22 @@
                                 </section>
                             </div>
                             <div class="col-12 col-lg-6">
-                                <p class="modal-sub-title mb-4">Meeting Room terbaik di Jabodetabek!</p>
-                                <p class="modal-sub">Rp 69.000 | 60 min</p>
-                                <p class="modal-sub">Rp 99.000 | 120 min</p>
-                                <p class="modal-sub">Rp 129.000 | 150 min</p>
-                                <p class="modal-sub">Rp 149.000 | 180 min</p>
+                                <p class="modal-sub-title mb-4"> Meeting Room (Max. 10 orang) dengan Fasilitas Lengkap di Jabodetabek!
+                                </p>
+                                <p class="detail-sub-info">Sudah termasuk:
+                                    <ul>
+                                        <li>📽️ Proyektor – Presentasi lebih jelas dan profesional!</li>
+                                        <li>📝 White Board – Cocok untuk brainstorming dan diskusi tim!</li>
+                                    </ul>
+                                    </p>
+                                <p class="modal-sub">Rp 50.000 | 60 min</p>
+                                <p class="modal-sub">Rp 90.000 | 120 min</p>
+                                <p class="modal-sub">Rp 120.000 | 150 min</p>
+                                {{-- <p class="modal-sub">Rp 149.000 | 180 min</p> --}}
                                 <p class="modal-note">(Harga seterusnya mengikuti di atas)</p>
 
-                                <p class="modal-additional">Additional:</p>
-                                <p class="modal-additional-item">- Proyektor: Rp 20.000</p>
+                                {{-- <p class="modal-additional">Additional:</p>
+                                <p class="modal-additional-item">- Proyektor: Rp 20.000</p> --}}
 
                                 <p class="modal-location text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013,
                                     Jatiwaringin, Kec. Pd. Gede</p>

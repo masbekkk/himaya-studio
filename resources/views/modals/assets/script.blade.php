@@ -40,6 +40,13 @@
             data: {
                 _token: "{{ csrf_token() }}",
                 product: 'Meeting Room',
+                benefits: `<p class="detail-sub-title mb-4"> Meeting Room (Max. 10 orang) dengan Fasilitas Lengkap di Jabodetabek!</p>
+<p class="detail-sub-info">Sudah termasuk:
+    <ul>
+        <li>📽️ Proyektor – Presentasi lebih jelas dan profesional!</li>
+        <li>📝 White Board – Cocok untuk brainstorming dan diskusi tim!</li>
+    </ul>
+</p>`,
                 price_lists: JSON.stringify([69000, 99000, 129000, 149000]),
                 duration_lists: JSON.stringify([60, 120, 150, 180]),
                 add_ons_meet_room: true,
@@ -67,6 +74,14 @@
             data: {
                 _token: "{{ csrf_token() }}",
                 product: 'Self Photo Studio',
+                benefits: `<h2 class="detail-sub-title mb-4"> Self Photo Studio dengan Paket Lengkap!</h2>
+<p class="detail-sub-info">Sudah termasuk:
+    <ul>
+        <li>💾 All Softcopy – Simpan dan bagikan semua momen spesialmu!</li>
+        <li>📸 Hardcopy 1 Pcs – Kenangan yang bisa dipajang di rumah!</li>
+        <li>🎀 Accesories – Tambahkan gaya dan keseruan dalam setiap foto!</li>
+    </ul>
+</p>`,
                 price_lists: JSON.stringify([99000, 129000, 149000, 179000]),
                 duration_lists: JSON.stringify([15, 30, 45, 60]),
                 add_ons_meet_room: false,
@@ -94,6 +109,15 @@
             data: {
                 _token: "{{ csrf_token() }}",
                 product: 'Private Cinema',
+                benefits: `
+                <p class="detail-sub-title mb-4">Nikmati Hiburan Tanpa Batas dengan Fasilitas Lengkap!</p>
+<p class="detail-sub-info">Sudah termasuk:
+    <ul>
+        <li>🎬 Netflix Premium – Tonton film dan serial favorit tanpa iklan!</li>
+        <li>📺 YouTube Premium – Streaming tanpa jeda iklan yang mengganggu!</li>
+        <li>🎮 Free Games – Seru-seruan dengan berbagai pilihan game gratis!</li>
+    </ul>
+</p>`,
                 price_lists: JSON.stringify([69000, 99000, 129000, 149000]),
                 duration_lists: JSON.stringify([30, 60, 90, 120]),
                 add_ons_meet_room: false,

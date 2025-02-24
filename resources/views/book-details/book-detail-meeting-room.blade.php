@@ -42,14 +42,21 @@
             </div>
             <div class="col-12 col-lg-6">
                 <h1 class="detail-title">Meeting Room</h1>
-                <h2 class="detail-sub-title mb-4"> Meeting Room terbaik di Jabodetabek!</h2>
-                <p class="h5 fw-normal mb-3">Rp 69.000 | 60 min</p>
-                <p class="h5 fw-normal mb-3">Rp 99.000 | 120 min</p>
-                <p class="h5 fw-normal mb-3">Rp 129.000 | 150 min</p>
-                <p class="h5 fw-normal mb-3">Rp 149.000 | 180 min</p>
+                <h2 class="detail-sub-title mb-4"> Meeting Room (Max. 10 orang) dengan Fasilitas Lengkap di Jabodetabek!
+                </h2>
+                <p class="detail-sub-info">Sudah termasuk:
+                <ul>
+                    <li>📽️ Proyektor – Presentasi lebih jelas dan profesional!</li>
+                    <li>📝 White Board – Cocok untuk brainstorming dan diskusi tim!</li>
+                </ul>
+                </p>
+                <p class="h5 fw-normal mb-3">Rp 50.000 | 60 min</p>
+                <p class="h5 fw-normal mb-3">Rp 90.000 | 120 min</p>
+                <p class="h5 fw-normal mb-3">Rp 120.000 | 150 min</p>
+                {{-- <p class="h5 fw-normal mb-3">Rp 149.000 | 180 min</p> --}}
                 <p class="h5 fw-normal mb-3">(Harga seterusnya mengikuti di atas)</p>
-                <p class="h6 fw-normal mb-3">Additional:</p>
-                <p class="h6 fw-normal mb-3">- Proyektor : Rp 20.000</p>
+                {{-- <p class="h6 fw-normal mb-3">Additional:</p> --}}
+                {{-- <p class="h6 fw-normal mb-3">- Proyektor : Rp 20.000</p> --}}
                 <p class="text-black-50 mb-3">Jl. Sanggata 1 No.8 Blok D7, RT.007/RW.013, Jatiwaringin, Kec. Pd. Gede</p>
                 <button class="detail-btn my-2 rounded-pill d-block" id="btn-meet-room">Book
                     Now</button>
@@ -74,6 +81,6 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
-@include('modals.assets.script')
+    <script src="{{ asset('assets/js/book-detail.js') . '?v=' . bin2hex(random_bytes(20)) }}"></script>
+    @include('modals.assets.script')
 @endpush
