@@ -38,6 +38,7 @@ Route::get('book-detail/{slug}', function ($slug) {
 })->name('book-detail');
 
 Route::match(['get', 'post'], 'book-checkout', [BookingController::class, 'to_checkout'])->name('book.checkout');
+Route::post('book-store', [BookingController::class, 'store'])->name('user.book.store');
 Route::resource('booking', BookingController::class)->middleware('auth');
 Route::resource('voucher', VoucherController::class)->middleware('auth');
 

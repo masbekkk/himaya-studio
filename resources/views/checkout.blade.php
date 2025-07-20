@@ -241,7 +241,7 @@
 
             // Send AJAX request
             $.ajax({
-                url: "{{ route('booking.store') }}", // Your endpoint
+                url: "{{ route('user.book.store') }}", // Your endpoint
                 type: 'POST',
                 data: formData, // Send serialized data
                 success: function(data) {
